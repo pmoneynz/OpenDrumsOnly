@@ -1,0 +1,31 @@
+# Robots.txt for OpenDrumsOnly
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Allow crawling of main resources
+Allow: /index.html
+Allow: /styles.css
+Allow: /script.js
+Allow: /fonts/
+Allow: /images/
+
+# Disallow crawling of data files that don't need indexing
+Disallow: /DrumBreaks.csv
+
+# Common bot restrictions for performance
+User-agent: CCBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Sitemap location
+Sitemap: https://www.opendrumsonly.com/sitemap.xml

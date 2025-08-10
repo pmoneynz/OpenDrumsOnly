@@ -1,0 +1,630 @@
+:root {
+    --header-height: 64px;
+    --header-padding-x: 16px;
+    --header-bg: #ffffff;
+    --header-border: #e6e6e6;
+    --text-color: #000000;
+    --muted: #6b7280;
+    --input-border: #d1d5db;
+    --input-bg: #ffffff;
+    --input-radius: 10px;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('fonts/GeistVF.woff2') format('woff2-variations'),
+         url('fonts/GeistVF.woff') format('woff-variations');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Geist', Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    position: relative;
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    background-color: var(--header-bg);
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+
+
+    padding: 0 var(--header-padding-x);
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-button {
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 22px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.icon-button:hover {
+    opacity: 0.7;
+}
+
+main {
+    padding: calc(var(--header-height) + 12px) 16px 16px 16px;
+    box-sizing: border-box;
+    width: 100%;
+}
+.controls {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: sticky;
+    top: var(--header-height);
+    background-color: var(--header-bg);
+    z-index: 1000;
+    padding: 12px 16px;
+    width: 100%;
+    box-sizing: border-box;
+
+    -webkit-backdrop-filter: saturate(150%) blur(4px);
+    backdrop-filter: saturate(150%) blur(4px);
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+    margin: 8px 0 4px 0;
+}
+
+.search-input-wrapper {
+    position: relative;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 12px 44px 12px 14px;
+    font-size: 16px;
+    border: 1px solid var(--input-border);
+    background: var(--input-bg);
+    border-radius: var(--input-radius);
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 1px 1px rgba(0,0,0,0.02) inset;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-container input:focus {
+    border-color: #7aa2ff;
+    box-shadow: 0 0 0 3px rgba(122,162,255,0.25);
+    outline: none;
+}
+
+#clear-search {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.45);
+    padding: 4px;
+    line-height: 1;
+    display: none;
+}
+
+#clear-search:hover {
+    color: rgba(0,0,0,0.65);
+}
+
+@media (max-width: 480px) {
+    .controls {
+        padding: 0.5rem;
+    }
+
+    .search-container input {
+        font-size: 16px;
+        padding: 0.5rem;
+        padding-right: 2rem;
+    }
+
+    #clear-search {
+        right: 0.5rem;
+        font-size: 1.4rem;
+    }
+}
+
+.filter-sort-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+#filter-genre, #sort-by {
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid var(--input-border);
+    border-radius: var(--input-radius);
+    color: var(--text-color);
+    background-color: #fff;
+    padding: 10px 12px;
+}
+
+@media (max-width: 480px) {
+    .controls {
+        padding: 0.5rem;
+    }
+
+    .search-container input {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .filter-sort-container {
+        flex-direction: row;
+    }
+
+    #filter-genre, #sort-by {
+        margin-bottom: 0rem;
+    }
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    width: calc(33.333% - 1rem);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content {
+    flex-grow: 1;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: left;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+.card h3 {
+    margin-top: 0;
+    font-weight: 700; /* Added this line to ensure headers are bold */
+}
+.card p {
+    margin: 0.5rem 0;
+}
+.card a {
+    color: #000000;
+    text-decoration: none;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+.pagination button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 0.5rem;
+    border: 1px solid #FFFFFF;
+    background-color: #FFFFFF;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.pagination button.active {
+    background-color: #808080;
+    color: #FFFFFF;
+}
+@media (max-width: 768px) {
+    .gallery {
+        gap: 0.5rem;
+    }
+    .card {
+        width: calc(50% - 0.5rem);
+    }
+}
+/* Enhanced mobile responsiveness */
+@media (max-width: 800px) {
+    .gallery {
+        gap: 0.5rem;
+        margin-top: 20px;
+    }
+    
+    .card {
+        width: calc(50% - 0.25rem);
+        padding: 0.5rem;
+    }
+    
+    .card p {
+        font-size: 0.85em;
+        margin: 0.2rem 0;
+        line-height: 1.3;
+    }
+    
+    .card-actions {
+        justify-content: space-around;
+        margin-top: 8px;
+        padding-top: 8px;
+        gap: 4px;
+    }
+    
+    header h1 {
+        font-size: 22px;
+    }
+    
+    .header-controls {
+        margin-right: 4px;
+        gap: 4px;
+    }
+    
+    .icon-button {
+        padding: 8px;
+        font-size: 20px;
+        min-width: 40px;
+        min-height: 40px;
+        border-radius: 8px;
+        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        gap: 0.3rem;
+        margin-top: 15px;
+    }
+    
+    .card {
+        width: calc(50% - 0.15rem);
+        padding: 0.4rem;
+    }
+    
+    .card p {
+        font-size: 0.8em;
+        margin: 0.1rem 0;
+    }
+    
+    .controls {
+        top: var(--header-height);
+        padding: 10px 12px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+    }
+    
+    .controls label, .controls input, .controls select, .controls button {
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 0.75rem;
+    }
+    
+    .controls .search-container {
+        width: 100%;
+    }
+    
+    .controls .search-container input {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 12px 44px 12px 12px;
+    }
+    
+    .pagination button {
+        padding: 12px 16px;
+        margin: 0 0.2rem;
+        min-width: 44px;
+        min-height: 44px;
+        font-size: 14px;
+    }
+    
+    .filter-sort-container {
+        gap: 0.5rem;
+    }
+    
+    #filter-genre, #sort-by {
+        padding: 12px 10px;
+        font-size: 14px;
+        min-height: 44px;
+    }
+}
+
+.wantlist-btn, .collection-btn {
+    background: none;
+    border: none;
+    color: #808080;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: transform 0.2s, background-color 0.2s;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+}
+
+.wantlist-btn:hover, .collection-btn:hover {
+    transform: scale(1.1);
+}
+
+.wantlist-btn .fa-heart, .collection-btn .fa-record-vinyl {
+    transition: color 0.2s;
+}
+
+.wantlist-btn .far.fa-heart, .collection-btn .far.fa-record-vinyl {
+    color: #808080;
+}
+
+.wantlist-btn .fas.fa-heart {
+    color: #FF4136;
+}
+
+.collection-btn .fas.fa-record-vinyl {
+    color: #000000;
+}
+
+#view-wantlist, #view-collection {
+    background-color: transparent; /* Change to transparent background */
+    border: none;
+    color: #000000;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px; /* Increase font size for larger icons */
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: color 0.3s;
+}
+
+/* Add this new style for the active wantlist icon */
+#view-wantlist.active i {
+    color: #FF4136; /* Red color for the active wantlist icon */
+}
+#view-collection:active i {
+    color: #000000; /* color for the active collection icon */
+}
+
+/* Remove the hover styles that change the background color */
+@media (hover: hover) {
+    #view-wantlist:hover, #view-collection:hover {
+        color: #808080; /* Light grey color on hover */
+    }
+}
+
+/* Update the active state styles */
+#view-wantlist:active, #view-collection:active {
+    color: #808080;
+}
+#back-to-top {
+    position: fixed;
+    bottom: 60px;
+    left: 45.5%; /* Changed from left: 50% */
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #FFFFFF;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+#back-to-top:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#back-to-top i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 480px) {
+    #back-to-top {
+        bottom: 6rem;
+        left: 45.5%;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+.card-actions {
+    display: flex;
+    justify-content: left;
+    margin-top: 0px;
+    padding-top: 5px;
+}
+
+.spotify-btn {
+    background: none;
+    border: none;
+    color: #808080;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: transform 0.2s, background-color 0.2s;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+}
+
+.wantlist-btn .fa-heart, .collection-btn .fa-record-vinyl {
+    transition: color 0.2s;
+}
+
+.wantlist-btn .far.fa-heart, .collection-btn .far.fa-record-vinyl {
+    color: #808080;
+}
+
+.wantlist-btn .fas.fa-heart {
+    color: #FF4136;
+}
+
+.collection-btn .fas.fa-record-vinyl {
+    color: #000000;
+}
+
+@media (max-width: 480px) {
+    .spotify-btn, .wantlist-btn, .collection-btn {
+        font-size: 20px;
+    }
+}
+
+/* Accessibility and utility classes */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+/* Focus styles for better accessibility */
+button:focus,
+input:focus,
+select:focus {
+    outline: 2px solid #007acc;
+    outline-offset: 2px;
+}
+
+/* Better contrast for links */
+a:focus {
+    outline: 2px solid #007acc;
+    outline-offset: 2px;
+}
+
+/* Mobile-specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Touch device optimizations */
+    .wantlist-btn:hover, 
+    .collection-btn:hover, 
+    .spotify-btn:hover,
+    .icon-button:hover {
+        transform: none;
+        background-color: rgba(0,0,0,0.05);
+    }
+    
+    .wantlist-btn:active, 
+    .collection-btn:active, 
+    .spotify-btn:active,
+    .icon-button:active {
+        transform: scale(0.95);
+        background-color: rgba(0,0,0,0.1);
+    }
+}
+
+/* Smooth scrolling for modern browsers */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Performance optimizations */
+.card img {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+.font-normal {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+
+
+
+
+

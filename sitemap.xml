@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Main page - Single Page Application -->
+    <url>
+        <loc>https://www.opendrumsonly.com/</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Main index page -->
+    <url>
+        <loc>https://www.opendrumsonly.com/index.html</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Note: This is a Single Page Application (SPA) with dynamic content.
+         The main functionality includes:
+         - Browse drum breaks collection
+         - Search and filter records
+         - View personal collections and wantlists
+         - Links to external Discogs pages
+         
+         All content is dynamically loaded from DrumBreaks.csv,
+         so additional static pages don't exist to index.
+         
+         Consider implementing server-side rendering or
+         static page generation for individual records
+         if you want search engines to index specific albums.
+    -->
+
+</urlset>

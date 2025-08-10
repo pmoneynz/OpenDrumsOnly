@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>OpenDrumsOnly - the biggest drum break list on the internet</title>
+    <meta name="description" content="Explore thousands of classic drum breaks and rare records. Search by artist, genre, and year. Build your collection and wantlist. The ultimate resource for producers, DJs, and music lovers.">
+    <meta name="keywords" content="drum breaks, vinyl records, hip hop samples, music collection, discogs, rare records, breakbeats, funk, soul, jazz, music discovery, record collecting">
+    <meta name="author" content="OpenDrumsOnly">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+    <meta property="og:title" content="OpenDrumsOnly - the biggest drum break list on the internet">
+    <meta property="og:description" content="Explore thousands of classic drum breaks and rare records. Search by artist, genre, and year. Build your collection and wantlist.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.opendrumsonly.com/">
+    <meta property="og:site_name" content="OpenDrumsOnly">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://www.opendrumsonly.com/images/og-image.jpg">
+    <meta property="og:image:alt" content="OpenDrumsOnly - Drum Breaks Collection">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OpenDrumsOnly - the biggest drum break list on the internet">
+    <meta name="twitter:description" content="Explore thousands of classic drum breaks and rare records. Search by artist, genre, and year. Build your collection and wantlist.">
+    <meta name="twitter:image" content="https://www.opendrumsonly.com/images/og-image.jpg">
+    <meta name="twitter:image:alt" content="OpenDrumsOnly - Drum Breaks Collection">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="application-name" content="OpenDrumsOnly">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+    <link rel="canonical" href="https://www.opendrumsonly.com/">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="OpenDrumsOnly">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    
+    <!-- Structured Data for Search Engines -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "OpenDrumsOnly",
+        "url": "https://www.opendrumsonly.com",
+        "description": "Discover and explore thousands of classic drum breaks and rare vinyl records. Search by artist, genre, and year.",
+        "applicationCategory": "MusicApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "OpenDrumsOnly"
+        },
+        "keywords": "drum breaks, vinyl records, music collection, breakbeats, record collecting",
+        "inLanguage": "en-US"
+    }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+
+    <header>
+        <h1>OpenDrumsOnly</h1>
+        <div class="header-controls">
+            <button id="view-collection" class="icon-button" title="View Collection">
+                <i class="far fa-record-vinyl"></i>
+            </button>
+            <button id="view-wantlist" class="icon-button" title="View Wantlist">
+                <i class="far fa-heart"></i>
+            </button>
+        </div>
+    </header>
+    <main>
+        <div class="controls">
+            <div class="search-container">
+                <label for="search-box" class="sr-only">Search artists or albums</label>
+                <div class="search-input-wrapper">
+                    <input type="text" id="search-box" placeholder="Search artists or albums" autocomplete="off" autocapitalize="off" spellcheck="false">
+                    <button id="clear-search" onclick="clearSearch()" aria-label="Clear search" title="Clear search">×</button>
+                </div>
+            </div>
+            <div class="filter-sort-container">
+                <select id="filter-genre" title="Filter by genre">
+                    <option value="">All Genres</option>
+                </select>
+                <select id="sort-by" title="Sort order">
+                    <option value="artist-asc">Ascending</option>
+                    <option value="artist-desc">Descending</option>
+                </select>
+            </div>
+        </div>
+        <div class="gallery" id="gallery"></div>
+        <div class="pagination" id="pagination"></div>
+    </main>
+    <button id="back-to-top" title="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
