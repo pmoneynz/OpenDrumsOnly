@@ -10,9 +10,7 @@ Allow: /styles.css
 Allow: /script.js
 Allow: /fonts/
 Allow: /images/
-
-# Disallow crawling of data files that don't need indexing
-Disallow: /DrumBreaks.csv
+Allow: /DrumBreaks.csv
 
 # Common bot restrictions for performance
 User-agent: CCBot
