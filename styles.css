@@ -42,17 +42,16 @@ header {
     left: 0;
     right: 0;
     z-index: 1001;
-
-
-    padding: 0 var(--header-padding-x);
+    padding: 14px var(--header-padding-x) 0;
 }
 
 h1 {
     margin: 0;
     padding: 0;
-    font-size: 28px;
+    font-size: 42px;
     line-height: 1;
     font-weight: 700;
+    text-indent: 1ch;
 }
 
 .header-controls {
@@ -75,7 +74,7 @@ h1 {
 }
 
 main {
-    padding: calc(var(--header-height) + 12px) 16px 16px 16px;
+    padding: calc(var(--header-height) + 12px) var(--header-padding-x) var(--header-padding-x) var(--header-padding-x);
     box-sizing: border-box;
     width: 100%;
 }
@@ -88,7 +87,7 @@ main {
     top: var(--header-height);
     background-color: var(--header-bg);
     z-index: 1000;
-    padding: 12px 16px;
+    padding: 12px var(--header-padding-x);
     width: 100%;
     box-sizing: border-box;
 
