@@ -15,6 +15,8 @@ function initializeApp() {
             }
         });
         populateGenreDropdown(genres);
+        preprocessAlphabeticalData();
+        generateAlphabetWheel();
         applyFilters();
     }).catch(error => {
         console.error('Failed to load CSV:', error);
@@ -30,6 +32,8 @@ function initializeApp() {
 
     let dataRows = [];
     let genres = new Set();
+    let alphabeticalData = {};
+    let selectedLetter = '';
     let currentPage = 1;
     let itemsPerPage = 128;
 //    let currentChunk = 0;
@@ -70,6 +74,130 @@ function initializeApp() {
         });
     }
 
+    function normalizeArtistName(artistName) {
+        if (!artistName || typeof artistName !== 'string') {
+            return '';
+        }
+        
+        let normalized = artistName.trim();
+        
+        // Handle cases like "238s, The" or "Beatles, The"
+        if (normalized.toLowerCase().endsWith(', the')) {
+            normalized = normalized.substring(0, normalized.length - 5).trim();
+        }
+        // Handle cases like "The Beatles"
+        else if (normalized.toLowerCase().startsWith('the ')) {
+            normalized = normalized.substring(4).trim();
+        }
+        
+        // Get first character and convert to uppercase
+        const firstChar = normalized.charAt(0).toUpperCase();
+        
+        // Return letters A-Z
+        if (firstChar >= 'A' && firstChar <= 'Z') {
+            return firstChar;
+        }
+        
+        // Return '0-9' for numerical characters
+        if (firstChar >= '0' && firstChar <= '9') {
+            return '0-9';
+        }
+        
+        return '';
+    }
+
+    function preprocessAlphabeticalData() {
+        alphabeticalData = {};
+        
+        // Initialize all letters A-Z
+        for (let i = 65; i <= 90; i++) {
+            alphabeticalData[String.fromCharCode(i)] = [];
+        }
+        
+        // Initialize 0-9 category
+        alphabeticalData['0-9'] = [];
+        
+        dataRows.forEach(row => {
+            if (row && row['Artist Name']) {
+                const letter = normalizeArtistName(row['Artist Name']);
+                if (letter && alphabeticalData[letter]) {
+                    alphabeticalData[letter].push(row);
+                }
+            }
+        });
+        
+        console.log('Alphabetical data preprocessed:', Object.keys(alphabeticalData).map(letter => 
+            `${letter}: ${alphabeticalData[letter].length}`
+        ).join(', '));
+    }
+
+    function generateAlphabetWheel() {
+        const alphabetWheel = document.getElementById('alphabet-wheel');
+        alphabetWheel.innerHTML = '';
+        
+        // Create "All" button first
+        const allBtn = document.createElement('button');
+        allBtn.className = 'alphabet-btn' + (selectedLetter === '' ? ' active' : '');
+        allBtn.textContent = 'All';
+        allBtn.onclick = () => selectLetter('');
+        allBtn.setAttribute('aria-label', 'Show all artists');
+        alphabetWheel.appendChild(allBtn);
+        
+        // Create A-Z buttons
+        for (let i = 65; i <= 90; i++) {
+            const letter = String.fromCharCode(i);
+            const btn = document.createElement('button');
+            btn.className = 'alphabet-btn' + (selectedLetter === letter ? ' active' : '');
+            btn.textContent = letter;
+            btn.onclick = () => selectLetter(letter);
+            btn.setAttribute('aria-label', `Show artists starting with ${letter}`);
+            alphabetWheel.appendChild(btn);
+        }
+        
+        // Create 0-9 button last
+        const numbersBtn = document.createElement('button');
+        numbersBtn.className = 'alphabet-btn' + (selectedLetter === '0-9' ? ' active' : '');
+        numbersBtn.textContent = '0-9';
+        numbersBtn.onclick = () => selectLetter('0-9');
+        numbersBtn.setAttribute('aria-label', 'Show artists starting with numbers');
+        alphabetWheel.appendChild(numbersBtn);
+    }
+
+    function selectLetter(letter) {
+        selectedLetter = letter;
+        currentPage = 1; // Reset to first page
+        updateAlphabetButtons();
+        scrollToActiveButton();
+        applyFilters();
+    }
+
+    function updateAlphabetButtons() {
+        const buttons = document.querySelectorAll('.alphabet-btn');
+        buttons.forEach(btn => {
+            const isActive = (btn.textContent === 'All' && selectedLetter === '') || 
+                           (btn.textContent === selectedLetter);
+            btn.classList.toggle('active', isActive);
+        });
+    }
+
+    function scrollToActiveButton() {
+        const wheel = document.getElementById('alphabet-wheel');
+        const activeButton = wheel.querySelector('.alphabet-btn.active');
+        
+        if (activeButton && wheel) {
+            const wheelRect = wheel.getBoundingClientRect();
+            const buttonRect = activeButton.getBoundingClientRect();
+            const wheelCenter = wheelRect.width / 2;
+            const buttonCenter = buttonRect.left - wheelRect.left + buttonRect.width / 2;
+            const scrollDistance = buttonCenter - wheelCenter;
+            
+            wheel.scrollBy({
+                left: scrollDistance,
+                behavior: 'smooth'
+            });
+        }
+    }
+
     document.getElementById('filter-genre').addEventListener('change', () => {
         currentPage = 1;  // Reset to first page
         applyFilters();
@@ -100,6 +228,13 @@ function initializeApp() {
         const searchQuery = document.getElementById('search-box').value.toLowerCase();
 
         let filteredData = dataRows.filter(row => {
+            // Letter filter check
+            if (selectedLetter !== '') {
+                const artistLetter = normalizeArtistName(row['Artist Name']);
+                if (artistLetter !== selectedLetter) {
+                    return false;
+                }
+            }
             if (isViewingWantlist && !wantlist.has(row['Artist Name'] + ' - ' + row['Album Title'])) {
                 return false;
             }

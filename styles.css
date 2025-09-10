@@ -369,6 +369,159 @@ main {
     }
 }
 
+/* Alphabet Filter Styles */
+.alphabet-filter-container {
+    width: 100%;
+    margin-top: 12px;
+    position: relative;
+}
+
+.alphabet-filter-container::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 20px;
+    background: linear-gradient(to left, var(--header-bg), transparent);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.alphabet-wheel {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding: 8px 0;
+    margin: 0 -8px;
+    /* Hide scrollbar but keep functionality */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.alphabet-wheel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.alphabet-btn {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 12px;
+    min-height: 44px;
+    min-width: 44px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+    -webkit-user-select: none;
+    user-select: none;
+    flex: 0 0 auto;
+    width: 44px; /* Add explicit width */
+    min-width: 44px;
+    max-width: 44px; /* Prevent expansion */
+    overflow: hidden; /* Ensure content doesn't overflow */
+    text-overflow: ellipsis; /* Handle overflow gracefully */
+    white-space: nowrap;
+}
+
+.alphabet-btn:last-child {
+    margin-right: 16px; /* Extra space at end for better scrolling */
+}
+
+.alphabet-btn:first-child {
+    margin-left: 16px; /* Extra space at start for better scrolling */
+}
+
+.alphabet-btn:hover {
+    background-color: rgba(0,0,0,0.05);
+    transform: translateY(-1px);
+}
+
+.alphabet-btn:active {
+    transform: translateY(0) scale(0.95);
+    background-color: rgba(0,0,0,0.1);
+}
+
+.alphabet-btn.active {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000;
+    transform: translateY(-1px);
+}
+
+.alphabet-btn.active:hover {
+    background-color: #333333;
+}
+
+/* Mobile and Tablet styles for alphabet wheel - covers most touch devices */
+@media (max-width: 1024px) {
+    .alphabet-wheel {
+        margin: 0 -4px;
+        padding: 6px 0;
+    }
+    
+    .alphabet-btn {
+        font-size: 14px;
+        padding: 10px 12px;
+        min-height: 44px;
+        min-width: 44px;
+        margin-right: 6px;
+        flex: 0 0 auto;
+    }
+    
+    .alphabet-btn:first-child {
+        margin-left: 12px;
+    }
+    
+    .alphabet-btn:last-child {
+        margin-right: 12px;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .alphabet-wheel {
+        margin: 0 -4px;
+        padding: 6px 0;
+    }
+    
+    .alphabet-btn {
+        font-size: 13px;
+        padding: 8px 10px;
+        min-height: 40px;
+        min-width: 40px;
+        margin-right: 4px;
+        flex: 0 0 auto;
+    }
+    
+    .alphabet-btn:first-child {
+        margin-left: 12px;
+    }
+    
+    .alphabet-btn:last-child {
+        margin-right: 12px;
+    }
+}
+
+/* Desktop styles for alphabet wheel - true desktop/laptop screens */
+@media (min-width: 1025px) {
+    .alphabet-btn {
+        font-size: 15px;
+        padding: 12px 16px;
+        min-width: 48px;
+        margin-right: 8px;
+        flex: 0 0 auto;
+    }
+}
+
 .wantlist-btn, .collection-btn {
     background: none;
     border: none;
@@ -603,6 +756,19 @@ html {
     
     html {
         scroll-behavior: auto;
+    }
+    
+    .alphabet-btn {
+        transition: none !important;
+    }
+    
+    .alphabet-btn:hover,
+    .alphabet-btn:active {
+        transform: none !important;
+    }
+    
+    .alphabet-wheel {
+        scroll-behavior: auto !important;
     }
 }
 
