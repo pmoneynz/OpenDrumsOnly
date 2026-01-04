@@ -48,6 +48,7 @@
     const wantlistBtn = document.getElementById('wantlist-btn');
     const spotifyBtn = document.getElementById('spotify-btn');
     const backBtn = document.getElementById('back-to-results');
+    const youtubeMount = document.getElementById('youtube-embed');
     
     /**
      * Update button states based on current collection/wantlist
@@ -123,6 +124,54 @@
             .replace(/\s+/g, ' ')
             .trim();
     }
+
+    /**
+     * Render YouTube embed if we have a confident match; otherwise show a search link.
+     * (Video IDs are computed at build-time via Discogs release.videos[] enrichment.)
+     */
+    function renderYouTube() {
+        if (!youtubeMount) return;
+
+        const artist = sanitizeForSearch(entry.artist || '');
+        const track = sanitizeForSearch(entry.track || '');
+        const q = encodeURIComponent(`${artist} ${track}`.trim());
+
+        const videoId = (entry.youtubeVideoId || '').toString().replace(/[^a-zA-Z0-9_-]/g, '');
+
+        if (videoId) {
+            youtubeMount.innerHTML = `
+                <div class="yt-embed">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/${videoId}"
+                        title="YouTube player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <a class="action-btn yt-search-btn" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+            `;
+            return;
+        }
+
+        // No ID available: safe fallback is a YouTube search.
+        youtubeMount.innerHTML = `
+            <a class="action-btn yt-search-btn" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">
+                <i class="fa-brands fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+        `;
+
+        const link = youtubeMount.querySelector('a');
+        if (link) {
+            link.addEventListener('click', () => {
+                trackEvent('External', 'youtube_search', key, entry.releaseId);
+            });
+        }
+    }
     
     /**
      * Search on Spotify
@@ -157,6 +206,7 @@
     
     // Initialize button states
     updateButtonStates();
+    renderYouTube();
     
     // Attach event listeners
     if (collectionBtn) {

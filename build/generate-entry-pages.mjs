@@ -19,7 +19,26 @@ const ROOT_DIR = join(__dirname, '..');
 const ENTRY_DIR = join(ROOT_DIR, 'entry');
 const CSV_PATH = join(ROOT_DIR, 'DrumBreaks.csv');
 const SITEMAP_PATH = join(ROOT_DIR, 'sitemap.xml');
+const YOUTUBE_MAP_PATH = join(ROOT_DIR, 'build', 'youtube_map.json');
+const YOUTUBE_OVERRIDES_PATH = join(ROOT_DIR, 'build', 'youtube_overrides.json');
 const BASE_URL = 'https://www.opendrumsonly.com';
+
+function readJsonFile(path, fallback) {
+    if (!existsSync(path)) return fallback;
+    try {
+        return JSON.parse(readFileSync(path, 'utf-8'));
+    } catch {
+        return fallback;
+    }
+}
+
+// Optional: build-time YouTube mapping (Discogs-only enrichment)
+// Map format:
+// { "<releaseId>": { videoId, title, uri, score, source, updatedAt } }
+const youtubeMap = readJsonFile(YOUTUBE_MAP_PATH, {});
+// Overrides format:
+// { "<releaseId>": "<videoId>" }
+const youtubeOverrides = readJsonFile(YOUTUBE_OVERRIDES_PATH, {});
 
 // Build report
 const report = {
@@ -138,6 +157,15 @@ function generateEntryHtml(entry, releaseId) {
     const imageUrl = `../images/${encodeURIComponent(artist)}-${encodeURIComponent(album)}.jpeg`;
     const canonicalUrl = `${BASE_URL}/entry/${releaseId}.html`;
     
+    const youtubeVideoId =
+        (youtubeOverrides && youtubeOverrides[releaseId]) ||
+        (youtubeMap && youtubeMap[releaseId] && youtubeMap[releaseId].videoId) ||
+        '';
+    const youtubeScore =
+        youtubeMap && youtubeMap[releaseId] && typeof youtubeMap[releaseId].score === 'number'
+            ? youtubeMap[releaseId].score
+            : null;
+
     // Entry data as JSON for client-side JS
     const entryJson = JSON.stringify({
         artist,
@@ -151,6 +179,8 @@ function generateEntryHtml(entry, releaseId) {
         comment,
         discogsUrl,
         releaseId,
+        youtubeVideoId,
+        youtubeScore,
     });
     
     return `<!DOCTYPE html>
@@ -252,6 +282,8 @@ function generateEntryHtml(entry, releaseId) {
                 ${label ? `<p class="entry-label">Label: ${escapeHtml(label)}</p>` : ''}
                 ${tag ? `<p class="entry-tag">Tag: ${escapeHtml(tag)}</p>` : ''}
                 ${comment ? `<p class="entry-comment">${escapeHtml(comment)}</p>` : ''}
+
+                <div id="youtube-embed" class="entry-youtube"></div>
                 
                 <div class="entry-actions">
                     <button id="collection-btn" class="action-btn" title="Add to Collection">

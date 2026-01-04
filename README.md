@@ -29,7 +29,12 @@ A mobile-optimized web gallery for browsing drum breaks and records. This respon
 Before deploying, you need to generate the individual entry pages. This requires Node.js (v18 or later recommended).
 
 ```bash
-# Generate entry pages and sitemap
+# (Optional but recommended) Enrich entries with YouTube video IDs via Discogs release.videos[]
+# You must provide a Discogs personal access token.
+# This writes build/youtube_map.json (cached) and uses build/youtube_overrides.json for manual fixes.
+DISCOGS_TOKEN="YOUR_TOKEN_HERE" node build/enrich-discogs-youtube.mjs
+
+# Generate entry pages and sitemap (bakes youtubeVideoId into each entry page)
 node build/generate-entry-pages.mjs
 ```
 
@@ -40,6 +45,13 @@ This command will:
 - Output a build report showing generated pages and any skipped entries
 
 **Run this command before each deployment** whenever the CSV data changes.
+
+### Discogs token
+
+- Create a Discogs personal access token in your Discogs account settings.
+- Set it as an environment variable when running enrichment:
+  - `DISCOGS_TOKEN="..." node build/enrich-discogs-youtube.mjs`
+- Manual fixes: edit `build/youtube_overrides.json` (format: `{ "<releaseId>": "<youtubeVideoId>" }`)
 
 ## Setup
 
@@ -69,6 +81,9 @@ python -m SimpleHTTPServer 8000
 - `entry/` - Generated individual entry pages
 - `build/` - Build scripts
   - `generate-entry-pages.mjs` - Entry page generator script
+  - `enrich-discogs-youtube.mjs` - Discogs-only YouTube mapping generator (optional)
+  - `youtube_map.json` - Generated cache of YouTube IDs per release (optional)
+  - `youtube_overrides.json` - Manual overrides for YouTube IDs (optional)
 - `sitemap.xml` - Auto-generated sitemap with all URLs
 
 ## Data Format
