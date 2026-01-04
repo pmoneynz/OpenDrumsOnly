@@ -4,6 +4,20 @@
  */
 
 (function() {
+    /**
+     * Analytics helper function
+     * Tracks events to Google Analytics if gtag is available
+     */
+    function trackEvent(category, action, label, value) {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', action, {
+                'event_category': category,
+                'event_label': label,
+                'value': value
+            });
+        }
+    }
+    
     // Get entry data from embedded JSON
     const entryDataScript = document.getElementById('entry-data');
     if (!entryDataScript) {
@@ -13,6 +27,17 @@
     
     const entry = JSON.parse(entryDataScript.textContent);
     const key = entry.artist + ' - ' + entry.album;
+    
+    // Track entry page view with entry details
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'page_view', {
+            'event_category': 'Entry',
+            'event_label': `${entry.artist} - ${entry.album}`,
+            'release_id': entry.releaseId,
+            'genre': entry.genre,
+            'year': entry.year
+        });
+    }
     
     // Load collection and wantlist from localStorage
     let wantlist = new Set(JSON.parse(localStorage.getItem('wantlist')) || []);
@@ -50,11 +75,14 @@
     function toggleCollection() {
         if (collection.has(key)) {
             collection.delete(key);
+            trackEvent('Collection', 'remove_collection', key, entry.releaseId);
         } else {
             collection.add(key);
+            trackEvent('Collection', 'add_collection', key, entry.releaseId);
             // Remove from wantlist if adding to collection
             if (wantlist.has(key)) {
                 wantlist.delete(key);
+                trackEvent('Collection', 'remove_wantlist', key, entry.releaseId);
             }
         }
         
@@ -69,11 +97,14 @@
     function toggleWantlist() {
         if (wantlist.has(key)) {
             wantlist.delete(key);
+            trackEvent('Collection', 'remove_wantlist', key, entry.releaseId);
         } else {
             wantlist.add(key);
+            trackEvent('Collection', 'add_wantlist', key, entry.releaseId);
             // Remove from collection if adding to wantlist
             if (collection.has(key)) {
                 collection.delete(key);
+                trackEvent('Collection', 'remove_collection', key, entry.releaseId);
             }
         }
         
@@ -101,6 +132,8 @@
         const track = sanitizeForSearch(entry.track || entry.album);
         const searchQuery = encodeURIComponent(`${artist} ${track}`);
         const spotifyUrl = `https://open.spotify.com/search/${searchQuery}`;
+        
+        trackEvent('External', 'spotify_search', key, entry.releaseId);
         window.open(spotifyUrl, '_blank');
     }
     
@@ -108,6 +141,8 @@
      * Navigate back to gallery results
      */
     function backToResults() {
+        trackEvent('Navigation', 'back_to_gallery', entry.releaseId, null);
+        
         // Check if we have stored gallery state
         const galleryState = sessionStorage.getItem('galleryState');
         

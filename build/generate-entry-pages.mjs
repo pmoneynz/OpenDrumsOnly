@@ -156,6 +156,16 @@ function generateEntryHtml(entry, releaseId) {
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3RDBWY41BE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3RDBWY41BE');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -256,7 +266,7 @@ function generateEntryHtml(entry, releaseId) {
                         <i class="fas fa-headphones"></i>
                         <span>Spotify</span>
                     </button>
-                    <a href="${escapeHtml(discogsUrl)}" target="_blank" rel="noopener" class="action-btn discogs-btn" title="View on Discogs">
+                    <a href="${escapeHtml(discogsUrl)}" target="_blank" rel="noopener" class="action-btn discogs-btn" title="View on Discogs" onclick="if(typeof gtag!=='undefined'){gtag('event','discogs_click',{'event_category':'External','event_label':'${releaseId}','value':${releaseId}});}">
                         <i class="fas fa-external-link-alt"></i>
                         <span>Discogs</span>
                     </a>

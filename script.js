@@ -1,5 +1,34 @@
 document.addEventListener('DOMContentLoaded', initializeApp, false);
 
+/**
+ * Analytics helper function
+ * Tracks events to Google Analytics if gtag is available
+ */
+window.trackEvent = function(category, action, label, value) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+            'event_category': category,
+            'event_label': label,
+            'value': value
+        });
+    }
+};
+
+/**
+ * Track search queries with debouncing
+ */
+let searchTimeout = null;
+function trackSearch(query) {
+    if (searchTimeout) {
+        clearTimeout(searchTimeout);
+    }
+    searchTimeout = setTimeout(() => {
+        if (query && query.trim().length > 0) {
+            trackEvent('Search', 'search_query', query.trim().substring(0, 100), query.trim().length);
+        }
+    }, 1000); // Debounce for 1 second
+}
+
 function initializeApp() {
     // Check for saved gallery state from entry page navigation
     let savedState = null;
@@ -29,6 +58,15 @@ function initializeApp() {
         populateGenreDropdown(genres);
         preprocessAlphabeticalData();
         generateAlphabetWheel();
+        
+        // Track initial page load
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                'event_category': 'Gallery',
+                'event_label': 'main_gallery',
+                'total_entries': dataRows.length
+            });
+        }
         
         // Restore saved state if available
         if (savedState) {
@@ -186,6 +224,7 @@ function initializeApp() {
         currentPage = 1; // Reset to first page
         updateAlphabetButtons();
         scrollToActiveButton();
+        trackEvent('Filter', 'alphabet_filter', letter || 'All', null);
         applyFilters();
     }
 
@@ -217,11 +256,20 @@ function initializeApp() {
     }
 
     document.getElementById('filter-genre').addEventListener('change', () => {
+        const genreValue = document.getElementById('filter-genre').value;
         currentPage = 1;  // Reset to first page
+        trackEvent('Filter', 'genre_filter', genreValue || 'All Genres', null);
         applyFilters();
     });
-    document.getElementById('sort-by').addEventListener('change', applyFilters);
-    document.getElementById('search-box').addEventListener('input', applyFilters);
+    document.getElementById('sort-by').addEventListener('change', () => {
+        const sortValue = document.getElementById('sort-by').value;
+        trackEvent('Filter', 'sort_change', sortValue, null);
+        applyFilters();
+    });
+    document.getElementById('search-box').addEventListener('input', function() {
+        trackSearch(this.value);
+        applyFilters();
+    });
     document.getElementById('view-wantlist').addEventListener('click', toggleWantlistView);
     document.getElementById('view-collection').addEventListener('click', toggleCollectionView);
 
@@ -234,6 +282,7 @@ function initializeApp() {
     });
 
     clearSearchBtn.addEventListener('click', function() {
+        trackEvent('Search', 'clear_search', null, null);
         searchBox.value = '';
         clearSearchBtn.style.display = 'none';
         searchBox.focus();
@@ -367,7 +416,7 @@ function initializeApp() {
     /**
      * Save current gallery state to sessionStorage before navigating to entry page
      */
-    function saveGalleryState() {
+    function saveGalleryState(event) {
         const state = {
             searchQuery: document.getElementById('search-box').value,
             genreFilter: document.getElementById('filter-genre').value,
@@ -379,6 +428,13 @@ function initializeApp() {
             isViewingCollection: isViewingCollection
         };
         sessionStorage.setItem('galleryState', JSON.stringify(state));
+        
+        // Track entry page click
+        const link = event.currentTarget;
+        const releaseId = link.href.match(/entry\/(\d+)\.html/);
+        if (releaseId) {
+            trackEvent('Navigation', 'view_entry_page', releaseId[1], null);
+        }
     }
 
     /**
@@ -386,6 +442,9 @@ function initializeApp() {
      */
     function restoreGalleryState(state) {
         console.log('Restoring gallery state:', state);
+        
+        // Track return from entry page
+        trackEvent('Navigation', 'return_from_entry', null, null);
         
         // Restore form values
         if (state.searchQuery) {
@@ -570,10 +629,10 @@ function initializeApp() {
                     <button class="wantlist-btn" data-artist="${artist}" data-album="${album}" title="${isInWantlist ? 'Remove from Wantlist' : 'Add to Wantlist'}" aria-label="${isInWantlist ? 'Remove from Wantlist' : 'Add to Wantlist'}">
                         <i class="fa-heart ${isInWantlist ? 'fas' : 'far'}"></i>
                     </button>
-                    <button class="spotify-btn" onclick="searchSpotify('${sanitizeForJS(artist)}', '${sanitizeForJS(track)}')" title="Listen on Spotify" aria-label="Listen on Spotify">
+                    <button class="spotify-btn" onclick="searchSpotify('${sanitizeForJS(artist)}', '${sanitizeForJS(track)}', '${releaseId || ''}')" title="Listen on Spotify" aria-label="Listen on Spotify">
                         <i class="fas fa-headphones"></i>
                     </button>
-                    <a href="${url}" target="_blank" rel="noopener" class="discogs-btn" title="View on Discogs" aria-label="View on Discogs">
+                    <a href="${url}" target="_blank" rel="noopener" class="discogs-btn" title="View on Discogs" aria-label="View on Discogs" onclick="trackEvent('External', 'discogs_click', '${releaseId || 'unknown'}', null);">
                         <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
@@ -654,6 +713,9 @@ function initializeApp() {
         button.textContent = text;
         button.addEventListener('click', (e) => {
             e.preventDefault();
+            if (text === 'Previous' || text === 'Next') {
+                trackEvent('Navigation', 'pagination', text.toLowerCase(), null);
+            }
             onClick();
             window.scrollTo(0, 0); // Scroll to top after clicking
         });
@@ -665,6 +727,7 @@ function initializeApp() {
         const button = createPaginationButton(pageNumber, () => {
             if (currentPage !== pageNumber) {
                 currentPage = pageNumber;
+                trackEvent('Navigation', 'pagination', `page_${pageNumber}`, pageNumber);
                 applyFilters();
             }
         });
@@ -693,13 +756,16 @@ function initializeApp() {
         if (wantlist.has(key)) {
             wantlist.delete(key);
             heartIcon.classList.replace('fas', 'far');
+            trackEvent('Collection', 'remove_wantlist', `${artist} - ${album}`, null);
         } else {
             wantlist.add(key);
             heartIcon.classList.replace('far', 'fas');
+            trackEvent('Collection', 'add_wantlist', `${artist} - ${album}`, null);
             // Remove from collection if it's there
             if (collection.has(key)) {
                 collection.delete(key);
                 vinylIcon.classList.replace('fas', 'far');
+                trackEvent('Collection', 'remove_collection', `${artist} - ${album}`, null);
             }
         }
 
@@ -719,13 +785,16 @@ function initializeApp() {
         if (collection.has(key)) {
             collection.delete(key);
             vinylIcon.classList.replace('fas', 'far');
+            trackEvent('Collection', 'remove_collection', `${artist} - ${album}`, null);
         } else {
             collection.add(key);
             vinylIcon.classList.replace('far', 'fas');
+            trackEvent('Collection', 'add_collection', `${artist} - ${album}`, null);
             // Remove from wantlist if it's there
             if (wantlist.has(key)) {
                 wantlist.delete(key);
                 heartIcon.classList.replace('fas', 'far');
+                trackEvent('Collection', 'remove_wantlist', `${artist} - ${album}`, null);
             }
         }
 
@@ -738,6 +807,7 @@ function initializeApp() {
         isViewingCollection = false;
         updateViewIcons();
         currentPage = 1;
+        trackEvent('View', isViewingWantlist ? 'view_wantlist' : 'view_all', null, null);
         applyFilters();
     }
 
@@ -746,6 +816,7 @@ function initializeApp() {
         isViewingWantlist = false;
         updateViewIcons();
         currentPage = 1;
+        trackEvent('View', isViewingCollection ? 'view_collection' : 'view_all', null, null);
         applyFilters();
     }
 
@@ -804,7 +875,7 @@ function initializeApp() {
         }
     }
 
-    window.searchSpotify = function(artist, track) {
+    window.searchSpotify = function(artist, track, releaseId) {
         // Sanitize artist and track names
         const sanitizeString = (str) => {
             return str
@@ -818,6 +889,8 @@ function initializeApp() {
         const sanitizedTrack = sanitizeString(track);
         const searchQuery = encodeURIComponent(`${sanitizedArtist} ${sanitizedTrack}`);
         const spotifyUrl = `https://open.spotify.com/search/${searchQuery}`;
+        
+        trackEvent('External', 'spotify_search', `${artist} - ${track}`, releaseId || null);
         window.open(spotifyUrl, '_blank');
     }
 
