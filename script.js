@@ -1,6 +1,18 @@
 document.addEventListener('DOMContentLoaded', initializeApp, false);
 
 function initializeApp() {
+    // Check for saved gallery state from entry page navigation
+    let savedState = null;
+    try {
+        const stateJson = sessionStorage.getItem('galleryState');
+        if (stateJson) {
+            savedState = JSON.parse(stateJson);
+            sessionStorage.removeItem('galleryState'); // Clear after reading
+        }
+    } catch (e) {
+        console.error('Error reading gallery state:', e);
+    }
+
     loadCSV().then(data => {
         console.log('CSV data loaded:', data.length, 'rows');
         dataRows = data;
@@ -17,7 +29,13 @@ function initializeApp() {
         populateGenreDropdown(genres);
         preprocessAlphabeticalData();
         generateAlphabetWheel();
-        applyFilters();
+        
+        // Restore saved state if available
+        if (savedState) {
+            restoreGalleryState(savedState);
+        } else {
+            applyFilters();
+        }
     }).catch(error => {
         console.error('Failed to load CSV:', error);
         if (error.code) {
@@ -336,6 +354,170 @@ function initializeApp() {
         applyFilters();
     }
 
+    /**
+     * Extract release ID from Discogs URL
+     * Example: https://www.discogs.com/release/2623666 -> 2623666
+     */
+    function extractReleaseId(discogsUrl) {
+        if (!discogsUrl || typeof discogsUrl !== 'string') return null;
+        const match = discogsUrl.match(/\/release\/(\d+)/);
+        return match ? match[1] : null;
+    }
+
+    /**
+     * Save current gallery state to sessionStorage before navigating to entry page
+     */
+    function saveGalleryState() {
+        const state = {
+            searchQuery: document.getElementById('search-box').value,
+            genreFilter: document.getElementById('filter-genre').value,
+            sortBy: document.getElementById('sort-by').value,
+            selectedLetter: selectedLetter,
+            currentPage: currentPage,
+            scrollY: window.scrollY,
+            isViewingWantlist: isViewingWantlist,
+            isViewingCollection: isViewingCollection
+        };
+        sessionStorage.setItem('galleryState', JSON.stringify(state));
+    }
+
+    /**
+     * Restore gallery state from sessionStorage (called when returning from entry page)
+     */
+    function restoreGalleryState(state) {
+        console.log('Restoring gallery state:', state);
+        
+        // Restore form values
+        if (state.searchQuery) {
+            document.getElementById('search-box').value = state.searchQuery;
+            document.getElementById('clear-search').style.display = 'block';
+        }
+        
+        if (state.genreFilter) {
+            document.getElementById('filter-genre').value = state.genreFilter;
+        }
+        
+        if (state.sortBy) {
+            document.getElementById('sort-by').value = state.sortBy;
+        }
+        
+        // Restore state variables
+        if (state.selectedLetter !== undefined) {
+            selectedLetter = state.selectedLetter;
+            updateAlphabetButtons();
+            scrollToActiveButton();
+        }
+        
+        if (state.currentPage) {
+            currentPage = state.currentPage;
+        }
+        
+        if (state.isViewingWantlist !== undefined) {
+            isViewingWantlist = state.isViewingWantlist;
+        }
+        
+        if (state.isViewingCollection !== undefined) {
+            isViewingCollection = state.isViewingCollection;
+        }
+        
+        // Update view icons if needed
+        updateViewIcons();
+        
+        // Apply filters with restored state (don't scroll to top)
+        applyFiltersWithoutScroll();
+        
+        // Restore scroll position after a short delay to ensure DOM is ready
+        if (state.scrollY) {
+            requestAnimationFrame(() => {
+                window.scrollTo(0, state.scrollY);
+            });
+        }
+    }
+
+    /**
+     * Apply filters without scrolling to top (used when restoring state)
+     */
+    function applyFiltersWithoutScroll() {
+        const genreFilter = document.getElementById('filter-genre').value.toLowerCase();
+        const sortBy = document.getElementById('sort-by').value;
+        const searchQuery = document.getElementById('search-box').value.toLowerCase();
+
+        let filteredData = dataRows.filter(row => {
+            // Letter filter check
+            if (selectedLetter !== '') {
+                const artistLetter = normalizeArtistName(row['Artist Name']);
+                if (artistLetter !== selectedLetter) {
+                    return false;
+                }
+            }
+            if (isViewingWantlist && !wantlist.has(row['Artist Name'] + ' - ' + row['Album Title'])) {
+                return false;
+            }
+            if (isViewingCollection && !collection.has(row['Artist Name'] + ' - ' + row['Album Title'])) {
+                return false;
+            }
+            const tag = (row['Tag'] || '').toLowerCase();
+            const genreVal = (row['Genre'] || '').toLowerCase();
+
+            const matchesGenre =
+                genreFilter === '' ||
+                (genreFilter === 'ubb' && tag === 'ubb') ||
+                genreVal.includes(genreFilter);
+
+            // Parse search query for operators
+            const operators = {
+                'title:': (row['Track Title'] || '').toLowerCase(),
+                'year:': (row['Year'] || '').toString(),
+                'genre:': (row['Genre'] || '').toLowerCase(),
+                'style:': (row['Style'] || '').toLowerCase(),
+                'label:': (row['Record Label'] || '').toLowerCase()
+            };
+
+            let remainingQuery = searchQuery;
+            let matchesSearch = true;
+
+            // New operator for artist name starting with a specific letter
+            const artistStartRegex = /\/(.)(?:\s|$)/g;
+            const artistStartMatches = [...searchQuery.matchAll(artistStartRegex)];
+            if (artistStartMatches.length > 0) {
+                matchesSearch = matchesSearch && artistStartMatches.some(match => 
+                    row['Artist Name'].toLowerCase().startsWith(match[1])
+                );
+                remainingQuery = remainingQuery.replace(artistStartRegex, '');
+            }
+
+            for (const [operator, field] of Object.entries(operators)) {
+                const regex = new RegExp(`${operator}(\\S+)`, 'g');
+                const matches = [...remainingQuery.matchAll(regex)];
+                
+                if (matches.length > 0) {
+                    matchesSearch = matchesSearch && matches.some(match => field.includes(match[1]));
+                    remainingQuery = remainingQuery.replace(regex, '');
+                }
+            }
+
+            // Handle remaining query (artist and album search)
+            const artist = row['Artist Name'].toLowerCase();
+            const album = row['Album Title'].toLowerCase();
+            const remainingTerms = remainingQuery.trim().split(/\s+/);
+            matchesSearch = matchesSearch && remainingTerms.every(term => artist.includes(term) || album.includes(term));
+
+            return matchesGenre && matchesSearch;
+        });
+
+        filteredData.sort((a, b) => {
+            if (sortBy === 'artist-asc') {
+                return a['Artist Name'].localeCompare(b['Artist Name']);
+            } else if (sortBy === 'artist-desc') {
+                return b['Artist Name'].localeCompare(a['Artist Name']);
+            }
+        });
+
+        renderGallery(filteredData);
+        renderPagination(filteredData.length);
+        // Don't scroll to top when restoring state
+    }
+
     function renderGallery(rows) {
         const gallery = document.getElementById('gallery');
         gallery.innerHTML = '';
@@ -353,6 +535,11 @@ function initializeApp() {
             const imageUrl = `./images/${encodeURIComponent(artist)}-${encodeURIComponent(album)}.jpeg`;
             const isInWantlist = wantlist.has(artist + ' - ' + album);
             const isInCollection = collection.has(artist + ' - ' + album);
+            
+            // Extract release ID for entry page link
+            const releaseId = extractReleaseId(url);
+            const entryPageUrl = releaseId ? `./entry/${releaseId}.html` : url;
+            const hasEntryPage = !!releaseId;
 
             const sanitizeForJS = (str) => {
                 return str
@@ -364,7 +551,7 @@ function initializeApp() {
 
             card.innerHTML = `
                 <div class="card-content">
-                    <a href="${url}" target="_blank" rel="noopener">
+                    <a href="${entryPageUrl}" class="entry-link" ${hasEntryPage ? '' : 'target="_blank" rel="noopener"'}>
                         <img src="${imageUrl}" 
                              alt="${artist} - ${album}" 
                              loading="lazy"
@@ -386,6 +573,9 @@ function initializeApp() {
                     <button class="spotify-btn" onclick="searchSpotify('${sanitizeForJS(artist)}', '${sanitizeForJS(track)}')" title="Listen on Spotify" aria-label="Listen on Spotify">
                         <i class="fas fa-headphones"></i>
                     </button>
+                    <a href="${url}" target="_blank" rel="noopener" class="discogs-btn" title="View on Discogs" aria-label="View on Discogs">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
                 </div>
             `;
 
@@ -398,6 +588,13 @@ function initializeApp() {
 
         document.querySelectorAll('.collection-btn').forEach(btn => {
             btn.addEventListener('click', toggleCollectionItem);
+        });
+
+        // Add click handlers to entry links to save gallery state before navigation
+        document.querySelectorAll('.entry-link').forEach(link => {
+            if (!link.hasAttribute('target')) {
+                link.addEventListener('click', saveGalleryState);
+            }
         });
 
         // After rendering is complete, check for broken images

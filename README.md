@@ -5,6 +5,7 @@ A mobile-optimized web gallery for browsing drum breaks and records. This respon
 ## Features
 
 - **Browse Records**: View a paginated gallery of drum break records with cover art
+- **Individual Entry Pages**: Each record has its own SEO-friendly page at `/entry/<releaseId>.html`
 - **Search**: Search by artist name, album title, or use advanced operators:
   - `title:` - Search track titles
   - `year:` - Search by year
@@ -18,13 +19,33 @@ A mobile-optimized web gallery for browsing drum breaks and records. This respon
   - Add/remove items to your personal collection (vinyl icon)
   - Add/remove items to your wantlist (heart icon)
 - **External Links**: 
-  - Click record covers to view on Discogs
+  - Click record covers to view entry detail page
+  - View on Discogs using the external link icon
   - Search tracks on Spotify using the headphones icon
+- **State Preservation**: When navigating to entry pages and back, your search/filter/scroll position is restored
+
+## Build
+
+Before deploying, you need to generate the individual entry pages. This requires Node.js (v18 or later recommended).
+
+```bash
+# Generate entry pages and sitemap
+node build/generate-entry-pages.mjs
+```
+
+This command will:
+- Read `DrumBreaks.csv` and extract all entries
+- Generate individual HTML pages in `/entry/<releaseId>.html` (one per Discogs release)
+- Update `sitemap.xml` with all entry page URLs
+- Output a build report showing generated pages and any skipped entries
+
+**Run this command before each deployment** whenever the CSV data changes.
 
 ## Setup
 
-1. Serve the files from a web server (due to CORS restrictions, you cannot open `index.html` directly in a browser)
-2. The simplest way is to use Python's built-in server:
+1. Generate entry pages (see Build section above)
+2. Serve the files from a web server (due to CORS restrictions, you cannot open `index.html` directly in a browser)
+3. The simplest way is to use Python's built-in server:
 
 ```bash
 # Python 3
@@ -34,16 +55,21 @@ python -m http.server 8000
 python -m SimpleHTTPServer 8000
 ```
 
-3. Open your browser to `http://localhost:8000`
+4. Open your browser to `http://localhost:8000`
 
 ## Files
 
-- `index.html` - Main HTML page
-- `script.js` - JavaScript functionality
-- `styles.css` - CSS styling
+- `index.html` - Main HTML page (gallery/search)
+- `script.js` - Gallery JavaScript functionality
+- `entry.js` - Entry page JavaScript functionality
+- `styles.css` - CSS styling (includes entry page styles)
 - `DrumBreaks.csv` - Data file containing record information
 - `images/` - Directory containing record cover images
 - `fonts/` - Custom Geist font files
+- `entry/` - Generated individual entry pages
+- `build/` - Build scripts
+  - `generate-entry-pages.mjs` - Entry page generator script
+- `sitemap.xml` - Auto-generated sitemap with all URLs
 
 ## Data Format
 
