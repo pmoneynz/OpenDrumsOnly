@@ -859,6 +859,27 @@ html {
     min-width: 0;
 }
 
+/* Entry page desktop centering */
+@media (min-width: 769px) {
+    .entry-details {
+        text-align: center;
+    }
+
+    .entry-meta {
+        justify-content: center;
+    }
+
+    .entry-actions {
+        justify-content: center;
+    }
+
+    .entry-label,
+    .entry-tag,
+    .entry-comment {
+        text-align: center;
+    }
+}
+
 .entry-artist {
     font-size: 28px;
     font-weight: 700;
