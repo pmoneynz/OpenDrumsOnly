@@ -1006,6 +1006,9 @@ html {
 @media (max-width: 768px) {
     .entry-container {
         flex-direction: column;
+        /* In column mode, the base rule sets align-items:flex-start which causes
+           children (like .entry-details) to shrink-to-fit. Force full-width. */
+        align-items: stretch;
         gap: 24px;
     }
     
@@ -1013,6 +1016,10 @@ html {
         width: 100%;
         max-width: 400px;
         margin: 0 auto;
+    }
+
+    .entry-details {
+        width: 100%;
     }
     
     .entry-artist {
