@@ -942,6 +942,10 @@ html {
     transition: all 0.2s ease;
     text-decoration: none;
     min-height: 48px;
+    /* Prevent overflow when buttons are set to width: 100% (mobile). */
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .action-btn:hover {
