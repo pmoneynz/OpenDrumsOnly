@@ -861,8 +861,20 @@ html {
 
 /* Entry page desktop centering */
 @media (min-width: 769px) {
+    .entry-container {
+        /* Single-column, centered layout on desktop */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .entry-image-wrapper {
+        width: min(520px, 100%);
+    }
+
     .entry-details {
         text-align: center;
+        width: 100%;
+        max-width: 720px;
     }
 
     .entry-meta {
