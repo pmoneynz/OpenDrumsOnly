@@ -261,6 +261,22 @@ async function fetchDiscogsRelease(releaseId) {
   return await res.json();
 }
 
+async function fetchDiscogsMaster(masterId) {
+  const url = `https://api.discogs.com/masters/${masterId}`;
+  const res = await fetch(url, {
+    headers: {
+      "User-Agent": USER_AGENT,
+      Authorization: `Discogs token=${DISCOGS_TOKEN}`,
+    },
+  });
+
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`Discogs master ${masterId} failed: ${res.status} ${text}`.trim());
+  }
+  return await res.json();
+}
+
 function splitTrackCandidates(trackField) {
   const raw = String(trackField || "").trim();
   if (!raw) return [];
@@ -311,12 +327,18 @@ async function main() {
   const seen = new Set();
   let processed = 0;
   let fetched = 0;
+  let fetchedMasters = 0;
   let matched = 0;
   let skippedNoTrack = 0;
   let skippedNoVideos = 0;
+  let skippedNoVideosMaster = 0;
   let skippedLowScore = 0;
+  let lowScoreAtLeast050 = 0;
+  let lowScoreAtLeast040 = 0;
+  let lowScoreAtLeast030 = 0;
   let errors = 0;
   let lastSaveFetched = 0;
+  const masterVideosCache = new Map(); // masterId -> [{title, uri}]
 
   for (const row of rows) {
     if (processed >= opts.limit) break;
@@ -362,16 +384,40 @@ async function main() {
       const release = await fetchDiscogsRelease(releaseId);
       fetched++;
 
-      const videos = Array.isArray(release?.videos) ? release.videos : [];
-      const ytVideos = videos
-        .map((v) => ({
-          title: v?.title || "",
-          uri: v?.uri || "",
-        }))
-        .filter((v) => v.uri && extractYouTubeId(v.uri));
+      const toYtVideos = (videos) =>
+        (Array.isArray(videos) ? videos : [])
+          .map((v) => ({ title: v?.title || "", uri: v?.uri || "" }))
+          .filter((v) => v.uri && extractYouTubeId(v.uri));
+
+      let ytVideos = toYtVideos(release?.videos);
+
+      // If a release has no YouTube videos, fall back to the Discogs master videos.
+      // Many releases have sparse metadata but the master is richer.
+      if (ytVideos.length === 0) {
+        const masterId = release?.master_id;
+        if (masterId) {
+          const key = String(masterId);
+          if (masterVideosCache.has(key)) {
+            ytVideos = masterVideosCache.get(key);
+          } else {
+            try {
+              const master = await fetchDiscogsMaster(key);
+              fetchedMasters++;
+              const mv = toYtVideos(master?.videos);
+              masterVideosCache.set(key, mv);
+              ytVideos = mv;
+            } catch (e) {
+              // Master fetch is a best-effort enhancement; treat as no master videos.
+              masterVideosCache.set(key, []);
+            }
+          }
+        }
+      }
 
       if (ytVideos.length === 0) {
-        skippedNoVideos++;
+        // Distinguish between no release videos and also no master videos.
+        if (release?.master_id) skippedNoVideosMaster++;
+        else skippedNoVideos++;
         await sleep(opts.delayMs);
         if (fetched - lastSaveFetched >= opts.saveEvery) {
           writeFileSync(OUT_PATH, JSON.stringify(cache, null, 2) + "\n", "utf-8");
@@ -383,7 +429,7 @@ async function main() {
           const remaining = plannedTotal - processed;
           const etaSec = rate > 0 ? remaining / rate : Infinity;
           console.log(
-            `[progress] processed=${processed}/${plannedTotal} fetched=${fetched} matched=${matched} noTrack=${skippedNoTrack} noVideos=${skippedNoVideos} lowScore=${skippedLowScore} errors=${errors} ` +
+            `[progress] processed=${processed}/${plannedTotal} fetched=${fetched} masters=${fetchedMasters} matched=${matched} noTrack=${skippedNoTrack} noVideos=${skippedNoVideos} noVideosMaster=${skippedNoVideosMaster} lowScore=${skippedLowScore} errors=${errors} ` +
               `rate=${rate.toFixed(2)}/s eta=${Number.isFinite(etaSec) ? Math.round(etaSec / 60) + "m" : "?"}`
           );
         }
@@ -402,6 +448,11 @@ async function main() {
 
       if (!best || best.score < opts.minScore) {
         skippedLowScore++;
+        if (best && typeof best.score === "number") {
+          if (best.score >= 0.5) lowScoreAtLeast050++;
+          if (best.score >= 0.4) lowScoreAtLeast040++;
+          if (best.score >= 0.3) lowScoreAtLeast030++;
+        }
         await sleep(opts.delayMs);
         if (fetched - lastSaveFetched >= opts.saveEvery) {
           writeFileSync(OUT_PATH, JSON.stringify(cache, null, 2) + "\n", "utf-8");
@@ -413,7 +464,7 @@ async function main() {
           const remaining = plannedTotal - processed;
           const etaSec = rate > 0 ? remaining / rate : Infinity;
           console.log(
-            `[progress] processed=${processed}/${plannedTotal} fetched=${fetched} matched=${matched} noTrack=${skippedNoTrack} noVideos=${skippedNoVideos} lowScore=${skippedLowScore} errors=${errors} ` +
+            `[progress] processed=${processed}/${plannedTotal} fetched=${fetched} masters=${fetchedMasters} matched=${matched} noTrack=${skippedNoTrack} noVideos=${skippedNoVideos} noVideosMaster=${skippedNoVideosMaster} lowScore=${skippedLowScore} errors=${errors} ` +
               `rate=${rate.toFixed(2)}/s eta=${Number.isFinite(etaSec) ? Math.round(etaSec / 60) + "m" : "?"}`
           );
         }
@@ -449,7 +500,7 @@ async function main() {
         const remaining = plannedTotal - processed;
         const etaSec = rate > 0 ? remaining / rate : Infinity;
         console.log(
-          `[progress] processed=${processed}/${plannedTotal} fetched=${fetched} matched=${matched} noTrack=${skippedNoTrack} noVideos=${skippedNoVideos} lowScore=${skippedLowScore} errors=${errors} ` +
+          `[progress] processed=${processed}/${plannedTotal} fetched=${fetched} masters=${fetchedMasters} matched=${matched} noTrack=${skippedNoTrack} noVideos=${skippedNoVideos} noVideosMaster=${skippedNoVideosMaster} lowScore=${skippedLowScore} errors=${errors} ` +
             `rate=${rate.toFixed(2)}/s eta=${Number.isFinite(etaSec) ? Math.round(etaSec / 60) + "m" : "?"}`
         );
       }
@@ -469,7 +520,7 @@ async function main() {
         const remaining = plannedTotal - processed;
         const etaSec = rate > 0 ? remaining / rate : Infinity;
         console.log(
-          `[progress] processed=${processed}/${plannedTotal} fetched=${fetched} matched=${matched} noTrack=${skippedNoTrack} noVideos=${skippedNoVideos} lowScore=${skippedLowScore} errors=${errors} ` +
+          `[progress] processed=${processed}/${plannedTotal} fetched=${fetched} masters=${fetchedMasters} matched=${matched} noTrack=${skippedNoTrack} noVideos=${skippedNoVideos} noVideosMaster=${skippedNoVideosMaster} lowScore=${skippedLowScore} errors=${errors} ` +
             `rate=${rate.toFixed(2)}/s eta=${Number.isFinite(etaSec) ? Math.round(etaSec / 60) + "m" : "?"}`
         );
       }
@@ -481,10 +532,15 @@ async function main() {
   console.log("\nDiscogs → YouTube enrichment complete:");
   console.log(`- processed: ${processed}`);
   console.log(`- fetched: ${fetched}`);
+  console.log(`- fetched masters (fallback): ${fetchedMasters}`);
   console.log(`- matched (written/updated): ${matched}`);
   console.log(`- skipped (no track title): ${skippedNoTrack}`);
   console.log(`- skipped (no Discogs YT videos): ${skippedNoVideos}`);
+  console.log(`- skipped (no master YT videos): ${skippedNoVideosMaster}`);
   console.log(`- skipped (low score): ${skippedLowScore}`);
+  console.log(
+    `  - low score but >=0.50: ${lowScoreAtLeast050} (>=0.40: ${lowScoreAtLeast040}, >=0.30: ${lowScoreAtLeast030})`
+  );
   console.log(`- errors: ${errors}`);
   console.log(`\nWrote: ${OUT_PATH}`);
   if (!existsSync(OVERRIDES_PATH)) {
