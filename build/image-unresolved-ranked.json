@@ -1,0 +1,4942 @@
+{
+  "summary": {
+    "total_unresolved": 145,
+    "auto_fix_recommended": 36,
+    "manual_review_needed": 109,
+    "scoring": "confidence = weighted artist/album string + token similarity; auto-fix threshold confidence>=93 and gap>=8"
+  },
+  "auto_fix_recommended": [
+    {
+      "artist": "New Dave Pike Set & Grupo Baiafro In Bahia, The",
+      "album": "Salomão",
+      "expected_filename": "New Dave Pike Set & Grupo Baiafro In Bahia, The-Salomão.jpeg",
+      "top_candidates": [
+        {
+          "filename": "New Dave Pike Set  Grupo Baiafro In Bahia, The-Salomão.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 94.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "New Dave Pike Set  Grupo Baiafro In Bahia, The",
+          "candidate_album": "Salomão"
+        },
+        {
+          "filename": "Pete &amp; Sheila Escovedo-Solo Two.jpeg",
+          "confidence": 32.6,
+          "artist_similarity": 27.9,
+          "album_similarity": 37.3,
+          "candidate_artist": "Pete &amp; Sheila Escovedo",
+          "candidate_album": "Solo Two"
+        },
+        {
+          "filename": "Peddlers And The London Philharmonic Orchestra, The-Suite London.jpeg",
+          "confidence": 31.2,
+          "artist_similarity": 32.9,
+          "album_similarity": 29.5,
+          "candidate_artist": "Peddlers And The London Philharmonic Orchestra, The",
+          "candidate_album": "Suite London"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 67.4,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Underdogs (Pig, Mann & Edwards), The",
+      "album": "Wasting Our Time",
+      "expected_filename": "Underdogs (Pig, Mann & Edwards), The-Wasting Our Time.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Underdogs Pig Mann  Edwards, The-Wasting Our Time.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 90.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Underdogs Pig Mann  Edwards, The",
+          "candidate_album": "Wasting Our Time"
+        },
+        {
+          "filename": "United States Army Field Band, The-Sing Out For America.jpeg",
+          "confidence": 38.4,
+          "artist_similarity": 34.1,
+          "album_similarity": 42.8,
+          "candidate_artist": "United States Army Field Band, The",
+          "candidate_album": "Sing Out For America"
+        },
+        {
+          "filename": "Gentlemen And Their Ladies-Party Time.jpeg",
+          "confidence": 38.3,
+          "artist_similarity": 31.3,
+          "album_similarity": 45.2,
+          "candidate_artist": "Gentlemen And Their Ladies",
+          "candidate_album": "Party Time"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 61.6,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Norrie Paramor & The Midland Radio Orchestra",
+      "album": "Thank You For The Music (Radio 2 Top Tunes, Vol. 5)",
+      "expected_filename": "Norrie Paramor & The Midland Radio Orchestra-Thank You For The Music (Radio 2 Top Tunes, Vol. 5).jpeg",
+      "top_candidates": [
+        {
+          "filename": "Norrie Paramor  The Midland Radio Orchestra-Thank You For The Music Radio 2 Top Tunes Vol. 5.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 92.5,
+          "album_similarity": 100.0,
+          "candidate_artist": "Norrie Paramor  The Midland Radio Orchestra",
+          "candidate_album": "Thank You For The Music Radio 2 Top Tunes Vol. 5"
+        },
+        {
+          "filename": "René Costy And His Orchestra-Chappell Mood Music Vol. 26 CMM226.jpeg",
+          "confidence": 38.9,
+          "artist_similarity": 45.7,
+          "album_similarity": 32.0,
+          "candidate_artist": "René Costy And His Orchestra",
+          "candidate_album": "Chappell Mood Music Vol. 26 CMM226"
+        },
+        {
+          "filename": "Roland Show Orchestra-Screen Music Vol. 5.jpeg",
+          "confidence": 37.2,
+          "artist_similarity": 38.9,
+          "album_similarity": 35.5,
+          "candidate_artist": "Roland Show Orchestra",
+          "candidate_album": "Screen Music Vol. 5"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 61.1,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "MPS Rhythm Combination & Brass Leader: Peter Herbolzheimer, The",
+      "album": "My Kind Of Sunshine",
+      "expected_filename": "MPS Rhythm Combination & Brass Leader: Peter Herbolzheimer, The-My Kind Of Sunshine.jpeg",
+      "top_candidates": [
+        {
+          "filename": "MPS Rhythm Combination  Brass Leader Peter Herbolzheimer, The-My Kind Of Sunshine.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 94.4,
+          "album_similarity": 100.0,
+          "candidate_artist": "MPS Rhythm Combination  Brass Leader Peter Herbolzheimer, The",
+          "candidate_album": "My Kind Of Sunshine"
+        },
+        {
+          "filename": "Rhythm Combination &amp; Brass, Peter Herbolzheimer-Wide Open.jpeg",
+          "confidence": 50.7,
+          "artist_similarity": 76.4,
+          "album_similarity": 25.0,
+          "candidate_artist": "Rhythm Combination &amp; Brass, Peter Herbolzheimer",
+          "candidate_album": "Wide Open"
+        },
+        {
+          "filename": "Rhythm Combination  Brass Peter Herbolzheimer-Wide Open.jpeg",
+          "confidence": 49.6,
+          "artist_similarity": 74.2,
+          "album_similarity": 25.0,
+          "candidate_artist": "Rhythm Combination  Brass Peter Herbolzheimer",
+          "candidate_album": "Wide Open"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 49.3,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Paul Revere & The Raiders Featuring Mark Lindsay",
+      "album": "Paul Revere And The Raiders Featuring Mark Lindsay",
+      "expected_filename": "Paul Revere & The Raiders Featuring Mark Lindsay-Paul Revere And The Raiders Featuring Mark Lindsay.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Paul Revere  The Raiders Featuring Mark Lindsay-Paul Revere And The Raiders Featuring Mark Lindsay.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 93.3,
+          "album_similarity": 100.0,
+          "candidate_artist": "Paul Revere  The Raiders Featuring Mark Lindsay",
+          "candidate_album": "Paul Revere And The Raiders Featuring Mark Lindsay"
+        },
+        {
+          "filename": "Paul Revere &amp; The Raiders Featuring Mark Lindsay-Hard 'N' Heavy (With Marshmallow).jpeg",
+          "confidence": 56.7,
+          "artist_similarity": 94.0,
+          "album_similarity": 19.5,
+          "candidate_artist": "Paul Revere &amp; The Raiders Featuring Mark Lindsay",
+          "candidate_album": "Hard 'N' Heavy (With Marshmallow)"
+        },
+        {
+          "filename": "Paul Revere  The Raiders Featuring Mark Lindsay-Hard N Heavy With Marshmallow.jpeg",
+          "confidence": 56.4,
+          "artist_similarity": 93.3,
+          "album_similarity": 19.5,
+          "candidate_artist": "Paul Revere  The Raiders Featuring Mark Lindsay",
+          "candidate_album": "Hard N Heavy With Marshmallow"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 43.3,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Rob McConnell & The Boss Brass",
+      "album": "Put Your Hand In The Hand",
+      "expected_filename": "Rob McConnell & The Boss Brass-Put Your Hand In The Hand.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Rob McConnell  The Boss Brass-Put Your Hand In The Hand.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 90.3,
+          "album_similarity": 100.0,
+          "candidate_artist": "Rob McConnell  The Boss Brass",
+          "candidate_album": "Put Your Hand In The Hand"
+        },
+        {
+          "filename": "Clyde Shelton Singers, The-Put Your Hand In The Hand.jpeg",
+          "confidence": 65.7,
+          "artist_similarity": 25.4,
+          "album_similarity": 100.0,
+          "candidate_artist": "Clyde Shelton Singers, The",
+          "candidate_album": "Put Your Hand In The Hand"
+        },
+        {
+          "filename": "Lynn Anderson-Put Your Hand In The Hand.jpeg",
+          "confidence": 65.4,
+          "artist_similarity": 24.9,
+          "album_similarity": 100.0,
+          "candidate_artist": "Lynn Anderson",
+          "candidate_album": "Put Your Hand In The Hand"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 34.3,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Ralph Carmichael",
+      "album": "Ralph Carmichael & The Family Of Light",
+      "expected_filename": "Ralph Carmichael-Ralph Carmichael & The Family Of Light.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Ralph Carmichael-Ralph Carmichael  The Family Of Light.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 92.0,
+          "candidate_artist": "Ralph Carmichael",
+          "candidate_album": "Ralph Carmichael  The Family Of Light"
+        },
+        {
+          "filename": "Ralph Carmichael-The Cross And The Switchblade (Original Sound Track Music).jpeg",
+          "confidence": 69.2,
+          "artist_similarity": 100.0,
+          "album_similarity": 32.3,
+          "candidate_artist": "Ralph Carmichael",
+          "candidate_album": "The Cross And The Switchblade (Original Sound Track Music)"
+        },
+        {
+          "filename": "Narada Michael Walden-The Dance Of Life.jpeg",
+          "confidence": 35.8,
+          "artist_similarity": 37.8,
+          "album_similarity": 33.7,
+          "candidate_artist": "Narada Michael Walden",
+          "candidate_album": "The Dance Of Life"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 30.8,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Toshiko Yonekawa, 山屋清とコンテンポラリー・サウント・オーケストラ",
+      "album": "Tapestry Koto & The Occident Hillside 箏　山を詩う",
+      "expected_filename": "Toshiko Yonekawa, 山屋清とコンテンポラリー・サウント・オーケストラ-Tapestry Koto & The Occident Hillside 箏　山を詩う.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Toshiko Yonekawa, 山屋清とコンテンポラリー・サウント・オーケストラ-Tapestry Koto &amp; The Occident Hillside 箏　山を詩う.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 93.8,
+          "candidate_artist": "Toshiko Yonekawa, 山屋清とコンテンポラリー・サウント・オーケストラ",
+          "candidate_album": "Tapestry Koto &amp; The Occident Hillside 箏　山を詩う"
+        },
+        {
+          "filename": "Toshiko Yonekawa 山屋清とコンテンポラリーサウントオーケストラ-Tapestry Koto  The Occident Hillside 箏山を詩う.jpeg",
+          "confidence": 82.4,
+          "artist_similarity": 78.2,
+          "album_similarity": 82.6,
+          "candidate_artist": "Toshiko Yonekawa 山屋清とコンテンポラリーサウントオーケストラ",
+          "candidate_album": "Tapestry Koto  The Occident Hillside 箏山を詩う"
+        },
+        {
+          "filename": "KC and the Sunshine Band-KC and the Sunshine Band copy.jpeg",
+          "confidence": 25.0,
+          "artist_similarity": 15.1,
+          "album_similarity": 34.9,
+          "candidate_artist": "KC and the Sunshine Band",
+          "candidate_album": "KC and the Sunshine Band copy"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 17.6,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Thelma Houston & Pressure Cooker",
+      "album": "I've Got The Music In Me",
+      "expected_filename": "Thelma Houston & Pressure Cooker-I've Got The Music In Me.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Thelma Houston &amp; Pressure Cooker-I've Got The Music In Me.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 91.1,
+          "album_similarity": 100.0,
+          "candidate_artist": "Thelma Houston &amp; Pressure Cooker",
+          "candidate_album": "I've Got The Music In Me"
+        },
+        {
+          "filename": "Thelma Houston  Pressure Cooker-Ive Got The Music In Me.jpeg",
+          "confidence": 90.4,
+          "artist_similarity": 89.6,
+          "album_similarity": 87.3,
+          "candidate_artist": "Thelma Houston  Pressure Cooker",
+          "candidate_album": "Ive Got The Music In Me"
+        },
+        {
+          "filename": "Thelma Houston-The Devil In Me.jpeg",
+          "confidence": 51.8,
+          "artist_similarity": 52.8,
+          "album_similarity": 50.7,
+          "candidate_artist": "Thelma Houston",
+          "candidate_album": "The Devil In Me"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 9.6,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Ray McVay, His Brass, His Strings, His Chorus & His Singers",
+      "album": "Top Pop Party - A Pop Singalong By ...",
+      "expected_filename": "Ray McVay, His Brass, His Strings, His Chorus & His Singers-Top Pop Party - A Pop Singalong By ....jpeg",
+      "top_candidates": [
+        {
+          "filename": "Ray McVay His Brass His Strings His Chorus  His Singers-Top Pop Party - A Pop Singalong By ....jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 93.8,
+          "album_similarity": 100.0,
+          "candidate_artist": "Ray McVay His Brass His Strings His Chorus  His Singers",
+          "candidate_album": "Top Pop Party - A Pop Singalong By ..."
+        },
+        {
+          "filename": "Ray McVay, His Brass, His Strings, His Chorus &amp; His Singers-Top Pop Party-A Pop Singalong By ....jpeg",
+          "confidence": 90.6,
+          "artist_similarity": 94.3,
+          "album_similarity": 82.9,
+          "candidate_artist": "Ray McVay, His Brass, His Strings, His Chorus &amp; His Singers",
+          "candidate_album": "Top Pop Party-A Pop Singalong By ..."
+        },
+        {
+          "filename": "Orchester Henry May  The Happy Sound Singers-Hammond Party Mit Den Happy Sound Singers.jpeg",
+          "confidence": 32.0,
+          "artist_similarity": 29.9,
+          "album_similarity": 34.0,
+          "candidate_artist": "Orchester Henry May  The Happy Sound Singers",
+          "candidate_album": "Hammond Party Mit Den Happy Sound Singers"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 9.4,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Keith Hudson",
+      "album": "Playing It Cool & Playing It Right",
+      "expected_filename": "Keith Hudson-Playing It Cool & Playing It Right.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Keith Hudson-Playing It Cool  Playing It Right.jpeg",
+          "confidence": 99.9,
+          "artist_similarity": 100.0,
+          "album_similarity": 89.9,
+          "candidate_artist": "Keith Hudson",
+          "candidate_album": "Playing It Cool  Playing It Right"
+        },
+        {
+          "filename": "Keith Richards-Talk Is Cheap.jpeg",
+          "confidence": 39.2,
+          "artist_similarity": 58.5,
+          "album_similarity": 20.0,
+          "candidate_artist": "Keith Richards",
+          "candidate_album": "Talk Is Cheap"
+        },
+        {
+          "filename": "Lighthouse-Peacing It All Together.jpeg",
+          "confidence": 34.4,
+          "artist_similarity": 31.8,
+          "album_similarity": 37.0,
+          "candidate_artist": "Lighthouse",
+          "candidate_album": "Peacing It All Together"
+        }
+      ],
+      "best_confidence": 99.9,
+      "confidence_gap": 60.7,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Sly & The Family Stone",
+      "album": "There's A Riot Goin' On",
+      "expected_filename": "Sly & The Family Stone-There's A Riot Goin' On.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Sly &amp; The Family Stone-There's A Riot Goin' On.jpeg",
+          "confidence": 99.8,
+          "artist_similarity": 89.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Sly &amp; The Family Stone",
+          "candidate_album": "There's A Riot Goin' On"
+        },
+        {
+          "filename": "Sly  The Family Stone-Theres A Riot Goin On.jpeg",
+          "confidence": 86.6,
+          "artist_similarity": 87.6,
+          "album_similarity": 85.5,
+          "candidate_artist": "Sly  The Family Stone",
+          "candidate_album": "Theres A Riot Goin On"
+        },
+        {
+          "filename": "Sly &amp; The Family Stone-Dance To The Music.jpeg",
+          "confidence": 55.3,
+          "artist_similarity": 89.6,
+          "album_similarity": 21.0,
+          "candidate_artist": "Sly &amp; The Family Stone",
+          "candidate_album": "Dance To The Music"
+        }
+      ],
+      "best_confidence": 99.8,
+      "confidence_gap": 13.2,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Monk Higgins & The Specialties",
+      "album": "Heavyweight",
+      "expected_filename": "Monk Higgins & The Specialties-Heavyweight.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Monk Higgins  The Specialties-Heavyweight.jpeg",
+          "confidence": 99.7,
+          "artist_similarity": 89.3,
+          "album_similarity": 100.0,
+          "candidate_artist": "Monk Higgins  The Specialties",
+          "candidate_album": "Heavyweight"
+        },
+        {
+          "filename": "Whispers, The-Headlights.jpeg",
+          "confidence": 37.0,
+          "artist_similarity": 27.3,
+          "album_similarity": 46.7,
+          "candidate_artist": "Whispers, The",
+          "candidate_album": "Headlights"
+        },
+        {
+          "filename": "Tommy James And The Shondells-Travelin'.jpeg",
+          "confidence": 36.8,
+          "artist_similarity": 44.2,
+          "album_similarity": 29.5,
+          "candidate_artist": "Tommy James And The Shondells",
+          "candidate_album": "Travelin'"
+        }
+      ],
+      "best_confidence": 99.7,
+      "confidence_gap": 62.7,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Takeshi Onodera & Los Onoderas",
+      "album": "Dynamic Latin Drums",
+      "expected_filename": "Takeshi Onodera & Los Onoderas-Dynamic Latin Drums.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Takeshi Onodera  Los Onoderas-Dynamic Latin Drums.jpeg",
+          "confidence": 99.7,
+          "artist_similarity": 89.3,
+          "album_similarity": 100.0,
+          "candidate_artist": "Takeshi Onodera  Los Onoderas",
+          "candidate_album": "Dynamic Latin Drums"
+        },
+        {
+          "filename": "Charly Antolini's Power Dozen-Atomic Drums.jpeg",
+          "confidence": 39.0,
+          "artist_similarity": 25.2,
+          "album_similarity": 52.7,
+          "candidate_artist": "Charly Antolini's Power Dozen",
+          "candidate_album": "Atomic Drums"
+        },
+        {
+          "filename": "Edmundo Ros And His Orchestra-Hair Goes Latin.jpeg",
+          "confidence": 36.1,
+          "artist_similarity": 33.2,
+          "album_similarity": 38.9,
+          "candidate_artist": "Edmundo Ros And His Orchestra",
+          "candidate_album": "Hair Goes Latin"
+        }
+      ],
+      "best_confidence": 99.7,
+      "confidence_gap": 60.7,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Sadakazu Tabata & Groovy 6",
+      "album": "Smash In The Rock ",
+      "expected_filename": "Sadakazu Tabata & Groovy 6-Smash In The Rock .jpeg",
+      "top_candidates": [
+        {
+          "filename": "Sadakazu Tabata  Groovy 6-Smash In The Rock .jpeg",
+          "confidence": 99.3,
+          "artist_similarity": 88.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Sadakazu Tabata  Groovy 6",
+          "candidate_album": "Smash In The Rock "
+        },
+        {
+          "filename": "Charlie Daniels-Honey In The Rock.jpeg",
+          "confidence": 42.3,
+          "artist_similarity": 13.0,
+          "album_similarity": 71.5,
+          "candidate_artist": "Charlie Daniels",
+          "candidate_album": "Honey In The Rock"
+        },
+        {
+          "filename": "Esko Linnavalli & Esa Katajavuori-On The Rocks.jpeg",
+          "confidence": 38.3,
+          "artist_similarity": 23.3,
+          "album_similarity": 53.3,
+          "candidate_artist": "Esko Linnavalli & Esa Katajavuori",
+          "candidate_album": "On The Rocks"
+        }
+      ],
+      "best_confidence": 99.3,
+      "confidence_gap": 57.0,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Steps, Sandra & Marini, The",
+      "album": "Semula Di Singapura",
+      "expected_filename": "Steps, Sandra & Marini, The-Semula Di Singapura.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Steps Sandra  Marini, The-Semula Di Singapura.jpeg",
+          "confidence": 99.2,
+          "artist_similarity": 88.4,
+          "album_similarity": 100.0,
+          "candidate_artist": "Steps Sandra  Marini, The",
+          "candidate_album": "Semula Di Singapura"
+        },
+        {
+          "filename": "Sensational Nightingales, The-See You In The Rapture.jpeg",
+          "confidence": 37.0,
+          "artist_similarity": 39.9,
+          "album_similarity": 34.1,
+          "candidate_artist": "Sensational Nightingales, The",
+          "candidate_album": "See You In The Rapture"
+        },
+        {
+          "filename": "Ecstasy, Passion & Pain-Ecstasy, Passion & Pain.jpeg",
+          "confidence": 35.7,
+          "artist_similarity": 42.2,
+          "album_similarity": 29.3,
+          "candidate_artist": "Ecstasy, Passion & Pain",
+          "candidate_album": "Ecstasy, Passion & Pain"
+        }
+      ],
+      "best_confidence": 99.2,
+      "confidence_gap": 62.2,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "KC and the Sunshine Band",
+      "album": "KC and the Sunshine Band",
+      "expected_filename": "KC and the Sunshine Band-KC and the Sunshine Band.jpeg",
+      "top_candidates": [
+        {
+          "filename": "KC and the Sunshine Band-KC and the Sunshine Band copy.jpeg",
+          "confidence": 99.2,
+          "artist_similarity": 100.0,
+          "album_similarity": 88.4,
+          "candidate_artist": "KC and the Sunshine Band",
+          "candidate_album": "KC and the Sunshine Band copy"
+        },
+        {
+          "filename": "Rocky Mizell And The Sugar Rock Band-Rocky Mizell And The Sugar Rock Band.jpeg",
+          "confidence": 49.7,
+          "artist_similarity": 49.7,
+          "album_similarity": 49.7,
+          "candidate_artist": "Rocky Mizell And The Sugar Rock Band",
+          "candidate_album": "Rocky Mizell And The Sugar Rock Band"
+        },
+        {
+          "filename": "Kool And The Gang-Kool And The Gang.jpeg",
+          "confidence": 49.5,
+          "artist_similarity": 49.5,
+          "album_similarity": 49.5,
+          "candidate_artist": "Kool And The Gang",
+          "candidate_album": "Kool And The Gang"
+        }
+      ],
+      "best_confidence": 99.2,
+      "confidence_gap": 49.5,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "KC and the Sunshine Band",
+      "album": "KC and the Sunshine Band",
+      "expected_filename": "KC and the Sunshine Band-KC and the Sunshine Band.jpeg",
+      "top_candidates": [
+        {
+          "filename": "KC and the Sunshine Band-KC and the Sunshine Band copy.jpeg",
+          "confidence": 99.2,
+          "artist_similarity": 100.0,
+          "album_similarity": 88.4,
+          "candidate_artist": "KC and the Sunshine Band",
+          "candidate_album": "KC and the Sunshine Band copy"
+        },
+        {
+          "filename": "Rocky Mizell And The Sugar Rock Band-Rocky Mizell And The Sugar Rock Band.jpeg",
+          "confidence": 49.7,
+          "artist_similarity": 49.7,
+          "album_similarity": 49.7,
+          "candidate_artist": "Rocky Mizell And The Sugar Rock Band",
+          "candidate_album": "Rocky Mizell And The Sugar Rock Band"
+        },
+        {
+          "filename": "Kool And The Gang-Kool And The Gang.jpeg",
+          "confidence": 49.5,
+          "artist_similarity": 49.5,
+          "album_similarity": 49.5,
+          "candidate_artist": "Kool And The Gang",
+          "candidate_album": "Kool And The Gang"
+        }
+      ],
+      "best_confidence": 99.2,
+      "confidence_gap": 49.5,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Rufus Thomas & Carla Thomas",
+      "album": "Chronicle: Their Greatest Stax Hits",
+      "expected_filename": "Rufus Thomas & Carla Thomas-Chronicle: Their Greatest Stax Hits.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Rufus Thomas  Carla Thomas-Chronicle Their Greatest Stax Hits.jpeg",
+          "confidence": 98.7,
+          "artist_similarity": 87.3,
+          "album_similarity": 100.0,
+          "candidate_artist": "Rufus Thomas  Carla Thomas",
+          "candidate_album": "Chronicle Their Greatest Stax Hits"
+        },
+        {
+          "filename": "Rufus Thomas-Did You Heard Me.jpeg",
+          "confidence": 37.8,
+          "artist_similarity": 56.0,
+          "album_similarity": 19.6,
+          "candidate_artist": "Rufus Thomas",
+          "candidate_album": "Did You Heard Me"
+        },
+        {
+          "filename": "Heaven Sent & Ecstasy-The Greatest Love Story.jpeg",
+          "confidence": 37.2,
+          "artist_similarity": 33.9,
+          "album_similarity": 40.6,
+          "candidate_artist": "Heaven Sent & Ecstasy",
+          "candidate_album": "The Greatest Love Story"
+        }
+      ],
+      "best_confidence": 98.7,
+      "confidence_gap": 60.9,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "World's Greatest Jazzband Of Yank Lawson & Bob Haggart, The",
+      "album": "Extra!",
+      "expected_filename": "World's Greatest Jazzband Of Yank Lawson & Bob Haggart, The-Extra!.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Worlds Greatest Jazzband Of Yank Lawson  Bob Haggart, The-Extra.jpeg",
+          "confidence": 98.5,
+          "artist_similarity": 87.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Worlds Greatest Jazzband Of Yank Lawson  Bob Haggart, The",
+          "candidate_album": "Extra"
+        },
+        {
+          "filename": "Heads Hands & Feet-Tracks.jpeg",
+          "confidence": 31.5,
+          "artist_similarity": 24.9,
+          "album_similarity": 38.2,
+          "candidate_artist": "Heads Hands & Feet",
+          "candidate_album": "Tracks"
+        },
+        {
+          "filename": "Royal Blue, The-Traces.jpeg",
+          "confidence": 29.7,
+          "artist_similarity": 21.2,
+          "album_similarity": 38.2,
+          "candidate_artist": "Royal Blue, The",
+          "candidate_album": "Traces"
+        }
+      ],
+      "best_confidence": 98.5,
+      "confidence_gap": 67.0,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Various",
+      "album": "Rhythm & Blues Formidable (Vol. 12)",
+      "expected_filename": "Various-Rhythm & Blues Formidable (Vol. 12).jpeg",
+      "top_candidates": [
+        {
+          "filename": "Various-Rhythm  Blues Formidable Vol. 12.jpeg",
+          "confidence": 98.3,
+          "artist_similarity": 100.0,
+          "album_similarity": 90.6,
+          "candidate_artist": "Various",
+          "candidate_album": "Rhythm  Blues Formidable Vol. 12"
+        },
+        {
+          "filename": "Various-The Rhythm Record.jpeg",
+          "confidence": 70.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 33.9,
+          "candidate_artist": "Various",
+          "candidate_album": "The Rhythm Record"
+        },
+        {
+          "filename": "Various-Audio Master Plus Series Sampler Vol. 1.jpeg",
+          "confidence": 69.8,
+          "artist_similarity": 100.0,
+          "album_similarity": 33.6,
+          "candidate_artist": "Various",
+          "candidate_album": "Audio Master Plus Series Sampler Vol. 1"
+        }
+      ],
+      "best_confidence": 98.3,
+      "confidence_gap": 28.3,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Phoenix Authority, The",
+      "album": "Blood, Sweat & Brass",
+      "expected_filename": "Phoenix Authority, The-Blood, Sweat & Brass.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Phoenix Authority, The-Blood Sweat  Brass.jpeg",
+          "confidence": 97.6,
+          "artist_similarity": 100.0,
+          "album_similarity": 85.1,
+          "candidate_artist": "Phoenix Authority, The",
+          "candidate_album": "Blood Sweat  Brass"
+        },
+        {
+          "filename": "5th Dimension, The-Love's Lines, Angles And Rhymes.jpeg",
+          "confidence": 39.1,
+          "artist_similarity": 39.2,
+          "album_similarity": 39.0,
+          "candidate_artist": "5th Dimension, The",
+          "candidate_album": "Love's Lines, Angles And Rhymes"
+        },
+        {
+          "filename": "Bears, The-Rise And Shine.jpeg",
+          "confidence": 38.6,
+          "artist_similarity": 40.2,
+          "album_similarity": 37.0,
+          "candidate_artist": "Bears, The",
+          "candidate_album": "Rise And Shine"
+        }
+      ],
+      "best_confidence": 97.6,
+      "confidence_gap": 58.5,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Jeremy & The Satyrs",
+      "album": "Jeremy & The Satyrs",
+      "expected_filename": "Jeremy & The Satyrs-Jeremy & The Satyrs.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Jeremy  The Satyrs-Jeremy & The Satyrs.jpeg",
+          "confidence": 97.6,
+          "artist_similarity": 85.1,
+          "album_similarity": 100.0,
+          "candidate_artist": "Jeremy  The Satyrs",
+          "candidate_album": "Jeremy & The Satyrs"
+        },
+        {
+          "filename": "Mary And The Maoris-Mary And The Maoris.jpeg",
+          "confidence": 52.0,
+          "artist_similarity": 52.0,
+          "album_similarity": 52.0,
+          "candidate_artist": "Mary And The Maoris",
+          "candidate_album": "Mary And The Maoris"
+        },
+        {
+          "filename": "Kool And The Gang-Kool And The Gang.jpeg",
+          "confidence": 46.8,
+          "artist_similarity": 46.8,
+          "album_similarity": 46.8,
+          "candidate_artist": "Kool And The Gang",
+          "candidate_album": "Kool And The Gang"
+        }
+      ],
+      "best_confidence": 97.6,
+      "confidence_gap": 45.6,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Keith Mansfield / John Cameron",
+      "album": "Theme Suites / Mustang",
+      "expected_filename": "Keith Mansfield / John Cameron-Theme Suites / Mustang.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Keith Mansfield  John Cameron-Theme Suites  Mustang copy.jpeg",
+          "confidence": 97.4,
+          "artist_similarity": 100.0,
+          "album_similarity": 84.7,
+          "candidate_artist": "Keith Mansfield  John Cameron",
+          "candidate_album": "Theme Suites  Mustang copy"
+        },
+        {
+          "filename": "John Cameron-A Touch Of Class.jpeg",
+          "confidence": 38.2,
+          "artist_similarity": 57.0,
+          "album_similarity": 19.4,
+          "candidate_artist": "John Cameron",
+          "candidate_album": "A Touch Of Class"
+        },
+        {
+          "filename": "Keith Mansfield Orchestra, The-All You Need Is Keith Mansfield.jpeg",
+          "confidence": 37.8,
+          "artist_similarity": 59.1,
+          "album_similarity": 16.5,
+          "candidate_artist": "Keith Mansfield Orchestra, The",
+          "candidate_album": "All You Need Is Keith Mansfield"
+        }
+      ],
+      "best_confidence": 97.4,
+      "confidence_gap": 59.2,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Tony Alvon & the Belairs",
+      "album": "",
+      "expected_filename": "Tony Alvon & the Belairs-.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Tony Alvon  the Belairs-.jpeg",
+          "confidence": 97.1,
+          "artist_similarity": 88.2,
+          "album_similarity": 100.0,
+          "candidate_artist": "Tony Alvon  the Belairs",
+          "candidate_album": ""
+        },
+        {
+          "filename": "Honey Drippers, The-.jpeg",
+          "confidence": 69.5,
+          "artist_similarity": 32.9,
+          "album_similarity": 100.0,
+          "candidate_artist": "Honey Drippers, The",
+          "candidate_album": ""
+        },
+        {
+          "filename": "Melvin Bliss-.jpeg",
+          "confidence": 67.7,
+          "artist_similarity": 29.5,
+          "album_similarity": 100.0,
+          "candidate_artist": "Melvin Bliss",
+          "candidate_album": ""
+        }
+      ],
+      "best_confidence": 97.1,
+      "confidence_gap": 27.6,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Sly & The Family Stone",
+      "album": "Small Talk",
+      "expected_filename": "Sly & The Family Stone-Small Talk.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Sly  The Family Stone-Small Talk.jpeg",
+          "confidence": 96.8,
+          "artist_similarity": 87.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Sly  The Family Stone",
+          "candidate_album": "Small Talk"
+        },
+        {
+          "filename": "Sly &amp; The Family Stone-A Whole New Thing.jpeg",
+          "confidence": 55.2,
+          "artist_similarity": 89.6,
+          "album_similarity": 20.7,
+          "candidate_artist": "Sly &amp; The Family Stone",
+          "candidate_album": "A Whole New Thing"
+        },
+        {
+          "filename": "Sly  The Family Stone-A Whole New Thing.jpeg",
+          "confidence": 54.2,
+          "artist_similarity": 87.6,
+          "album_similarity": 20.7,
+          "candidate_artist": "Sly  The Family Stone",
+          "candidate_album": "A Whole New Thing"
+        }
+      ],
+      "best_confidence": 96.8,
+      "confidence_gap": 41.6,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Young & Rubicam Production",
+      "album": "Buy Buy Baby ",
+      "expected_filename": "Young & Rubicam Production-Buy Buy Baby .jpeg",
+      "top_candidates": [
+        {
+          "filename": "Young  Rubicam Production-Buy Buy Baby .jpeg",
+          "confidence": 96.6,
+          "artist_similarity": 87.1,
+          "album_similarity": 100.0,
+          "candidate_artist": "Young  Rubicam Production",
+          "candidate_album": "Buy Buy Baby "
+        },
+        {
+          "filename": "Nat Adderley-You, Baby.jpeg",
+          "confidence": 34.8,
+          "artist_similarity": 17.5,
+          "album_similarity": 52.0,
+          "candidate_artist": "Nat Adderley",
+          "candidate_album": "You, Baby"
+        },
+        {
+          "filename": "Mieko Hirota-私のベイビー = Be My Baby.jpeg",
+          "confidence": 32.8,
+          "artist_similarity": 21.0,
+          "album_similarity": 44.6,
+          "candidate_artist": "Mieko Hirota",
+          "candidate_album": "私のベイビー = Be My Baby"
+        }
+      ],
+      "best_confidence": 96.6,
+      "confidence_gap": 61.8,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Les Grands Colombias d'Adzope & Stanley Murphy",
+      "album": "Ambiance Abidjan",
+      "expected_filename": "Les Grands Colombias d'Adzope & Stanley Murphy-Ambiance Abidjan.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Les Grands Colombias dAdzope  Stanley Murphy-Ambiance Abidjan.jpeg",
+          "confidence": 96.4,
+          "artist_similarity": 82.8,
+          "album_similarity": 100.0,
+          "candidate_artist": "Les Grands Colombias dAdzope  Stanley Murphy",
+          "candidate_album": "Ambiance Abidjan"
+        },
+        {
+          "filename": "Nicholas Flagello And Walter Murphy-Untitled.jpeg",
+          "confidence": 30.9,
+          "artist_similarity": 44.2,
+          "album_similarity": 17.5,
+          "candidate_artist": "Nicholas Flagello And Walter Murphy",
+          "candidate_album": "Untitled"
+        },
+        {
+          "filename": "Andy Loore-Ambiance Rythmes Vol. 5.jpeg",
+          "confidence": 29.2,
+          "artist_similarity": 19.3,
+          "album_similarity": 39.2,
+          "candidate_artist": "Andy Loore",
+          "candidate_album": "Ambiance Rythmes Vol. 5"
+        }
+      ],
+      "best_confidence": 96.4,
+      "confidence_gap": 65.5,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Rich Wamil & Copperpenny",
+      "album": "Fuse",
+      "expected_filename": "Rich Wamil & Copperpenny-Fuse.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Rich Wamil  Copperpenny-Fuse.jpeg",
+          "confidence": 96.3,
+          "artist_similarity": 86.7,
+          "album_similarity": 100.0,
+          "candidate_artist": "Rich Wamil  Copperpenny",
+          "candidate_album": "Fuse"
+        },
+        {
+          "filename": "FUSE-Fuse.jpeg",
+          "confidence": 55.3,
+          "artist_similarity": 4.7,
+          "album_similarity": 100.0,
+          "candidate_artist": "FUSE",
+          "candidate_album": "Fuse"
+        },
+        {
+          "filename": "Brian Auger & The Trinity-Befour.jpeg",
+          "confidence": 33.0,
+          "artist_similarity": 38.1,
+          "album_similarity": 28.0,
+          "candidate_artist": "Brian Auger & The Trinity",
+          "candidate_album": "Befour"
+        }
+      ],
+      "best_confidence": 96.3,
+      "confidence_gap": 41.0,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Supremes, The",
+      "album": "Mary, Scherrie & Susaye",
+      "expected_filename": "Supremes, The-Mary, Scherrie & Susaye.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Supremes, The-Mary Scherrie  Susaye.jpeg",
+          "confidence": 96.1,
+          "artist_similarity": 100.0,
+          "album_similarity": 86.1,
+          "candidate_artist": "Supremes, The",
+          "candidate_album": "Mary Scherrie  Susaye"
+        },
+        {
+          "filename": "Tremeloes, The-Alan Dave Rick And Chip.jpeg",
+          "confidence": 47.0,
+          "artist_similarity": 60.4,
+          "album_similarity": 33.5,
+          "candidate_artist": "Tremeloes, The",
+          "candidate_album": "Alan Dave Rick And Chip"
+        },
+        {
+          "filename": "Bears, The-Rise And Shine.jpeg",
+          "confidence": 45.9,
+          "artist_similarity": 50.0,
+          "album_similarity": 41.8,
+          "candidate_artist": "Bears, The",
+          "candidate_album": "Rise And Shine"
+        }
+      ],
+      "best_confidence": 96.1,
+      "confidence_gap": 49.1,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Various",
+      "album": "American Stars & Hits",
+      "expected_filename": "Various-American Stars & Hits.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Various-American Stars  Hits.jpeg",
+          "confidence": 95.9,
+          "artist_similarity": 100.0,
+          "album_similarity": 85.8,
+          "candidate_artist": "Various",
+          "candidate_album": "American Stars  Hits"
+        },
+        {
+          "filename": "Various-21 Guitar Hits.jpeg",
+          "confidence": 72.5,
+          "artist_similarity": 100.0,
+          "album_similarity": 39.1,
+          "candidate_artist": "Various",
+          "candidate_album": "21 Guitar Hits"
+        },
+        {
+          "filename": "Various-Greatest Hits Vol 7.jpeg",
+          "confidence": 70.1,
+          "artist_similarity": 100.0,
+          "album_similarity": 34.3,
+          "candidate_artist": "Various",
+          "candidate_album": "Greatest Hits Vol 7"
+        }
+      ],
+      "best_confidence": 95.9,
+      "confidence_gap": 23.4,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Wess & The Airedales",
+      "album": "Vehicle",
+      "expected_filename": "Wess & The Airedales-Vehicle.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Wess  The Airedales-Vehicle.jpeg",
+          "confidence": 95.8,
+          "artist_similarity": 85.5,
+          "album_similarity": 100.0,
+          "candidate_artist": "Wess  The Airedales",
+          "candidate_album": "Vehicle"
+        },
+        {
+          "filename": "Wess E The Airedales-Superwess.jpeg",
+          "confidence": 49.4,
+          "artist_similarity": 81.3,
+          "album_similarity": 17.5,
+          "candidate_artist": "Wess E The Airedales",
+          "candidate_album": "Superwess"
+        },
+        {
+          "filename": "Siouxsie And The Banshees-The Scream.jpeg",
+          "confidence": 38.2,
+          "artist_similarity": 51.7,
+          "album_similarity": 24.7,
+          "candidate_artist": "Siouxsie And The Banshees",
+          "candidate_album": "The Scream"
+        }
+      ],
+      "best_confidence": 95.8,
+      "confidence_gap": 46.4,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Wish & Fonda Rae",
+      "album": "",
+      "expected_filename": "Wish & Fonda Rae-.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Wish  Fonda Rae-.jpeg",
+          "confidence": 94.9,
+          "artist_similarity": 83.7,
+          "album_similarity": 100.0,
+          "candidate_artist": "Wish  Fonda Rae",
+          "candidate_album": ""
+        },
+        {
+          "filename": "In Search Of...Orchestra-.jpeg",
+          "confidence": 67.0,
+          "artist_similarity": 28.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "In Search Of...Orchestra",
+          "candidate_album": ""
+        },
+        {
+          "filename": "Wilbur Bad Bascomb-.jpeg",
+          "confidence": 66.6,
+          "artist_similarity": 27.2,
+          "album_similarity": 100.0,
+          "candidate_artist": "Wilbur Bad Bascomb",
+          "candidate_album": ""
+        }
+      ],
+      "best_confidence": 94.9,
+      "confidence_gap": 27.9,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Rufus & Chaka",
+      "album": "Do You Love What You Feel (Special U.S. Disco Mix)",
+      "expected_filename": "Rufus & Chaka-Do You Love What You Feel (Special U.S. Disco Mix).jpeg",
+      "top_candidates": [
+        {
+          "filename": "Rufus  Chaka-Do You Love What You Feel Special U.S. Disco Mix.jpeg",
+          "confidence": 94.6,
+          "artist_similarity": 79.2,
+          "album_similarity": 100.0,
+          "candidate_artist": "Rufus  Chaka",
+          "candidate_album": "Do You Love What You Feel Special U.S. Disco Mix"
+        },
+        {
+          "filename": "Rufus &amp; Chaka-Masterjam.jpeg",
+          "confidence": 45.9,
+          "artist_similarity": 84.3,
+          "album_similarity": 7.5,
+          "candidate_artist": "Rufus &amp; Chaka",
+          "candidate_album": "Masterjam"
+        },
+        {
+          "filename": "Rufus  Chaka-Masterjam.jpeg",
+          "confidence": 43.4,
+          "artist_similarity": 79.2,
+          "album_similarity": 7.5,
+          "candidate_artist": "Rufus  Chaka",
+          "candidate_album": "Masterjam"
+        }
+      ],
+      "best_confidence": 94.6,
+      "confidence_gap": 48.7,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Rabbits & Carrots",
+      "album": "Soul Latino ",
+      "expected_filename": "Rabbits & Carrots-Soul Latino .jpeg",
+      "top_candidates": [
+        {
+          "filename": "Rabbits  Carrots-Soul Latino .jpeg",
+          "confidence": 93.9,
+          "artist_similarity": 81.8,
+          "album_similarity": 100.0,
+          "candidate_artist": "Rabbits  Carrots",
+          "candidate_album": "Soul Latino "
+        },
+        {
+          "filename": "Booker T. & The MG's-Soul Limbo.jpeg",
+          "confidence": 49.3,
+          "artist_similarity": 35.2,
+          "album_similarity": 63.3,
+          "candidate_artist": "Booker T. & The MG's",
+          "candidate_album": "Soul Limbo"
+        },
+        {
+          "filename": "Booker T. &amp; The MG's-Soul Limbo.jpeg",
+          "confidence": 49.2,
+          "artist_similarity": 35.2,
+          "album_similarity": 63.3,
+          "candidate_artist": "Booker T. &amp; The MG's",
+          "candidate_album": "Soul Limbo"
+        }
+      ],
+      "best_confidence": 93.9,
+      "confidence_gap": 44.6,
+      "auto_fix_recommended": true
+    },
+    {
+      "artist": "Super Session",
+      "album": "Welcome & Alive",
+      "expected_filename": "Super Session-Welcome & Alive.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Super Session-Welcome  Alive.jpeg",
+          "confidence": 93.3,
+          "artist_similarity": 100.0,
+          "album_similarity": 80.7,
+          "candidate_artist": "Super Session",
+          "candidate_album": "Welcome  Alive"
+        },
+        {
+          "filename": "Toussaint-Life, Love And Faith.jpeg",
+          "confidence": 39.8,
+          "artist_similarity": 31.8,
+          "album_similarity": 47.8,
+          "candidate_artist": "Toussaint",
+          "candidate_album": "Life, Love And Faith"
+        },
+        {
+          "filename": "Lee Moses-Time And Place.jpeg",
+          "confidence": 39.2,
+          "artist_similarity": 31.8,
+          "album_similarity": 46.6,
+          "candidate_artist": "Lee Moses",
+          "candidate_album": "Time And Place"
+        }
+      ],
+      "best_confidence": 93.3,
+      "confidence_gap": 53.5,
+      "auto_fix_recommended": true
+    }
+  ],
+  "manual_review_needed": [
+    {
+      "artist": "Sugarloaf / Jerry Corbetta",
+      "album": "Don't Call Us, We'll Call You",
+      "expected_filename": "Sugarloaf / Jerry Corbetta-Don't Call Us, We'll Call You.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Sugarloaf  Jerry Corbetta-Don't Call Us, We'll Call You.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Sugarloaf  Jerry Corbetta",
+          "candidate_album": "Don't Call Us, We'll Call You"
+        },
+        {
+          "filename": "Sugarloaf  Jerry Corbetta-Dont Call Us Well Call You.jpeg",
+          "confidence": 93.7,
+          "artist_similarity": 100.0,
+          "album_similarity": 77.4,
+          "candidate_artist": "Sugarloaf  Jerry Corbetta",
+          "candidate_album": "Dont Call Us Well Call You"
+        },
+        {
+          "filename": "Sugarloaf Jerry Corbetta-Dont Call Us.jpeg",
+          "confidence": 77.8,
+          "artist_similarity": 100.0,
+          "album_similarity": 49.5,
+          "candidate_artist": "Sugarloaf Jerry Corbetta",
+          "candidate_album": "Dont Call Us"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 6.3,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Lincoln Mayorga",
+      "album": "Lincoln Mayorga & Distinguished Colleagues - Volume III",
+      "expected_filename": "Lincoln Mayorga-Lincoln Mayorga & Distinguished Colleagues - Volume III.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Lincoln Mayorga-Lincoln Mayorga  Distinguished Colleagues - Volume III.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 93.7,
+          "candidate_artist": "Lincoln Mayorga",
+          "candidate_album": "Lincoln Mayorga  Distinguished Colleagues - Volume III"
+        },
+        {
+          "filename": "Lincoln Mayorga-Lincoln Mayorga &amp; Distinguished Colleagues-Volume III.jpeg",
+          "confidence": 95.7,
+          "artist_similarity": 100.0,
+          "album_similarity": 81.4,
+          "candidate_artist": "Lincoln Mayorga",
+          "candidate_album": "Lincoln Mayorga &amp; Distinguished Colleagues-Volume III"
+        },
+        {
+          "filename": "Lincoln Mayorga And Distinguished Colleagues-The Missing Linc (Volume II).jpeg",
+          "confidence": 36.9,
+          "artist_similarity": 47.6,
+          "album_similarity": 26.1,
+          "candidate_artist": "Lincoln Mayorga And Distinguished Colleagues",
+          "candidate_album": "The Missing Linc (Volume II)"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 4.3,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Ronnie Dukes & Ricki Lee",
+      "album": "Spinning Wheel",
+      "expected_filename": "Ronnie Dukes & Ricki Lee-Spinning Wheel.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Ronnie Dukes &amp; Ricki Lee-Spinning Wheel.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 90.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Ronnie Dukes &amp; Ricki Lee",
+          "candidate_album": "Spinning Wheel"
+        },
+        {
+          "filename": "Ronnie Dukes  Ricki Lee-Spinning Wheel.jpeg",
+          "confidence": 97.1,
+          "artist_similarity": 88.2,
+          "album_similarity": 100.0,
+          "candidate_artist": "Ronnie Dukes  Ricki Lee",
+          "candidate_album": "Spinning Wheel"
+        },
+        {
+          "filename": "Orchestra And Chorus Les Humphries-Singing Revolution.jpeg",
+          "confidence": 36.5,
+          "artist_similarity": 33.7,
+          "album_similarity": 39.4,
+          "candidate_artist": "Orchestra And Chorus Les Humphries",
+          "candidate_album": "Singing Revolution"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 2.9,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Paul Revere & The Raiders",
+      "album": "Midnight Ride",
+      "expected_filename": "Paul Revere & The Raiders-Midnight Ride.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Paul Revere &amp; The Raiders-Midnight Ride.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 90.2,
+          "album_similarity": 100.0,
+          "candidate_artist": "Paul Revere &amp; The Raiders",
+          "candidate_album": "Midnight Ride"
+        },
+        {
+          "filename": "Paul Revere  The Raiders-Midnight Ride.jpeg",
+          "confidence": 97.2,
+          "artist_similarity": 88.4,
+          "album_similarity": 100.0,
+          "candidate_artist": "Paul Revere  The Raiders",
+          "candidate_album": "Midnight Ride"
+        },
+        {
+          "filename": "Mike Greene-Midnight Mirage.jpeg",
+          "confidence": 41.7,
+          "artist_similarity": 18.4,
+          "album_similarity": 65.0,
+          "candidate_artist": "Mike Greene",
+          "candidate_album": "Midnight Mirage"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 2.8,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Russ Ballard & Barnet Dogs",
+      "album": "Into The Fire",
+      "expected_filename": "Russ Ballard & Barnet Dogs-Into The Fire.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Russ Ballard &amp; Barnet Dogs-Into The Fire.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 90.3,
+          "album_similarity": 100.0,
+          "candidate_artist": "Russ Ballard &amp; Barnet Dogs",
+          "candidate_album": "Into The Fire"
+        },
+        {
+          "filename": "Russ Ballard  Barnet Dogs-Into The Fire.jpeg",
+          "confidence": 97.3,
+          "artist_similarity": 88.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Russ Ballard  Barnet Dogs",
+          "candidate_album": "Into The Fire"
+        },
+        {
+          "filename": "Wynder K. Frog-Into The Fire.jpeg",
+          "confidence": 63.2,
+          "artist_similarity": 20.5,
+          "album_similarity": 100.0,
+          "candidate_artist": "Wynder K. Frog",
+          "candidate_album": "Into The Fire"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 2.7,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Various",
+      "album": "Original Motion Picture Soundtrack: Gordon's War",
+      "expected_filename": "Various-Original Motion Picture Soundtrack: Gordon's War.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Various-Original Motion Picture Soundtrack Gordon's War.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Various",
+          "candidate_album": "Original Motion Picture Soundtrack Gordon's War"
+        },
+        {
+          "filename": "Various-Original Motion Picture Soundtrack Gordons War.jpeg",
+          "confidence": 99.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 88.0,
+          "candidate_artist": "Various",
+          "candidate_album": "Original Motion Picture Soundtrack Gordons War"
+        },
+        {
+          "filename": "Various-All That Jazz-Music From The Original Motion Picture Soundtrack.jpeg",
+          "confidence": 79.6,
+          "artist_similarity": 100.0,
+          "album_similarity": 53.3,
+          "candidate_artist": "Various",
+          "candidate_album": "All That Jazz-Music From The Original Motion Picture Soundtrack"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 1.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Melvin Van Peebles",
+      "album": "What The . . . . You Mean I Can't Sing?!",
+      "expected_filename": "Melvin Van Peebles-What The . . . . You Mean I Can't Sing?!.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Melvin Van Peebles-What The . . . . You Mean I Can't Sing!.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Melvin Van Peebles",
+          "candidate_album": "What The . . . . You Mean I Can't Sing!"
+        },
+        {
+          "filename": "Melvin Van Peebles-What The . . . . You Mean I Cant Sing.jpeg",
+          "confidence": 99.4,
+          "artist_similarity": 100.0,
+          "album_similarity": 88.8,
+          "candidate_artist": "Melvin Van Peebles",
+          "candidate_album": "What The . . . . You Mean I Cant Sing"
+        },
+        {
+          "filename": "Melvin Van Peebles-Sweet Sweetback's Baadasssss Song (An Opera).jpeg",
+          "confidence": 63.7,
+          "artist_similarity": 100.0,
+          "album_similarity": 21.4,
+          "candidate_artist": "Melvin Van Peebles",
+          "candidate_album": "Sweet Sweetback's Baadasssss Song (An Opera)"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.6,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Nino Tempo & 5th Ave. Sax",
+      "album": "Come See Me 'Round Midnight",
+      "expected_filename": "Nino Tempo & 5th Ave. Sax-Come See Me 'Round Midnight.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Nino Tempo &amp; 5th Ave. Sax-Come See Me 'Round Midnight.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 90.7,
+          "album_similarity": 100.0,
+          "candidate_artist": "Nino Tempo &amp; 5th Ave. Sax",
+          "candidate_album": "Come See Me 'Round Midnight"
+        },
+        {
+          "filename": "Nino Tempo  5th Ave. Sax-Come See Me Round Midnight.jpeg",
+          "confidence": 99.6,
+          "artist_similarity": 89.2,
+          "album_similarity": 100.0,
+          "candidate_artist": "Nino Tempo  5th Ave. Sax",
+          "candidate_album": "Come See Me Round Midnight"
+        },
+        {
+          "filename": "Disco Tex & His Sex-O-Lettes Featuring Sir Monti Rock III-Manhattan Millionaire.jpeg",
+          "confidence": 34.7,
+          "artist_similarity": 44.7,
+          "album_similarity": 24.7,
+          "candidate_artist": "Disco Tex & His Sex",
+          "candidate_album": "O-Lettes Featuring Sir Monti Rock III-Manhattan Millionaire"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.4,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Roger Chapman & The Shortlist",
+      "album": "Hyenas Only Laugh For Fun",
+      "expected_filename": "Roger Chapman & The Shortlist-Hyenas Only Laugh For Fun.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Roger Chapman &amp; The Shortlist-Hyenas Only Laugh For Fun.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 90.8,
+          "album_similarity": 100.0,
+          "candidate_artist": "Roger Chapman &amp; The Shortlist",
+          "candidate_album": "Hyenas Only Laugh For Fun"
+        },
+        {
+          "filename": "Roger Chapman  The Shortlist-Hyenas Only Laugh For Fun.jpeg",
+          "confidence": 99.6,
+          "artist_similarity": 89.2,
+          "album_similarity": 100.0,
+          "candidate_artist": "Roger Chapman  The Shortlist",
+          "candidate_album": "Hyenas Only Laugh For Fun"
+        },
+        {
+          "filename": "Mary And The Maoris-Mary And The Maoris.jpeg",
+          "confidence": 38.0,
+          "artist_similarity": 50.6,
+          "album_similarity": 25.5,
+          "candidate_artist": "Mary And The Maoris",
+          "candidate_album": "Mary And The Maoris"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.4,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Lalo Schifrin & Jerry Fielding",
+      "album": "Sudden Impact And The Best Of Dirty Harry!",
+      "expected_filename": "Lalo Schifrin & Jerry Fielding-Sudden Impact And The Best Of Dirty Harry!.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Lalo Schifrin &amp; Jerry Fielding-Sudden Impact And The Best Of Dirty Harry!.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 90.9,
+          "album_similarity": 100.0,
+          "candidate_artist": "Lalo Schifrin &amp; Jerry Fielding",
+          "candidate_album": "Sudden Impact And The Best Of Dirty Harry!"
+        },
+        {
+          "filename": "Lalo Schifrin  Jerry Fielding-Sudden Impact And The Best Of Dirty Harry.jpeg",
+          "confidence": 99.7,
+          "artist_similarity": 89.3,
+          "album_similarity": 100.0,
+          "candidate_artist": "Lalo Schifrin  Jerry Fielding",
+          "candidate_album": "Sudden Impact And The Best Of Dirty Harry"
+        },
+        {
+          "filename": "Lalo Schifrin-Music From The Motion Picture \"Once A Thief\" And Other Themes.jpeg",
+          "confidence": 40.6,
+          "artist_similarity": 52.4,
+          "album_similarity": 28.7,
+          "candidate_artist": "Lalo Schifrin",
+          "candidate_album": "Music From The Motion Picture \"Once A Thief\" And Other Themes"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.3,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Steven Boyd",
+      "album": "Wild & Wonderful Jazz Technique",
+      "expected_filename": "Steven Boyd-Wild & Wonderful Jazz Technique.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Steven Boyd-Wild &amp; Wonderful Jazz Technique.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 91.0,
+          "candidate_artist": "Steven Boyd",
+          "candidate_album": "Wild &amp; Wonderful Jazz Technique"
+        },
+        {
+          "filename": "Steven Boyd-Wild  Wonderful Jazz Technique.jpeg",
+          "confidence": 99.7,
+          "artist_similarity": 100.0,
+          "album_similarity": 89.5,
+          "candidate_artist": "Steven Boyd",
+          "candidate_album": "Wild  Wonderful Jazz Technique"
+        },
+        {
+          "filename": "Teena Marie-Wild And Peaceful.jpeg",
+          "confidence": 39.1,
+          "artist_similarity": 31.8,
+          "album_similarity": 46.4,
+          "candidate_artist": "Teena Marie",
+          "candidate_album": "Wild And Peaceful"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.3,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Michael Quatro",
+      "album": "Dancers, Romancers, Dreamers & Schemers",
+      "expected_filename": "Michael Quatro-Dancers, Romancers, Dreamers & Schemers.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Michael Quatro-Dancers Romancers Dreamers  Schemers.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 90.2,
+          "candidate_artist": "Michael Quatro",
+          "candidate_album": "Dancers Romancers Dreamers  Schemers"
+        },
+        {
+          "filename": "Michael Quatro-Dancers, Romancers, Dreamers &amp; Schemers.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 91.6,
+          "candidate_artist": "Michael Quatro",
+          "candidate_album": "Dancers, Romancers, Dreamers &amp; Schemers"
+        },
+        {
+          "filename": "Michael Chapman-Savage Amusement.jpeg",
+          "confidence": 38.2,
+          "artist_similarity": 53.4,
+          "album_similarity": 22.9,
+          "candidate_artist": "Michael Chapman",
+          "candidate_album": "Savage Amusement"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Nena",
+      "album": "? (Fragezeichen)",
+      "expected_filename": "Nena-? (Fragezeichen).jpeg",
+      "top_candidates": [
+        {
+          "filename": "Nena- (Fragezeichen).jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Nena",
+          "candidate_album": " (Fragezeichen)"
+        },
+        {
+          "filename": "Nena- Fragezeichen.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Nena",
+          "candidate_album": " Fragezeichen"
+        },
+        {
+          "filename": "Nena-Irgendwie Irgendwo Irgendwann.jpeg",
+          "confidence": 65.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 23.9,
+          "candidate_artist": "Nena",
+          "candidate_album": "Irgendwie Irgendwo Irgendwann"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Nobuo Hara And Sharps & Flats",
+      "album": "Modern Jazz Juke Box",
+      "expected_filename": "Nobuo Hara And Sharps & Flats-Modern Jazz Juke Box.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Nobuo Hara And Sharps  Flats-Modern Jazz Juke Box.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 95.2,
+          "album_similarity": 100.0,
+          "candidate_artist": "Nobuo Hara And Sharps  Flats",
+          "candidate_album": "Modern Jazz Juke Box"
+        },
+        {
+          "filename": "Nobuo Hara And Sharps &amp; Flats-Modern Jazz Juke Box.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 90.8,
+          "album_similarity": 100.0,
+          "candidate_artist": "Nobuo Hara And Sharps &amp; Flats",
+          "candidate_album": "Modern Jazz Juke Box"
+        },
+        {
+          "filename": "Milton Rich And His Dixieland Saints-Best Of New Orleans Jazz.jpeg",
+          "confidence": 36.5,
+          "artist_similarity": 40.6,
+          "album_similarity": 32.4,
+          "candidate_artist": "Milton Rich And His Dixieland Saints",
+          "candidate_album": "Best Of New Orleans Jazz"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Paolo Zavallone Group",
+      "album": "Musical Cocktail 1 & 2 / Musical Flashes",
+      "expected_filename": "Paolo Zavallone Group-Musical Cocktail 1 & 2 / Musical Flashes.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Paolo Zavallone Group-Musical Cocktail 1  2  Musical Flashes.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 91.3,
+          "candidate_artist": "Paolo Zavallone Group",
+          "candidate_album": "Musical Cocktail 1  2  Musical Flashes"
+        },
+        {
+          "filename": "Paolo Zavallone Group-Musical Cocktail 1 &amp; 2  Musical Flashes.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 92.4,
+          "candidate_artist": "Paolo Zavallone Group",
+          "candidate_album": "Musical Cocktail 1 &amp; 2  Musical Flashes"
+        },
+        {
+          "filename": "Paolo Zavallone E Il Suo Complesso-Cocktail Di Stili N. 2.jpeg",
+          "confidence": 45.4,
+          "artist_similarity": 54.4,
+          "album_similarity": 36.5,
+          "candidate_artist": "Paolo Zavallone E Il Suo Complesso",
+          "candidate_album": "Cocktail Di Stili N. 2"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Pattie Sisters, Enteng And His Comets",
+      "album": "Pattie Sisters / Enteng And His Comets",
+      "expected_filename": "Pattie Sisters, Enteng And His Comets-Pattie Sisters / Enteng And His Comets.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Pattie Sisters Enteng And His Comets-Pattie Sisters  Enteng And His Comets.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Pattie Sisters Enteng And His Comets",
+          "candidate_album": "Pattie Sisters  Enteng And His Comets"
+        },
+        {
+          "filename": "Pattie Sisters, Enteng And His Comets-Pattie Sisters  Enteng And His Comets.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Pattie Sisters, Enteng And His Comets",
+          "candidate_album": "Pattie Sisters  Enteng And His Comets"
+        },
+        {
+          "filename": "Matthews Taylor And Johnson-Matthews Taylor And Johnson.jpeg",
+          "confidence": 36.7,
+          "artist_similarity": 36.7,
+          "album_similarity": 36.7,
+          "candidate_artist": "Matthews Taylor And Johnson",
+          "candidate_album": "Matthews Taylor And Johnson"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Paul Revere & The Raiders Featuring Mark Lindsay",
+      "album": "Hard 'N' Heavy (With Marshmallow)",
+      "expected_filename": "Paul Revere & The Raiders Featuring Mark Lindsay-Hard 'N' Heavy (With Marshmallow).jpeg",
+      "top_candidates": [
+        {
+          "filename": "Paul Revere  The Raiders Featuring Mark Lindsay-Hard N Heavy With Marshmallow.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 93.3,
+          "album_similarity": 100.0,
+          "candidate_artist": "Paul Revere  The Raiders Featuring Mark Lindsay",
+          "candidate_album": "Hard N Heavy With Marshmallow"
+        },
+        {
+          "filename": "Paul Revere &amp; The Raiders Featuring Mark Lindsay-Hard 'N' Heavy (With Marshmallow).jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 94.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Paul Revere &amp; The Raiders Featuring Mark Lindsay",
+          "candidate_album": "Hard 'N' Heavy (With Marshmallow)"
+        },
+        {
+          "filename": "Paul Revere  The Raiders Featuring Mark Lindsay-Paul Revere And The Raiders Featuring Mark Lindsay.jpeg",
+          "confidence": 60.0,
+          "artist_similarity": 93.3,
+          "album_similarity": 26.6,
+          "candidate_artist": "Paul Revere  The Raiders Featuring Mark Lindsay",
+          "candidate_album": "Paul Revere And The Raiders Featuring Mark Lindsay"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Philly Joe & The Motown Singers",
+      "album": "Black Music Is Beautiful",
+      "expected_filename": "Philly Joe & The Motown Singers-Black Music Is Beautiful.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Philly Joe &amp; The Motown Singers-Black Music Is Beautiful.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 91.7,
+          "album_similarity": 100.0,
+          "candidate_artist": "Philly Joe &amp; The Motown Singers",
+          "candidate_album": "Black Music Is Beautiful"
+        },
+        {
+          "filename": "Philly Joe  The Motown Singers-Black Music Is Beautiful.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 90.5,
+          "album_similarity": 100.0,
+          "candidate_artist": "Philly Joe  The Motown Singers",
+          "candidate_album": "Black Music Is Beautiful"
+        },
+        {
+          "filename": "George Walker & Company-Black Is Beautiful.jpeg",
+          "confidence": 53.8,
+          "artist_similarity": 25.1,
+          "album_similarity": 82.5,
+          "candidate_artist": "George Walker & Company",
+          "candidate_album": "Black Is Beautiful"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Pucho & The Latin Soul Brothers",
+      "album": "Jungle Fire!",
+      "expected_filename": "Pucho & The Latin Soul Brothers-Jungle Fire!.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Pucho  The Latin Soul Brothers-Jungle Fire.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 90.5,
+          "album_similarity": 100.0,
+          "candidate_artist": "Pucho  The Latin Soul Brothers",
+          "candidate_album": "Jungle Fire"
+        },
+        {
+          "filename": "Pucho &amp; The Latin Soul Brothers-Jungle Fire!.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 91.7,
+          "album_similarity": 100.0,
+          "candidate_artist": "Pucho &amp; The Latin Soul Brothers",
+          "candidate_album": "Jungle Fire!"
+        },
+        {
+          "filename": "Jungle Band, The-Jungle Groove.jpeg",
+          "confidence": 46.2,
+          "artist_similarity": 30.0,
+          "album_similarity": 62.5,
+          "candidate_artist": "Jungle Band, The",
+          "candidate_album": "Jungle Groove"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Rhythm Combination & Brass, Peter Herbolzheimer",
+      "album": "Wide Open",
+      "expected_filename": "Rhythm Combination & Brass, Peter Herbolzheimer-Wide Open.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Rhythm Combination &amp; Brass, Peter Herbolzheimer-Wide Open.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 92.9,
+          "album_similarity": 100.0,
+          "candidate_artist": "Rhythm Combination &amp; Brass, Peter Herbolzheimer",
+          "candidate_album": "Wide Open"
+        },
+        {
+          "filename": "Rhythm Combination  Brass Peter Herbolzheimer-Wide Open.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 92.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Rhythm Combination  Brass Peter Herbolzheimer",
+          "candidate_album": "Wide Open"
+        },
+        {
+          "filename": "Kahvas Jute-Wide Open.jpeg",
+          "confidence": 60.1,
+          "artist_similarity": 14.2,
+          "album_similarity": 100.0,
+          "candidate_artist": "Kahvas Jute",
+          "candidate_album": "Wide Open"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Roland Kovač (Piano), Strings & Rhythm Group",
+      "album": "Diamond",
+      "expected_filename": "Roland Kovač (Piano), Strings & Rhythm Group-Diamond.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Roland Kovač Piano Strings  Rhythm Group-Diamond.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 92.3,
+          "album_similarity": 100.0,
+          "candidate_artist": "Roland Kovač Piano Strings  Rhythm Group",
+          "candidate_album": "Diamond"
+        },
+        {
+          "filename": "Roland Kovač (Piano), Strings &amp; Rhythm Group-Diamond.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 93.1,
+          "album_similarity": 100.0,
+          "candidate_artist": "Roland Kovač (Piano), Strings &amp; Rhythm Group",
+          "candidate_album": "Diamond"
+        },
+        {
+          "filename": "Legs Diamond-Legs Diamond.jpeg",
+          "confidence": 42.2,
+          "artist_similarity": 17.8,
+          "album_similarity": 66.6,
+          "candidate_artist": "Legs Diamond",
+          "candidate_album": "Legs Diamond"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Sid Phillips And His Band & The Simon Sound",
+      "album": "Two Generations",
+      "expected_filename": "Sid Phillips And His Band & The Simon Sound-Two Generations.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Sid Phillips And His Band &amp; The Simon Sound-Two Generations.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 93.7,
+          "album_similarity": 100.0,
+          "candidate_artist": "Sid Phillips And His Band &amp; The Simon Sound",
+          "candidate_album": "Two Generations"
+        },
+        {
+          "filename": "Sid Phillips And His Band  The Simon Sound-Two Generations.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 96.7,
+          "album_similarity": 100.0,
+          "candidate_artist": "Sid Phillips And His Band  The Simon Sound",
+          "candidate_album": "Two Generations"
+        },
+        {
+          "filename": "Bill Pursell & The Nashville Sweat Band & Aides-The Sweat Sound.jpeg",
+          "confidence": 38.0,
+          "artist_similarity": 43.4,
+          "album_similarity": 32.7,
+          "candidate_artist": "Bill Pursell & The Nashville Sweat Band & Aides",
+          "candidate_album": "The Sweat Sound"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Sol Gubin, Don Lamond, Mel Lewis, Charlie Persip & Teddy Sommers",
+      "album": "The Cats Go Wild!",
+      "expected_filename": "Sol Gubin, Don Lamond, Mel Lewis, Charlie Persip & Teddy Sommers-The Cats Go Wild!.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Sol Gubin Don Lamond Mel Lewis Charlie Persip  Teddy Sommers-The Cats Go Wild.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 95.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Sol Gubin Don Lamond Mel Lewis Charlie Persip  Teddy Sommers",
+          "candidate_album": "The Cats Go Wild"
+        },
+        {
+          "filename": "Sol Gubin, Don Lamond, Mel Lewis, Charlie Persip &amp; Teddy Sommers-The Cats Go Wild!.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 95.3,
+          "album_similarity": 100.0,
+          "candidate_artist": "Sol Gubin, Don Lamond, Mel Lewis, Charlie Persip &amp; Teddy Sommers",
+          "candidate_album": "The Cats Go Wild!"
+        },
+        {
+          "filename": "Wild Magnolias, The-They Call Us Wild.jpeg",
+          "confidence": 36.2,
+          "artist_similarity": 17.3,
+          "album_similarity": 55.2,
+          "candidate_artist": "Wild Magnolias, The",
+          "candidate_album": "They Call Us Wild"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Sound Studio Set",
+      "album": "Recorded Music For Film, Radio & Television",
+      "expected_filename": "Sound Studio Set-Recorded Music For Film, Radio & Television.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Sound Studio Set-Recorded Music For Film, Radio &amp; Television.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 93.2,
+          "candidate_artist": "Sound Studio Set",
+          "candidate_album": "Recorded Music For Film, Radio &amp; Television"
+        },
+        {
+          "filename": "Sound Studio Set-Recorded Music For Film Radio  Television.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 92.4,
+          "candidate_artist": "Sound Studio Set",
+          "candidate_album": "Recorded Music For Film Radio  Television"
+        },
+        {
+          "filename": "Sound Foundation-Sound Foundation.jpeg",
+          "confidence": 36.3,
+          "artist_similarity": 46.9,
+          "album_similarity": 25.7,
+          "candidate_artist": "Sound Foundation",
+          "candidate_album": "Sound Foundation"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Super Erótica",
+      "album": "Super Erótica! ",
+      "expected_filename": "Super Erótica-Super Erótica! .jpeg",
+      "top_candidates": [
+        {
+          "filename": "Super Erótica-Super Erótica .jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Super Erótica",
+          "candidate_album": "Super Erótica "
+        },
+        {
+          "filename": "Super Erótica-Super Erótica!.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Super Erótica",
+          "candidate_album": "Super Erótica!"
+        },
+        {
+          "filename": "Super Erótica-Na Intimidade.jpeg",
+          "confidence": 63.8,
+          "artist_similarity": 100.0,
+          "album_similarity": 21.5,
+          "candidate_artist": "Super Erótica",
+          "candidate_album": "Na Intimidade"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Ted Nugent & The Amboy Dukes",
+      "album": "Call Of The Wild",
+      "expected_filename": "Ted Nugent & The Amboy Dukes-Call Of The Wild.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Ted Nugent &amp; The Amboy Dukes-Call Of The Wild.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 91.3,
+          "album_similarity": 100.0,
+          "candidate_artist": "Ted Nugent &amp; The Amboy Dukes",
+          "candidate_album": "Call Of The Wild"
+        },
+        {
+          "filename": "Ted Nugent  The Amboy Dukes-Call Of The Wild.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 90.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Ted Nugent  The Amboy Dukes",
+          "candidate_album": "Call Of The Wild"
+        },
+        {
+          "filename": "Max Demian-The Call Of The Wild.jpeg",
+          "confidence": 51.4,
+          "artist_similarity": 10.5,
+          "album_similarity": 92.2,
+          "candidate_artist": "Max Demian",
+          "candidate_album": "The Call Of The Wild"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Ten Years After",
+      "album": "Rock & Roll Music To The World",
+      "expected_filename": "Ten Years After-Rock & Roll Music To The World.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Ten Years After-Rock &amp; Roll Music To The World.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 92.1,
+          "candidate_artist": "Ten Years After",
+          "candidate_album": "Rock &amp; Roll Music To The World"
+        },
+        {
+          "filename": "Ten Years After-Rock  Roll Music To The World.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 91.0,
+          "candidate_artist": "Ten Years After",
+          "candidate_album": "Rock  Roll Music To The World"
+        },
+        {
+          "filename": "Ten Years After-Positive Vibrations.jpeg",
+          "confidence": 62.6,
+          "artist_similarity": 100.0,
+          "album_similarity": 19.2,
+          "candidate_artist": "Ten Years After",
+          "candidate_album": "Positive Vibrations"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Various",
+      "album": "Bang On A Drum Songs From Play School & Play Away",
+      "expected_filename": "Various-Bang On A Drum Songs From Play School & Play Away.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Various-Bang On A Drum Songs From Play School &amp; Play Away.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 94.6,
+          "candidate_artist": "Various",
+          "candidate_album": "Bang On A Drum Songs From Play School &amp; Play Away"
+        },
+        {
+          "filename": "Various-Bang On A Drum Songs From Play School  Play Away.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 94.1,
+          "candidate_artist": "Various",
+          "candidate_album": "Bang On A Drum Songs From Play School  Play Away"
+        },
+        {
+          "filename": "Various-Play School.jpeg",
+          "confidence": 68.4,
+          "artist_similarity": 100.0,
+          "album_similarity": 30.8,
+          "candidate_artist": "Various",
+          "candidate_album": "Play School"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Various",
+      "album": "Flash Fearless Versus The Zorg Women Parts 5 & 6",
+      "expected_filename": "Various-Flash Fearless Versus The Zorg Women Parts 5 & 6.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Various-Flash Fearless Versus The Zorg Women Parts 5  6.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 94.1,
+          "candidate_artist": "Various",
+          "candidate_album": "Flash Fearless Versus The Zorg Women Parts 5  6"
+        },
+        {
+          "filename": "Various-Flash Fearless Versus The Zorg Women Parts 5 &amp; 6.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 94.6,
+          "candidate_artist": "Various",
+          "candidate_album": "Flash Fearless Versus The Zorg Women Parts 5 &amp; 6"
+        },
+        {
+          "filename": "Various-All That Jazz-Music From The Original Motion Picture Soundtrack.jpeg",
+          "confidence": 68.1,
+          "artist_similarity": 100.0,
+          "album_similarity": 30.2,
+          "candidate_artist": "Various",
+          "candidate_album": "All That Jazz-Music From The Original Motion Picture Soundtrack"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Various",
+      "album": "Lights Out: San Francisco (Voco Presents The Soul Of The Bay Area)",
+      "expected_filename": "Various-Lights Out: San Francisco (Voco Presents The Soul Of The Bay Area).jpeg",
+      "top_candidates": [
+        {
+          "filename": "Various-Lights Out San Francisco Voco Presents The Soul Of The Bay Area.jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Various",
+          "candidate_album": "Lights Out San Francisco Voco Presents The Soul Of The Bay Area"
+        },
+        {
+          "filename": "Various-Lights Out San Francisco (Voco Presents The Soul Of The Bay Area).jpeg",
+          "confidence": 100.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Various",
+          "candidate_album": "Lights Out San Francisco (Voco Presents The Soul Of The Bay Area)"
+        },
+        {
+          "filename": "Various-Country Cream The Cream Of Country Music.jpeg",
+          "confidence": 68.1,
+          "artist_similarity": 100.0,
+          "album_similarity": 30.1,
+          "candidate_artist": "Various",
+          "candidate_album": "Country Cream The Cream Of Country Music"
+        }
+      ],
+      "best_confidence": 100.0,
+      "confidence_gap": 0.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Sly & The Family Stone",
+      "album": "A Whole New Thing",
+      "expected_filename": "Sly & The Family Stone-A Whole New Thing.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Sly &amp; The Family Stone-A Whole New Thing.jpeg",
+          "confidence": 99.8,
+          "artist_similarity": 89.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Sly &amp; The Family Stone",
+          "candidate_album": "A Whole New Thing"
+        },
+        {
+          "filename": "Sly  The Family Stone-A Whole New Thing.jpeg",
+          "confidence": 96.8,
+          "artist_similarity": 87.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Sly  The Family Stone",
+          "candidate_album": "A Whole New Thing"
+        },
+        {
+          "filename": "Sly &amp; The Family Stone-Dance To The Music.jpeg",
+          "confidence": 58.8,
+          "artist_similarity": 89.6,
+          "album_similarity": 28.0,
+          "candidate_artist": "Sly &amp; The Family Stone",
+          "candidate_album": "Dance To The Music"
+        }
+      ],
+      "best_confidence": 99.8,
+      "confidence_gap": 3.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Orchestra Roland Kovac",
+      "album": "Rhythm & Strings Vol. 2",
+      "expected_filename": "Orchestra Roland Kovac-Rhythm & Strings Vol. 2.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Orchestra Roland Kovac-Rhythm &amp; Strings Vol. 2.jpeg",
+          "confidence": 99.8,
+          "artist_similarity": 100.0,
+          "album_similarity": 89.6,
+          "candidate_artist": "Orchestra Roland Kovac",
+          "candidate_album": "Rhythm &amp; Strings Vol. 2"
+        },
+        {
+          "filename": "Orchestra Roland Kovac-Rhythm  Strings Vol. 2.jpeg",
+          "confidence": 98.8,
+          "artist_similarity": 100.0,
+          "album_similarity": 87.6,
+          "candidate_artist": "Orchestra Roland Kovac",
+          "candidate_album": "Rhythm  Strings Vol. 2"
+        },
+        {
+          "filename": "Roland Kovač Trio-Rhythm On The Rocks .jpeg",
+          "confidence": 47.2,
+          "artist_similarity": 58.1,
+          "album_similarity": 36.3,
+          "candidate_artist": "Roland Kovač Trio",
+          "candidate_album": "Rhythm On The Rocks "
+        }
+      ],
+      "best_confidence": 99.8,
+      "confidence_gap": 1.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Sly & The Family Stone",
+      "album": "Dance To The Music",
+      "expected_filename": "Sly & The Family Stone-Dance To The Music.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Sly &amp; The Family Stone-Dance To The Music.jpeg",
+          "confidence": 99.8,
+          "artist_similarity": 89.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Sly &amp; The Family Stone",
+          "candidate_album": "Dance To The Music"
+        },
+        {
+          "filename": "Sly  The Family Stone-Dance To The Music.jpeg",
+          "confidence": 98.8,
+          "artist_similarity": 87.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Sly  The Family Stone",
+          "candidate_album": "Dance To The Music"
+        },
+        {
+          "filename": "Sly &amp; The Family Stone-A Whole New Thing.jpeg",
+          "confidence": 58.8,
+          "artist_similarity": 89.6,
+          "album_similarity": 28.0,
+          "candidate_artist": "Sly &amp; The Family Stone",
+          "candidate_album": "A Whole New Thing"
+        }
+      ],
+      "best_confidence": 99.8,
+      "confidence_gap": 1.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Tony Ashton & Jon Lord",
+      "album": "First Of The Big Bands",
+      "expected_filename": "Tony Ashton & Jon Lord-First Of The Big Bands.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Tony Ashton &amp; Jon Lord-First Of The Big Bands.jpeg",
+          "confidence": 99.8,
+          "artist_similarity": 89.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Tony Ashton &amp; Jon Lord",
+          "candidate_album": "First Of The Big Bands"
+        },
+        {
+          "filename": "Tony Ashton  Jon Lord-First Of The Big Bands.jpeg",
+          "confidence": 98.8,
+          "artist_similarity": 87.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Tony Ashton  Jon Lord",
+          "candidate_album": "First Of The Big Bands"
+        },
+        {
+          "filename": "Kool & The Gang-Spirit Of The Boogie.jpeg",
+          "confidence": 41.5,
+          "artist_similarity": 31.1,
+          "album_similarity": 51.9,
+          "candidate_artist": "Kool & The Gang",
+          "candidate_album": "Spirit Of The Boogie"
+        }
+      ],
+      "best_confidence": 99.8,
+      "confidence_gap": 1.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Ulrich Hundt & Schroeder",
+      "album": "Auf Freiem Fuß....!!!",
+      "expected_filename": "Ulrich Hundt & Schroeder-Auf Freiem Fuß....!!!.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Ulrich Hundt &amp; Schroeder-Auf Freiem Fuß....!!!.jpeg",
+          "confidence": 99.5,
+          "artist_similarity": 89.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Ulrich Hundt &amp; Schroeder",
+          "candidate_album": "Auf Freiem Fuß....!!!"
+        },
+        {
+          "filename": "Ulrich Hundt  Schroeder-Auf Freiem Fuß.....jpeg",
+          "confidence": 96.3,
+          "artist_similarity": 86.7,
+          "album_similarity": 100.0,
+          "candidate_artist": "Ulrich Hundt  Schroeder",
+          "candidate_album": "Auf Freiem Fuß...."
+        },
+        {
+          "filename": "Al Hudson And The Partners-Happy Feet.jpeg",
+          "confidence": 35.3,
+          "artist_similarity": 41.4,
+          "album_similarity": 29.2,
+          "candidate_artist": "Al Hudson And The Partners",
+          "candidate_album": "Happy Feet"
+        }
+      ],
+      "best_confidence": 99.5,
+      "confidence_gap": 3.2,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Roy Burns With The Dick Grove Big Band",
+      "album": "Big, Bad & Beautiful",
+      "expected_filename": "Roy Burns With The Dick Grove Big Band-Big, Bad & Beautiful.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Roy Burns With The Dick Grove Big Band-Big, Bad &amp; Beautiful.jpeg",
+          "confidence": 99.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 87.9,
+          "candidate_artist": "Roy Burns With The Dick Grove Big Band",
+          "candidate_album": "Big, Bad &amp; Beautiful"
+        },
+        {
+          "filename": "Roy Burns With The Dick Grove Big Band-Big Bad  Beautiful.jpeg",
+          "confidence": 97.6,
+          "artist_similarity": 100.0,
+          "album_similarity": 85.1,
+          "candidate_artist": "Roy Burns With The Dick Grove Big Band",
+          "candidate_album": "Big Bad  Beautiful"
+        },
+        {
+          "filename": "Buddy Rich Big Band-Buddy & Soul.jpeg",
+          "confidence": 40.7,
+          "artist_similarity": 40.4,
+          "album_similarity": 41.0,
+          "candidate_artist": "Buddy Rich Big Band",
+          "candidate_album": "Buddy & Soul"
+        }
+      ],
+      "best_confidence": 99.0,
+      "confidence_gap": 1.4,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Renaldo & The Loaf",
+      "album": "The Elbow Is Taboo",
+      "expected_filename": "Renaldo & The Loaf-The Elbow Is Taboo.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Renaldo &amp; The Loaf-The Elbow Is Taboo.jpeg",
+          "confidence": 98.8,
+          "artist_similarity": 87.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Renaldo &amp; The Loaf",
+          "candidate_album": "The Elbow Is Taboo"
+        },
+        {
+          "filename": "Renaldo  The Loaf-The Elbow Is Taboo.jpeg",
+          "confidence": 95.4,
+          "artist_similarity": 84.7,
+          "album_similarity": 100.0,
+          "candidate_artist": "Renaldo  The Loaf",
+          "candidate_album": "The Elbow Is Taboo"
+        },
+        {
+          "filename": "Dyke And The Blazers-The Funky Broadway.jpeg",
+          "confidence": 44.1,
+          "artist_similarity": 52.0,
+          "album_similarity": 36.1,
+          "candidate_artist": "Dyke And The Blazers",
+          "candidate_album": "The Funky Broadway"
+        }
+      ],
+      "best_confidence": 98.8,
+      "confidence_gap": 3.4,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Monica Lassen & The Sounds",
+      "album": "愛撫 = Woman!!",
+      "expected_filename": "Monica Lassen & The Sounds-愛撫 = Woman!!.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Monica Lassen &amp; The Sounds-愛撫 = Woman!!.jpeg",
+          "confidence": 98.2,
+          "artist_similarity": 90.3,
+          "album_similarity": 100.0,
+          "candidate_artist": "Monica Lassen &amp; The Sounds",
+          "candidate_album": "愛撫 = Woman!!"
+        },
+        {
+          "filename": "Monica Lassen  The Sounds-愛撫  Woman.jpeg",
+          "confidence": 97.3,
+          "artist_similarity": 88.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Monica Lassen  The Sounds",
+          "candidate_album": "愛撫  Woman"
+        },
+        {
+          "filename": "Guess Who, The-American Woman.jpeg",
+          "confidence": 38.2,
+          "artist_similarity": 28.2,
+          "album_similarity": 48.2,
+          "candidate_artist": "Guess Who, The",
+          "candidate_album": "American Woman"
+        }
+      ],
+      "best_confidence": 98.2,
+      "confidence_gap": 0.9,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Les Andrews",
+      "album": "Songs Of Peace & Comfort",
+      "expected_filename": "Les Andrews-Songs Of Peace & Comfort.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Les Andrews-Songs Of Peace &amp; Comfort.jpeg",
+          "confidence": 98.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 90.0,
+          "candidate_artist": "Les Andrews",
+          "candidate_album": "Songs Of Peace &amp; Comfort"
+        },
+        {
+          "filename": "Les Andrews-Songs Of Peace  Comfort.jpeg",
+          "confidence": 97.1,
+          "artist_similarity": 100.0,
+          "album_similarity": 88.2,
+          "candidate_artist": "Les Andrews",
+          "candidate_album": "Songs Of Peace  Comfort"
+        },
+        {
+          "filename": "Peace And Love-Peace And Love.jpeg",
+          "confidence": 41.0,
+          "artist_similarity": 33.6,
+          "album_similarity": 48.5,
+          "candidate_artist": "Peace And Love",
+          "candidate_album": "Peace And Love"
+        }
+      ],
+      "best_confidence": 98.0,
+      "confidence_gap": 0.9,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Roslyn & Charles",
+      "album": "Everything Must Change",
+      "expected_filename": "Roslyn & Charles-Everything Must Change.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Roslyn &amp; Charles-Everything Must Change.jpeg",
+          "confidence": 97.8,
+          "artist_similarity": 85.5,
+          "album_similarity": 100.0,
+          "candidate_artist": "Roslyn &amp; Charles",
+          "candidate_album": "Everything Must Change"
+        },
+        {
+          "filename": "Roslyn  Charles-Everything Must Change.jpeg",
+          "confidence": 93.6,
+          "artist_similarity": 81.2,
+          "album_similarity": 100.0,
+          "candidate_artist": "Roslyn  Charles",
+          "candidate_album": "Everything Must Change"
+        },
+        {
+          "filename": "John Baldry-Everything Stops For Tea.jpeg",
+          "confidence": 39.8,
+          "artist_similarity": 29.0,
+          "album_similarity": 50.7,
+          "candidate_artist": "John Baldry",
+          "candidate_album": "Everything Stops For Tea"
+        }
+      ],
+      "best_confidence": 97.8,
+      "confidence_gap": 4.2,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Marie Rottrová, The Flamingo Group",
+      "album": "Rhythm & Romance",
+      "expected_filename": "Marie Rottrová, The Flamingo Group-Rhythm & Romance.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Marie Rottrová, The Flamingo Group-Rhythm &amp; Romance.jpeg",
+          "confidence": 97.8,
+          "artist_similarity": 100.0,
+          "album_similarity": 85.5,
+          "candidate_artist": "Marie Rottrová, The Flamingo Group",
+          "candidate_album": "Rhythm &amp; Romance"
+        },
+        {
+          "filename": "Marie Rottrová The Flamingo Group-Rhythm  Romance.jpeg",
+          "confidence": 95.6,
+          "artist_similarity": 100.0,
+          "album_similarity": 81.2,
+          "candidate_artist": "Marie Rottrová The Flamingo Group",
+          "candidate_album": "Rhythm  Romance"
+        },
+        {
+          "filename": "Sharron Lucky-Rhythm And Rhyme.jpeg",
+          "confidence": 47.0,
+          "artist_similarity": 21.3,
+          "album_similarity": 72.6,
+          "candidate_artist": "Sharron Lucky",
+          "candidate_album": "Rhythm And Rhyme"
+        }
+      ],
+      "best_confidence": 97.8,
+      "confidence_gap": 2.2,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Linda & The Funky Boys",
+      "album": "Satisfied",
+      "expected_filename": "Linda & The Funky Boys-Satisfied.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Linda &amp; The Funky Boys-Satisfied.jpeg",
+          "confidence": 97.8,
+          "artist_similarity": 89.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Linda &amp; The Funky Boys",
+          "candidate_album": "Satisfied"
+        },
+        {
+          "filename": "Linda  The Funky Boys-Satisfied.jpeg",
+          "confidence": 96.8,
+          "artist_similarity": 87.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Linda  The Funky Boys",
+          "candidate_album": "Satisfied"
+        },
+        {
+          "filename": "Linda  The Funky Boys-Sold My RocknRoll Gave It For Funky Soul.jpeg",
+          "confidence": 49.5,
+          "artist_similarity": 87.6,
+          "album_similarity": 11.4,
+          "candidate_artist": "Linda  The Funky Boys",
+          "candidate_album": "Sold My RocknRoll Gave It For Funky Soul"
+        }
+      ],
+      "best_confidence": 97.8,
+      "confidence_gap": 1.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Noel & The Red Wedge",
+      "album": "Peer Pressure",
+      "expected_filename": "Noel & The Red Wedge-Peer Pressure.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Noel &amp; The Red Wedge-Peer Pressure.jpeg",
+          "confidence": 97.6,
+          "artist_similarity": 89.2,
+          "album_similarity": 100.0,
+          "candidate_artist": "Noel &amp; The Red Wedge",
+          "candidate_album": "Peer Pressure"
+        },
+        {
+          "filename": "Noel  The Red Wedge-Peer Pressure.jpeg",
+          "confidence": 96.5,
+          "artist_similarity": 87.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Noel  The Red Wedge",
+          "candidate_album": "Peer Pressure"
+        },
+        {
+          "filename": "Wess E The Airedales-Superwess.jpeg",
+          "confidence": 39.3,
+          "artist_similarity": 40.4,
+          "album_similarity": 38.2,
+          "candidate_artist": "Wess E The Airedales",
+          "candidate_album": "Superwess"
+        }
+      ],
+      "best_confidence": 97.6,
+      "confidence_gap": 1.1,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "New Order",
+      "album": "Power, Corruption & Lies",
+      "expected_filename": "New Order-Power, Corruption & Lies.jpeg",
+      "top_candidates": [
+        {
+          "filename": "New Order-Power, Corruption &amp; Lies.jpeg",
+          "confidence": 97.4,
+          "artist_similarity": 100.0,
+          "album_similarity": 88.8,
+          "candidate_artist": "New Order",
+          "candidate_album": "Power, Corruption &amp; Lies"
+        },
+        {
+          "filename": "New Order-Power Corruption  Lies.jpeg",
+          "confidence": 96.2,
+          "artist_similarity": 100.0,
+          "album_similarity": 86.4,
+          "candidate_artist": "New Order",
+          "candidate_album": "Power Corruption  Lies"
+        },
+        {
+          "filename": "New Order-Brotherhood.jpeg",
+          "confidence": 64.7,
+          "artist_similarity": 100.0,
+          "album_similarity": 23.3,
+          "candidate_artist": "New Order",
+          "candidate_album": "Brotherhood"
+        }
+      ],
+      "best_confidence": 97.4,
+      "confidence_gap": 1.2,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Pete & Sheila Escovedo",
+      "album": "Solo Two",
+      "expected_filename": "Pete & Sheila Escovedo-Solo Two.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Pete &amp; Sheila Escovedo-Solo Two.jpeg",
+          "confidence": 97.3,
+          "artist_similarity": 88.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Pete &amp; Sheila Escovedo",
+          "candidate_album": "Solo Two"
+        },
+        {
+          "filename": "Pete  Sheila Escovedo-Solo Two.jpeg",
+          "confidence": 96.1,
+          "artist_similarity": 86.1,
+          "album_similarity": 100.0,
+          "candidate_artist": "Pete  Sheila Escovedo",
+          "candidate_album": "Solo Two"
+        },
+        {
+          "filename": "Steve Archer-Solo.jpeg",
+          "confidence": 42.5,
+          "artist_similarity": 23.3,
+          "album_similarity": 61.7,
+          "candidate_artist": "Steve Archer",
+          "candidate_album": "Solo"
+        }
+      ],
+      "best_confidence": 97.3,
+      "confidence_gap": 1.2,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Roy Burns & Cerritos College Jazz/Rock Ensemble",
+      "album": "Drum Set Artistry: A Profile Of Roy Burns In Concert",
+      "expected_filename": "Roy Burns & Cerritos College Jazz/Rock Ensemble-Drum Set Artistry: A Profile Of Roy Burns In Concert.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Roy Burns &amp; Cerritos College JazzRock Ensemble-Drum Set Artistry A Profile Of Roy Burns In Concert.jpeg",
+          "confidence": 97.3,
+          "artist_similarity": 84.5,
+          "album_similarity": 100.0,
+          "candidate_artist": "Roy Burns &amp; Cerritos College JazzRock Ensemble",
+          "candidate_album": "Drum Set Artistry A Profile Of Roy Burns In Concert"
+        },
+        {
+          "filename": "Roy Burns  Cerritos College JazzRock Ensemble-Drum Set Artistry A Profile Of Roy Burns In Concert.jpeg",
+          "confidence": 96.5,
+          "artist_similarity": 82.9,
+          "album_similarity": 100.0,
+          "candidate_artist": "Roy Burns  Cerritos College JazzRock Ensemble",
+          "candidate_album": "Drum Set Artistry A Profile Of Roy Burns In Concert"
+        },
+        {
+          "filename": "Concert Band & Jazz Ensemble-The Best Of '78.jpeg",
+          "confidence": 33.8,
+          "artist_similarity": 48.0,
+          "album_similarity": 19.5,
+          "candidate_artist": "Concert Band & Jazz Ensemble",
+          "candidate_album": "The Best Of '78"
+        }
+      ],
+      "best_confidence": 97.3,
+      "confidence_gap": 0.8,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Potliquor",
+      "album": "Louisiana Rock & Roll",
+      "expected_filename": "Potliquor-Louisiana Rock & Roll.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Potliquor-Louisiana Rock &amp; Roll.jpeg",
+          "confidence": 97.2,
+          "artist_similarity": 100.0,
+          "album_similarity": 88.4,
+          "candidate_artist": "Potliquor",
+          "candidate_album": "Louisiana Rock &amp; Roll"
+        },
+        {
+          "filename": "Potliquor-Louisiana Rock  Roll.jpeg",
+          "confidence": 95.9,
+          "artist_similarity": 100.0,
+          "album_similarity": 85.8,
+          "candidate_artist": "Potliquor",
+          "candidate_album": "Louisiana Rock  Roll"
+        },
+        {
+          "filename": "Potliquor-Potliquor.jpeg",
+          "confidence": 59.6,
+          "artist_similarity": 100.0,
+          "album_similarity": 13.1,
+          "candidate_artist": "Potliquor",
+          "candidate_album": "Potliquor"
+        }
+      ],
+      "best_confidence": 97.2,
+      "confidence_gap": 1.3,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Wilbur Niles & Thrust",
+      "album": "Thrust Is",
+      "expected_filename": "Wilbur Niles & Thrust-Thrust Is.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Wilbur Niles &amp; Thrust-Thrust Is.jpeg",
+          "confidence": 97.2,
+          "artist_similarity": 88.4,
+          "album_similarity": 100.0,
+          "candidate_artist": "Wilbur Niles &amp; Thrust",
+          "candidate_album": "Thrust Is"
+        },
+        {
+          "filename": "Wilbur Niles  Thrust-Thrust Is.jpeg",
+          "confidence": 95.9,
+          "artist_similarity": 85.8,
+          "album_similarity": 100.0,
+          "candidate_artist": "Wilbur Niles  Thrust",
+          "candidate_album": "Thrust Is"
+        },
+        {
+          "filename": "Wilbur Niles And Thrust-Thrust Too.jpeg",
+          "confidence": 83.8,
+          "artist_similarity": 100.0,
+          "album_similarity": 61.6,
+          "candidate_artist": "Wilbur Niles And Thrust",
+          "candidate_album": "Thrust Too"
+        }
+      ],
+      "best_confidence": 97.2,
+      "confidence_gap": 1.3,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Mac & Katie Kissoon",
+      "album": "Introducing",
+      "expected_filename": "Mac & Katie Kissoon-Introducing.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Mac &amp; Katie Kissoon-Introducing.jpeg",
+          "confidence": 97.0,
+          "artist_similarity": 87.9,
+          "album_similarity": 100.0,
+          "candidate_artist": "Mac &amp; Katie Kissoon",
+          "candidate_album": "Introducing"
+        },
+        {
+          "filename": "Mac  Katie Kissoon-Introducing.jpeg",
+          "confidence": 95.6,
+          "artist_similarity": 85.1,
+          "album_similarity": 100.0,
+          "candidate_artist": "Mac  Katie Kissoon",
+          "candidate_album": "Introducing"
+        },
+        {
+          "filename": "Roger And The Human Body-Introducing Roger.jpeg",
+          "confidence": 50.9,
+          "artist_similarity": 31.7,
+          "album_similarity": 70.0,
+          "candidate_artist": "Roger And The Human Body",
+          "candidate_album": "Introducing Roger"
+        }
+      ],
+      "best_confidence": 97.0,
+      "confidence_gap": 1.4,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Living Jazz",
+      "album": "Hot Butter & Soul",
+      "expected_filename": "Living Jazz-Hot Butter & Soul.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Living Jazz-Hot Butter &amp; Soul.jpeg",
+          "confidence": 96.7,
+          "artist_similarity": 100.0,
+          "album_similarity": 87.3,
+          "candidate_artist": "Living Jazz",
+          "candidate_album": "Hot Butter &amp; Soul"
+        },
+        {
+          "filename": "Living Jazz-Hot Butter  Soul.jpeg",
+          "confidence": 95.1,
+          "artist_similarity": 100.0,
+          "album_similarity": 84.3,
+          "candidate_artist": "Living Jazz",
+          "candidate_album": "Hot Butter  Soul"
+        },
+        {
+          "filename": "Living Jazz-Memphis Underground.jpeg",
+          "confidence": 65.9,
+          "artist_similarity": 100.0,
+          "album_similarity": 25.8,
+          "candidate_artist": "Living Jazz",
+          "candidate_album": "Memphis Underground"
+        }
+      ],
+      "best_confidence": 96.7,
+      "confidence_gap": 1.6,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Merryweather & Carey",
+      "album": "Vacuum Cleaner",
+      "expected_filename": "Merryweather & Carey-Vacuum Cleaner.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Merryweather &amp; Carey-Vacuum Cleaner.jpeg",
+          "confidence": 96.3,
+          "artist_similarity": 86.7,
+          "album_similarity": 100.0,
+          "candidate_artist": "Merryweather &amp; Carey",
+          "candidate_album": "Vacuum Cleaner"
+        },
+        {
+          "filename": "Merryweather  Carey-Vacuum Cleaner.jpeg",
+          "confidence": 94.5,
+          "artist_similarity": 83.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Merryweather  Carey",
+          "candidate_album": "Vacuum Cleaner"
+        },
+        {
+          "filename": "Neil Merryweather-Space Rangers.jpeg",
+          "confidence": 43.4,
+          "artist_similarity": 50.6,
+          "album_similarity": 36.3,
+          "candidate_artist": "Neil Merryweather",
+          "candidate_album": "Space Rangers"
+        }
+      ],
+      "best_confidence": 96.3,
+      "confidence_gap": 1.8,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Okko",
+      "album": "Sitar & Electronics",
+      "expected_filename": "Okko-Sitar & Electronics.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Okko-Sitar &amp; Electronics.jpeg",
+          "confidence": 96.2,
+          "artist_similarity": 100.0,
+          "album_similarity": 86.4,
+          "candidate_artist": "Okko",
+          "candidate_album": "Sitar &amp; Electronics"
+        },
+        {
+          "filename": "Okko-Sitar  Electronics.jpeg",
+          "confidence": 94.3,
+          "artist_similarity": 100.0,
+          "album_similarity": 82.6,
+          "candidate_artist": "Okko",
+          "candidate_album": "Sitar  Electronics"
+        },
+        {
+          "filename": "Kokomo-Rise And Shine.jpeg",
+          "confidence": 38.0,
+          "artist_similarity": 42.0,
+          "album_similarity": 34.0,
+          "candidate_artist": "Kokomo",
+          "candidate_album": "Rise And Shine"
+        }
+      ],
+      "best_confidence": 96.2,
+      "confidence_gap": 1.9,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Simon & Garfunkel",
+      "album": "Sounds Of Silence",
+      "expected_filename": "Simon & Garfunkel-Sounds Of Silence.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Simon &amp; Garfunkel-Sounds Of Silence.jpeg",
+          "confidence": 95.9,
+          "artist_similarity": 85.8,
+          "album_similarity": 100.0,
+          "candidate_artist": "Simon &amp; Garfunkel",
+          "candidate_album": "Sounds Of Silence"
+        },
+        {
+          "filename": "Simon  Garfunkel-Sounds Of Silence.jpeg",
+          "confidence": 93.9,
+          "artist_similarity": 81.8,
+          "album_similarity": 100.0,
+          "candidate_artist": "Simon  Garfunkel",
+          "candidate_album": "Sounds Of Silence"
+        },
+        {
+          "filename": "Fabulous Conti Family, The-Sounds Of America.jpeg",
+          "confidence": 43.3,
+          "artist_similarity": 22.3,
+          "album_similarity": 64.4,
+          "candidate_artist": "Fabulous Conti Family, The",
+          "candidate_album": "Sounds Of America"
+        }
+      ],
+      "best_confidence": 95.9,
+      "confidence_gap": 2.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Mike Hugg",
+      "album": "Stress & Strain",
+      "expected_filename": "Mike Hugg-Stress & Strain.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Mike Hugg-Stress &amp; Strain.jpeg",
+          "confidence": 95.6,
+          "artist_similarity": 100.0,
+          "album_similarity": 85.1,
+          "candidate_artist": "Mike Hugg",
+          "candidate_album": "Stress &amp; Strain"
+        },
+        {
+          "filename": "Mike Hugg-Stress  Strain.jpeg",
+          "confidence": 93.3,
+          "artist_similarity": 100.0,
+          "album_similarity": 80.7,
+          "candidate_artist": "Mike Hugg",
+          "candidate_album": "Stress  Strain"
+        },
+        {
+          "filename": "Ivy League, The-Tossing And Turning.jpeg",
+          "confidence": 38.5,
+          "artist_similarity": 24.3,
+          "album_similarity": 52.7,
+          "candidate_artist": "Ivy League, The",
+          "candidate_album": "Tossing And Turning"
+        }
+      ],
+      "best_confidence": 95.6,
+      "confidence_gap": 2.3,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Reverberi",
+      "album": "Reverberi & Reverberi",
+      "expected_filename": "Reverberi-Reverberi & Reverberi.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Reverberi-Reverberi &amp; Reverberi.jpeg",
+          "confidence": 95.2,
+          "artist_similarity": 100.0,
+          "album_similarity": 84.4,
+          "candidate_artist": "Reverberi",
+          "candidate_album": "Reverberi &amp; Reverberi"
+        },
+        {
+          "filename": "Reverberi-Reverberi  Reverberi.jpeg",
+          "confidence": 92.2,
+          "artist_similarity": 100.0,
+          "album_similarity": 78.3,
+          "candidate_artist": "Reverberi",
+          "candidate_album": "Reverberi  Reverberi"
+        },
+        {
+          "filename": "Reverie-Reverie.jpeg",
+          "confidence": 40.2,
+          "artist_similarity": 52.5,
+          "album_similarity": 28.0,
+          "candidate_artist": "Reverie",
+          "candidate_album": "Reverie"
+        }
+      ],
+      "best_confidence": 95.2,
+      "confidence_gap": 3.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Rufus & Chaka",
+      "album": "Masterjam",
+      "expected_filename": "Rufus & Chaka-Masterjam.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Rufus &amp; Chaka-Masterjam.jpeg",
+          "confidence": 95.1,
+          "artist_similarity": 84.3,
+          "album_similarity": 100.0,
+          "candidate_artist": "Rufus &amp; Chaka",
+          "candidate_album": "Masterjam"
+        },
+        {
+          "filename": "Rufus  Chaka-Masterjam.jpeg",
+          "confidence": 92.6,
+          "artist_similarity": 79.2,
+          "album_similarity": 100.0,
+          "candidate_artist": "Rufus  Chaka",
+          "candidate_album": "Masterjam"
+        },
+        {
+          "filename": "Rufus  Chaka-Do You Love What You Feel Special U.S. Disco Mix.jpeg",
+          "confidence": 40.9,
+          "artist_similarity": 79.2,
+          "album_similarity": 2.5,
+          "candidate_artist": "Rufus  Chaka",
+          "candidate_album": "Do You Love What You Feel Special U.S. Disco Mix"
+        }
+      ],
+      "best_confidence": 95.1,
+      "confidence_gap": 2.5,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Paul Kantner, Grace Slick & David Freiberg",
+      "album": "Baron Von Tollbooth & The Chrome Nun",
+      "expected_filename": "Paul Kantner, Grace Slick & David Freiberg-Baron Von Tollbooth & The Chrome Nun.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Paul Kantner, Grace Slick &amp; David Freiberg-Baron Von Tollbooth &amp; The Chrome Nun.jpeg",
+          "confidence": 94.9,
+          "artist_similarity": 93.1,
+          "album_similarity": 92.8,
+          "candidate_artist": "Paul Kantner, Grace Slick &amp; David Freiberg",
+          "candidate_album": "Baron Von Tollbooth &amp; The Chrome Nun"
+        },
+        {
+          "filename": "Paul Kantner Grace Slick  David Freiberg-Baron Von Tollbooth  The Chrome Nun.jpeg",
+          "confidence": 92.1,
+          "artist_similarity": 92.3,
+          "album_similarity": 91.8,
+          "candidate_artist": "Paul Kantner Grace Slick  David Freiberg",
+          "candidate_album": "Baron Von Tollbooth  The Chrome Nun"
+        },
+        {
+          "filename": "Barbara Blake And The Uniques-Barbara Blake And The Uniques.jpeg",
+          "confidence": 32.7,
+          "artist_similarity": 26.1,
+          "album_similarity": 39.4,
+          "candidate_artist": "Barbara Blake And The Uniques",
+          "candidate_album": "Barbara Blake And The Uniques"
+        }
+      ],
+      "best_confidence": 94.9,
+      "confidence_gap": 2.8,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Little Sonny",
+      "album": "Black & Blue",
+      "expected_filename": "Little Sonny-Black & Blue.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Little Sonny-Black &amp; Blue.jpeg",
+          "confidence": 94.9,
+          "artist_similarity": 100.0,
+          "album_similarity": 83.7,
+          "candidate_artist": "Little Sonny",
+          "candidate_album": "Black &amp; Blue"
+        },
+        {
+          "filename": "Little Sonny-Black  Blue.jpeg",
+          "confidence": 92.2,
+          "artist_similarity": 100.0,
+          "album_similarity": 78.3,
+          "candidate_artist": "Little Sonny",
+          "candidate_album": "Black  Blue"
+        },
+        {
+          "filename": "Sonny Phillips-Black On Black!.jpeg",
+          "confidence": 47.2,
+          "artist_similarity": 36.9,
+          "album_similarity": 57.5,
+          "candidate_artist": "Sonny Phillips",
+          "candidate_album": "Black On Black!"
+        }
+      ],
+      "best_confidence": 94.9,
+      "confidence_gap": 2.7,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Ronnie McNeir",
+      "album": "Life & Love",
+      "expected_filename": "Ronnie McNeir-Life & Love.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Ronnie McNeir-Life &amp; Love.jpeg",
+          "confidence": 94.6,
+          "artist_similarity": 100.0,
+          "album_similarity": 83.2,
+          "candidate_artist": "Ronnie McNeir",
+          "candidate_album": "Life &amp; Love"
+        },
+        {
+          "filename": "Ronnie McNeir-Life  Love.jpeg",
+          "confidence": 91.6,
+          "artist_similarity": 100.0,
+          "album_similarity": 77.3,
+          "candidate_artist": "Ronnie McNeir",
+          "candidate_album": "Life  Love"
+        },
+        {
+          "filename": "Glenn Neale-Love & Life.jpeg",
+          "confidence": 53.8,
+          "artist_similarity": 29.2,
+          "album_similarity": 78.5,
+          "candidate_artist": "Glenn Neale",
+          "candidate_album": "Love & Life"
+        }
+      ],
+      "best_confidence": 94.6,
+      "confidence_gap": 3.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "You & The Explosion Band = ユー&エクスプロージョン・バンド",
+      "album": "Lupin The 3rd - TV Original Soundtrack BGM Collection Vol. 2 = ルパン三世 BGM集 TVオリジナル・サウンドトラック Vol. 2",
+      "expected_filename": "You & The Explosion Band = ユー&エクスプロージョン・バンド-Lupin The 3rd - TV Original Soundtrack BGM Collection Vol. 2 = ルパン三世 BGM集 TVオリジナル・サウンドトラック Vol. 2.jpeg",
+      "top_candidates": [
+        {
+          "filename": "You &amp; The Explosion Band = ユー&amp;エクスプロージョン・バンド-Lupin The 3rd-TV Original Soundtrack BGM Collection Vol. 2 = ルパン三世 BGM集 TVオリジナル・サウンドトラック Vol. 2.jpeg",
+          "confidence": 93.5,
+          "artist_similarity": 91.2,
+          "album_similarity": 91.7,
+          "candidate_artist": "You &amp; The Explosion Band = ユー&amp;エクスプロージョン・バンド",
+          "candidate_album": "Lupin The 3rd-TV Original Soundtrack BGM Collection Vol. 2 = ルパン三世 BGM集 TVオリジナル・サウンドトラック Vol. 2"
+        },
+        {
+          "filename": "You  The Explosion Band  ユーエクスプロージョンバンド-Lupin The 3rd - TV Original Soundtrack BGM Collection Vol. 2  ルパン三世 BGM集 TVオリジナルサウンドトラック Vol. 2.jpeg",
+          "confidence": 86.5,
+          "artist_similarity": 75.0,
+          "album_similarity": 94.0,
+          "candidate_artist": "You  The Explosion Band  ユーエクスプロージョンバンド",
+          "candidate_album": "Lupin The 3rd - TV Original Soundtrack BGM Collection Vol. 2  ルパン三世 BGM集 TVオリジナルサウンドトラック Vol. 2"
+        },
+        {
+          "filename": "KC and the Sunshine Band-KC and the Sunshine Band copy.jpeg",
+          "confidence": 28.1,
+          "artist_similarity": 38.6,
+          "album_similarity": 17.6,
+          "candidate_artist": "KC and the Sunshine Band",
+          "candidate_album": "KC and the Sunshine Band copy"
+        }
+      ],
+      "best_confidence": 93.5,
+      "confidence_gap": 7.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Otto",
+      "album": "Sing & Listen",
+      "expected_filename": "Otto-Sing & Listen.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Otto-Sing  Listen.jpeg",
+          "confidence": 92.6,
+          "artist_similarity": 100.0,
+          "album_similarity": 79.2,
+          "candidate_artist": "Otto",
+          "candidate_album": "Sing  Listen"
+        },
+        {
+          "filename": "Ozo-In Disco Town.jpeg",
+          "confidence": 40.0,
+          "artist_similarity": 40.0,
+          "album_similarity": 40.0,
+          "candidate_artist": "Ozo",
+          "candidate_album": "In Disco Town"
+        },
+        {
+          "filename": "Okko-Sitar &amp; Electronics.jpeg",
+          "confidence": 37.5,
+          "artist_similarity": 35.0,
+          "album_similarity": 40.0,
+          "candidate_artist": "Okko",
+          "candidate_album": "Sitar &amp; Electronics"
+        }
+      ],
+      "best_confidence": 92.6,
+      "confidence_gap": 52.6,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Point Blank",
+      "album": "American Exce$$",
+      "expected_filename": "Point Blank-American Exce$$.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Point Blank-American Excess.jpeg",
+          "confidence": 92.5,
+          "artist_similarity": 100.0,
+          "album_similarity": 75.0,
+          "candidate_artist": "Point Blank",
+          "candidate_album": "American Excess"
+        },
+        {
+          "filename": "Point Blank-Airplay.jpeg",
+          "confidence": 63.5,
+          "artist_similarity": 100.0,
+          "album_similarity": 21.0,
+          "candidate_artist": "Point Blank",
+          "candidate_album": "Airplay"
+        },
+        {
+          "filename": "Point Blank-Point Blank.jpeg",
+          "confidence": 61.8,
+          "artist_similarity": 100.0,
+          "album_similarity": 17.5,
+          "candidate_artist": "Point Blank",
+          "candidate_album": "Point Blank"
+        }
+      ],
+      "best_confidence": 92.5,
+      "confidence_gap": 29.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Wayne McGhie & The Sounds Of Joy",
+      "album": "Wayne McGhie & The Sounds Of Joy",
+      "expected_filename": "Wayne McGhie & The Sounds Of Joy-Wayne McGhie & The Sounds Of Joy.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Wayne McGhie &amp; The Sounds Of Joy-Wayne McGhie &amp; The Sounds Of Joy.jpeg",
+          "confidence": 92.4,
+          "artist_similarity": 92.4,
+          "album_similarity": 92.4,
+          "candidate_artist": "Wayne McGhie &amp; The Sounds Of Joy",
+          "candidate_album": "Wayne McGhie &amp; The Sounds Of Joy"
+        },
+        {
+          "filename": "Wayne McGhie  The Sounds Of Joy-Wayne McGhie  The Sounds Of Joy.jpeg",
+          "confidence": 91.3,
+          "artist_similarity": 91.3,
+          "album_similarity": 91.3,
+          "candidate_artist": "Wayne McGhie  The Sounds Of Joy",
+          "candidate_album": "Wayne McGhie  The Sounds Of Joy"
+        },
+        {
+          "filename": "Dillard Crume And The Soul Rockers-Singing The Hits Of Today.jpeg",
+          "confidence": 42.2,
+          "artist_similarity": 40.5,
+          "album_similarity": 44.0,
+          "candidate_artist": "Dillard Crume And The Soul Rockers",
+          "candidate_album": "Singing The Hits Of Today"
+        }
+      ],
+      "best_confidence": 92.4,
+      "confidence_gap": 1.1,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Richard Denton & Martin Cook",
+      "album": "Hong Kong Beat & Other BBC TV Themes",
+      "expected_filename": "Richard Denton & Martin Cook-Hong Kong Beat & Other BBC TV Themes.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Richard Denton &amp; Martin Cook-Hong Kong Beat &amp; Other BBC TV Themes.jpeg",
+          "confidence": 91.9,
+          "artist_similarity": 90.6,
+          "album_similarity": 93.2,
+          "candidate_artist": "Richard Denton &amp; Martin Cook",
+          "candidate_album": "Hong Kong Beat &amp; Other BBC TV Themes"
+        },
+        {
+          "filename": "Richard Denton  Martin Cook-Hong Kong Beat  Other BBC TV Themes.jpeg",
+          "confidence": 90.7,
+          "artist_similarity": 89.0,
+          "album_similarity": 92.4,
+          "candidate_artist": "Richard Denton  Martin Cook",
+          "candidate_album": "Hong Kong Beat  Other BBC TV Themes"
+        },
+        {
+          "filename": "Richard Behrke-Building A Better Way To See The U.S.A. Music.jpeg",
+          "confidence": 36.2,
+          "artist_similarity": 40.0,
+          "album_similarity": 32.4,
+          "candidate_artist": "Richard Behrke",
+          "candidate_album": "Building A Better Way To See The U.S.A. Music"
+        }
+      ],
+      "best_confidence": 91.9,
+      "confidence_gap": 1.2,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Reba Rambo & Dony McGuire",
+      "album": "The Lord's Prayer - Teach Us To Pray",
+      "expected_filename": "Reba Rambo & Dony McGuire-The Lord's Prayer - Teach Us To Pray.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Reba Rambo  Dony McGuire-The Lords Prayer - Teach Us To Pray.jpeg",
+          "confidence": 91.2,
+          "artist_similarity": 88.4,
+          "album_similarity": 90.0,
+          "candidate_artist": "Reba Rambo  Dony McGuire",
+          "candidate_album": "The Lords Prayer - Teach Us To Pray"
+        },
+        {
+          "filename": "Reba Rambo &amp; Dony McGuire-The Lord's Prayer-Teach Us To Pray.jpeg",
+          "confidence": 90.1,
+          "artist_similarity": 90.2,
+          "album_similarity": 86.0,
+          "candidate_artist": "Reba Rambo &amp; Dony McGuire",
+          "candidate_album": "The Lord's Prayer-Teach Us To Pray"
+        },
+        {
+          "filename": "Barbara & Ernie-Prelude To....jpeg",
+          "confidence": 33.4,
+          "artist_similarity": 42.5,
+          "album_similarity": 24.3,
+          "candidate_artist": "Barbara & Ernie",
+          "candidate_album": "Prelude To..."
+        }
+      ],
+      "best_confidence": 91.2,
+      "confidence_gap": 1.1,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Keola & Kapono Beamer",
+      "album": "Hawaii's Keola & Kapono Beamer",
+      "expected_filename": "Keola & Kapono Beamer-Hawaii's Keola & Kapono Beamer.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Keola &amp; Kapono Beamer-Hawaii's Keola &amp; Kapono Beamer.jpeg",
+          "confidence": 90.0,
+          "artist_similarity": 88.4,
+          "album_similarity": 91.6,
+          "candidate_artist": "Keola &amp; Kapono Beamer",
+          "candidate_album": "Hawaii's Keola &amp; Kapono Beamer"
+        },
+        {
+          "filename": "Keola  Kapono Beamer-Hawaiis Keola  Kapono Beamer.jpeg",
+          "confidence": 81.4,
+          "artist_similarity": 85.8,
+          "album_similarity": 76.9,
+          "candidate_artist": "Keola  Kapono Beamer",
+          "candidate_album": "Hawaiis Keola  Kapono Beamer"
+        },
+        {
+          "filename": "Ele Kõlar & Kaja Kõlar-Ele & Kaja Kõlar.jpeg",
+          "confidence": 41.5,
+          "artist_similarity": 46.0,
+          "album_similarity": 36.9,
+          "candidate_artist": "Ele Kõlar & Kaja Kõlar",
+          "candidate_album": "Ele & Kaja Kõlar"
+        }
+      ],
+      "best_confidence": 90.0,
+      "confidence_gap": 8.6,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Stardust International & Tayfun",
+      "album": "Stardust International & Tayfun",
+      "expected_filename": "Stardust International & Tayfun-Stardust International & Tayfun.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Stardust International &amp; Tayfun-Stardust International &amp; Tayfun.jpeg",
+          "confidence": 90.0,
+          "artist_similarity": 90.0,
+          "album_similarity": 90.0,
+          "candidate_artist": "Stardust International &amp; Tayfun",
+          "candidate_album": "Stardust International &amp; Tayfun"
+        },
+        {
+          "filename": "Stardust International  Tayfun-Stardust International  Tayfun.jpeg",
+          "confidence": 88.0,
+          "artist_similarity": 88.0,
+          "album_similarity": 88.0,
+          "candidate_artist": "Stardust International  Tayfun",
+          "candidate_album": "Stardust International  Tayfun"
+        },
+        {
+          "filename": "Ecstasy, Passion & Pain-Ecstasy, Passion & Pain.jpeg",
+          "confidence": 43.6,
+          "artist_similarity": 43.6,
+          "album_similarity": 43.6,
+          "candidate_artist": "Ecstasy, Passion & Pain",
+          "candidate_album": "Ecstasy, Passion & Pain"
+        }
+      ],
+      "best_confidence": 90.0,
+      "confidence_gap": 2.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Linda & The Funky Boys",
+      "album": "Sold My Rock'n'Roll (Gave It For Funky Soul)",
+      "expected_filename": "Linda & The Funky Boys-Sold My Rock'n'Roll (Gave It For Funky Soul).jpeg",
+      "top_candidates": [
+        {
+          "filename": "Linda  The Funky Boys-Sold My RocknRoll Gave It For Funky Soul.jpeg",
+          "confidence": 89.5,
+          "artist_similarity": 87.6,
+          "album_similarity": 87.4,
+          "candidate_artist": "Linda  The Funky Boys",
+          "candidate_album": "Sold My RocknRoll Gave It For Funky Soul"
+        },
+        {
+          "filename": "Linda &amp; The Funky Boys-Satisfied.jpeg",
+          "confidence": 47.6,
+          "artist_similarity": 89.6,
+          "album_similarity": 5.5,
+          "candidate_artist": "Linda &amp; The Funky Boys",
+          "candidate_album": "Satisfied"
+        },
+        {
+          "filename": "Linda  The Funky Boys-Satisfied.jpeg",
+          "confidence": 46.6,
+          "artist_similarity": 87.6,
+          "album_similarity": 5.5,
+          "candidate_artist": "Linda  The Funky Boys",
+          "candidate_album": "Satisfied"
+        }
+      ],
+      "best_confidence": 89.5,
+      "confidence_gap": 41.9,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Sparrow's Troubadours",
+      "album": "Hot & Sweet - Vol. 1",
+      "expected_filename": "Sparrow's Troubadours-Hot & Sweet - Vol. 1.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Sparrow's Troubadours-Hot &amp; Sweet-Vol. 1.jpeg",
+          "confidence": 88.9,
+          "artist_similarity": 100.0,
+          "album_similarity": 71.7,
+          "candidate_artist": "Sparrow's Troubadours",
+          "candidate_album": "Hot &amp; Sweet-Vol. 1"
+        },
+        {
+          "filename": "Sparrows Troubadours-Hot  Sweet - Vol. 1.jpeg",
+          "confidence": 81.7,
+          "artist_similarity": 75.8,
+          "album_similarity": 87.6,
+          "candidate_artist": "Sparrows Troubadours",
+          "candidate_album": "Hot  Sweet - Vol. 1"
+        },
+        {
+          "filename": "Sparrows Troubadours-Hot  Sweet.jpeg",
+          "confidence": 63.9,
+          "artist_similarity": 75.8,
+          "album_similarity": 52.0,
+          "candidate_artist": "Sparrows Troubadours",
+          "candidate_album": "Hot  Sweet"
+        }
+      ],
+      "best_confidence": 88.9,
+      "confidence_gap": 7.2,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Veronika Fischer & Band",
+      "album": "Veronika Fischer & Band",
+      "expected_filename": "Veronika Fischer & Band-Veronika Fischer & Band.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Veronika Fischer &amp; Band-Veronika Fischer &amp; Band.jpeg",
+          "confidence": 88.8,
+          "artist_similarity": 88.8,
+          "album_similarity": 88.8,
+          "candidate_artist": "Veronika Fischer &amp; Band",
+          "candidate_album": "Veronika Fischer &amp; Band"
+        },
+        {
+          "filename": "Veronika Fischer  Band-Veronika Fischer  Band.jpeg",
+          "confidence": 86.4,
+          "artist_similarity": 86.4,
+          "album_similarity": 86.4,
+          "candidate_artist": "Veronika Fischer  Band",
+          "candidate_album": "Veronika Fischer  Band"
+        },
+        {
+          "filename": "Nina Hagen Band-Nina Hagen Band.jpeg",
+          "confidence": 47.0,
+          "artist_similarity": 47.0,
+          "album_similarity": 47.0,
+          "candidate_artist": "Nina Hagen Band",
+          "candidate_album": "Nina Hagen Band"
+        }
+      ],
+      "best_confidence": 88.8,
+      "confidence_gap": 2.4,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Teegarden & Van Winkle",
+      "album": "Teegarden & Van Winkle",
+      "expected_filename": "Teegarden & Van Winkle-Teegarden & Van Winkle.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Teegarden &amp; Van Winkle-Teegarden &amp; Van Winkle.jpeg",
+          "confidence": 88.6,
+          "artist_similarity": 88.6,
+          "album_similarity": 88.6,
+          "candidate_artist": "Teegarden &amp; Van Winkle",
+          "candidate_album": "Teegarden &amp; Van Winkle"
+        },
+        {
+          "filename": "Teegarden  Van Winkle-Teegarden  Van Winkle.jpeg",
+          "confidence": 86.1,
+          "artist_similarity": 86.1,
+          "album_similarity": 86.1,
+          "candidate_artist": "Teegarden  Van Winkle",
+          "candidate_album": "Teegarden  Van Winkle"
+        },
+        {
+          "filename": "Ele Kõlar & Kaja Kõlar-Ele & Kaja Kõlar.jpeg",
+          "confidence": 41.6,
+          "artist_similarity": 42.2,
+          "album_similarity": 41.0,
+          "candidate_artist": "Ele Kõlar & Kaja Kõlar",
+          "candidate_album": "Ele & Kaja Kõlar"
+        }
+      ],
+      "best_confidence": 88.6,
+      "confidence_gap": 2.5,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Power & The Glory, The",
+      "album": "Sing Twelve Rock & Gospel Hits",
+      "expected_filename": "Power & The Glory, The-Sing Twelve Rock & Gospel Hits.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Power  The Glory, The-Sing Twelve Rock  Gospel Hits.jpeg",
+          "confidence": 88.1,
+          "artist_similarity": 85.8,
+          "album_similarity": 90.3,
+          "candidate_artist": "Power  The Glory, The",
+          "candidate_album": "Sing Twelve Rock  Gospel Hits"
+        },
+        {
+          "filename": "Happy Day Singers, The-16 Rock Gospel Hits.jpeg",
+          "confidence": 43.0,
+          "artist_similarity": 26.6,
+          "album_similarity": 59.5,
+          "candidate_artist": "Happy Day Singers, The",
+          "candidate_album": "16 Rock Gospel Hits"
+        },
+        {
+          "filename": "Golden Orchestra And Chorus, The-Songs For Sesame Street And All Time Kindergarten Nursery Hits.jpeg",
+          "confidence": 41.5,
+          "artist_similarity": 47.5,
+          "album_similarity": 35.6,
+          "candidate_artist": "Golden Orchestra And Chorus, The",
+          "candidate_album": "Songs For Sesame Street And All Time Kindergarten Nursery Hits"
+        }
+      ],
+      "best_confidence": 88.1,
+      "confidence_gap": 45.1,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Tommy James & The Shondells",
+      "album": "Crimson & Clover",
+      "expected_filename": "Tommy James & The Shondells-Crimson & Clover.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Tommy James &amp; The Shondells-Crimson &amp; Clover.jpeg",
+          "confidence": 88.0,
+          "artist_similarity": 90.5,
+          "album_similarity": 85.5,
+          "candidate_artist": "Tommy James &amp; The Shondells",
+          "candidate_album": "Crimson &amp; Clover"
+        },
+        {
+          "filename": "Tommy James  The Shondells-Crimson  Clover.jpeg",
+          "confidence": 85.0,
+          "artist_similarity": 88.8,
+          "album_similarity": 81.2,
+          "candidate_artist": "Tommy James  The Shondells",
+          "candidate_album": "Crimson  Clover"
+        },
+        {
+          "filename": "Tommy James And The Shondells-Travelin'.jpeg",
+          "confidence": 63.8,
+          "artist_similarity": 100.0,
+          "album_similarity": 21.5,
+          "candidate_artist": "Tommy James And The Shondells",
+          "candidate_album": "Travelin'"
+        }
+      ],
+      "best_confidence": 88.0,
+      "confidence_gap": 3.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Ray, Goodman & Brown",
+      "album": "Ray, Goodman & Brown",
+      "expected_filename": "Ray, Goodman & Brown-Ray, Goodman & Brown.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Ray, Goodman &amp; Brown-Ray, Goodman &amp; Brown.jpeg",
+          "confidence": 87.9,
+          "artist_similarity": 87.9,
+          "album_similarity": 87.9,
+          "candidate_artist": "Ray, Goodman &amp; Brown",
+          "candidate_album": "Ray, Goodman &amp; Brown"
+        },
+        {
+          "filename": "Ray Goodman  Brown-Ray Goodman  Brown.jpeg",
+          "confidence": 85.1,
+          "artist_similarity": 85.1,
+          "album_similarity": 85.1,
+          "candidate_artist": "Ray Goodman  Brown",
+          "candidate_album": "Ray Goodman  Brown"
+        },
+        {
+          "filename": "Cy Benson & Fairwind-Cy Benson & Fairwind.jpeg",
+          "confidence": 43.4,
+          "artist_similarity": 43.4,
+          "album_similarity": 43.4,
+          "candidate_artist": "Cy Benson & Fairwind",
+          "candidate_album": "Cy Benson & Fairwind"
+        }
+      ],
+      "best_confidence": 87.9,
+      "confidence_gap": 2.8,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Wilmer & The Dukes",
+      "album": "Wilmer & The Dukes",
+      "expected_filename": "Wilmer & The Dukes-Wilmer & The Dukes.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Wilmer &amp; The Dukes-Wilmer &amp; The Dukes.jpeg",
+          "confidence": 87.6,
+          "artist_similarity": 87.6,
+          "album_similarity": 87.6,
+          "candidate_artist": "Wilmer &amp; The Dukes",
+          "candidate_album": "Wilmer &amp; The Dukes"
+        },
+        {
+          "filename": "Wilmer  The Dukes-Wilmer  The Dukes.jpeg",
+          "confidence": 84.7,
+          "artist_similarity": 84.7,
+          "album_similarity": 84.7,
+          "candidate_artist": "Wilmer  The Dukes",
+          "candidate_album": "Wilmer  The Dukes"
+        },
+        {
+          "filename": "Mary And The Maoris-Mary And The Maoris.jpeg",
+          "confidence": 53.1,
+          "artist_similarity": 53.1,
+          "album_similarity": 53.1,
+          "candidate_artist": "Mary And The Maoris",
+          "candidate_album": "Mary And The Maoris"
+        }
+      ],
+      "best_confidence": 87.6,
+      "confidence_gap": 2.9,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Tito, Vic & Joey",
+      "album": "Tito, Vic & Joey Vol. IV Sgt. Pepe",
+      "expected_filename": "Tito, Vic & Joey-Tito, Vic & Joey Vol. IV Sgt. Pepe.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Tito Vic  Joey-Tito Vic  Joey Vol. IV Sgt. Pepe.jpeg",
+          "confidence": 87.5,
+          "artist_similarity": 83.2,
+          "album_similarity": 91.7,
+          "candidate_artist": "Tito Vic  Joey",
+          "candidate_album": "Tito Vic  Joey Vol. IV Sgt. Pepe"
+        },
+        {
+          "filename": "Tom Scott and the L.A. Express-Tom Scott and The L.A. Express copy.jpeg",
+          "confidence": 35.5,
+          "artist_similarity": 33.4,
+          "album_similarity": 37.5,
+          "candidate_artist": "Tom Scott and the L.A. Express",
+          "candidate_album": "Tom Scott and The L.A. Express copy"
+        },
+        {
+          "filename": "Tom Scott And The L.A. Express-Tom Scott And The L.A. Express.jpeg",
+          "confidence": 34.7,
+          "artist_similarity": 33.4,
+          "album_similarity": 36.0,
+          "candidate_artist": "Tom Scott And The L.A. Express",
+          "candidate_album": "Tom Scott And The L.A. Express"
+        }
+      ],
+      "best_confidence": 87.5,
+      "confidence_gap": 52.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Various",
+      "album": "Mary Jane (Original Motion Picture Soundtrack)",
+      "expected_filename": "Various-Mary Jane (Original Motion Picture Soundtrack).jpeg",
+      "top_candidates": [
+        {
+          "filename": "Various-Original Motion Picture Soundtrack Gordons War.jpeg",
+          "confidence": 86.9,
+          "artist_similarity": 100.0,
+          "album_similarity": 67.9,
+          "candidate_artist": "Various",
+          "candidate_album": "Original Motion Picture Soundtrack Gordons War"
+        },
+        {
+          "filename": "Various-Original Motion Picture Soundtrack Gordon's War.jpeg",
+          "confidence": 85.8,
+          "artist_similarity": 100.0,
+          "album_similarity": 65.6,
+          "candidate_artist": "Various",
+          "candidate_album": "Original Motion Picture Soundtrack Gordon's War"
+        },
+        {
+          "filename": "Various-All That Jazz-Music From The Original Motion Picture Soundtrack.jpeg",
+          "confidence": 84.6,
+          "artist_similarity": 100.0,
+          "album_similarity": 63.2,
+          "candidate_artist": "Various",
+          "candidate_album": "All That Jazz-Music From The Original Motion Picture Soundtrack"
+        }
+      ],
+      "best_confidence": 86.9,
+      "confidence_gap": 1.1,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Smoke&Smile Band",
+      "album": "Africa / Black High",
+      "expected_filename": "Smoke&Smile Band-Africa / Black High.jpeg",
+      "top_candidates": [
+        {
+          "filename": "SmokeSmile Band-Africa  Black High.jpeg",
+          "confidence": 86.0,
+          "artist_similarity": 66.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "SmokeSmile Band",
+          "candidate_album": "Africa  Black High"
+        },
+        {
+          "filename": "Ike & Tina Turner-Black Angel.jpeg",
+          "confidence": 39.5,
+          "artist_similarity": 36.6,
+          "album_similarity": 42.5,
+          "candidate_artist": "Ike & Tina Turner",
+          "candidate_album": "Black Angel"
+        },
+        {
+          "filename": "Manu Dibango-Africadelic.jpeg",
+          "confidence": 37.5,
+          "artist_similarity": 35.0,
+          "album_similarity": 40.0,
+          "candidate_artist": "Manu Dibango",
+          "candidate_album": "Africadelic"
+        }
+      ],
+      "best_confidence": 86.0,
+      "confidence_gap": 46.5,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Secos & Molhados",
+      "album": "Secos & Molhados",
+      "expected_filename": "Secos & Molhados-Secos & Molhados.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Secos &amp; Molhados-Secos &amp; Molhados.jpeg",
+          "confidence": 85.5,
+          "artist_similarity": 85.5,
+          "album_similarity": 85.5,
+          "candidate_artist": "Secos &amp; Molhados",
+          "candidate_album": "Secos &amp; Molhados"
+        },
+        {
+          "filename": "Secos  Molhados-Secos  Molhados.jpeg",
+          "confidence": 81.2,
+          "artist_similarity": 81.2,
+          "album_similarity": 81.2,
+          "candidate_artist": "Secos  Molhados",
+          "candidate_album": "Secos  Molhados"
+        },
+        {
+          "filename": "Dotson And Company-Dotson And Company.jpeg",
+          "confidence": 41.0,
+          "artist_similarity": 41.0,
+          "album_similarity": 41.0,
+          "candidate_artist": "Dotson And Company",
+          "candidate_album": "Dotson And Company"
+        }
+      ],
+      "best_confidence": 85.5,
+      "confidence_gap": 4.3,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Mouth & MacNeal",
+      "album": "Mouth & MacNeal",
+      "expected_filename": "Mouth & MacNeal-Mouth & MacNeal.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Mouth &amp; MacNeal-Mouth &amp; MacNeal.jpeg",
+          "confidence": 85.1,
+          "artist_similarity": 85.1,
+          "album_similarity": 85.1,
+          "candidate_artist": "Mouth &amp; MacNeal",
+          "candidate_album": "Mouth &amp; MacNeal"
+        },
+        {
+          "filename": "Mouth  MacNeal-Mouth  MacNeal.jpeg",
+          "confidence": 80.7,
+          "artist_similarity": 80.7,
+          "album_similarity": 80.7,
+          "candidate_artist": "Mouth  MacNeal",
+          "candidate_album": "Mouth  MacNeal"
+        },
+        {
+          "filename": "Dotson And Company-Dotson And Company.jpeg",
+          "confidence": 46.0,
+          "artist_similarity": 46.0,
+          "album_similarity": 46.0,
+          "candidate_artist": "Dotson And Company",
+          "candidate_album": "Dotson And Company"
+        }
+      ],
+      "best_confidence": 85.1,
+      "confidence_gap": 4.4,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Ricchi & Poveri",
+      "album": "Ricchi & Poveri",
+      "expected_filename": "Ricchi & Poveri-Ricchi & Poveri.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Ricchi &amp; Poveri-Ricchi &amp; Poveri.jpeg",
+          "confidence": 85.1,
+          "artist_similarity": 85.1,
+          "album_similarity": 85.1,
+          "candidate_artist": "Ricchi &amp; Poveri",
+          "candidate_album": "Ricchi &amp; Poveri"
+        },
+        {
+          "filename": "Ricchi  Poveri-Ricchi  Poveri.jpeg",
+          "confidence": 80.7,
+          "artist_similarity": 80.7,
+          "album_similarity": 80.7,
+          "candidate_artist": "Ricchi  Poveri",
+          "candidate_album": "Ricchi  Poveri"
+        },
+        {
+          "filename": "Peace And Love-Peace And Love.jpeg",
+          "confidence": 46.6,
+          "artist_similarity": 46.6,
+          "album_similarity": 46.6,
+          "candidate_artist": "Peace And Love",
+          "candidate_album": "Peace And Love"
+        }
+      ],
+      "best_confidence": 85.1,
+      "confidence_gap": 4.4,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Love & Carol",
+      "album": "Hello English From Love & Carol ",
+      "expected_filename": "Love & Carol-Hello English From Love & Carol .jpeg",
+      "top_candidates": [
+        {
+          "filename": "Love  Carol-Hello English From Love  Carol .jpeg",
+          "confidence": 84.4,
+          "artist_similarity": 78.3,
+          "album_similarity": 90.5,
+          "candidate_artist": "Love  Carol",
+          "candidate_album": "Hello English From Love  Carol "
+        },
+        {
+          "filename": "Peace And Love-Peace And Love.jpeg",
+          "confidence": 41.2,
+          "artist_similarity": 50.0,
+          "album_similarity": 32.4,
+          "candidate_artist": "Peace And Love",
+          "candidate_album": "Peace And Love"
+        },
+        {
+          "filename": "Dave & Sugar-Dave & Sugar.jpeg",
+          "confidence": 40.8,
+          "artist_similarity": 51.0,
+          "album_similarity": 30.6,
+          "candidate_artist": "Dave & Sugar",
+          "candidate_album": "Dave & Sugar"
+        }
+      ],
+      "best_confidence": 84.4,
+      "confidence_gap": 43.2,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Sparrow's Troubadours",
+      "album": "Hot & Sweet",
+      "expected_filename": "Sparrow's Troubadours-Hot & Sweet.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Sparrow's Troubadours-Hot &amp; Sweet-Vol. 1.jpeg",
+          "confidence": 83.3,
+          "artist_similarity": 100.0,
+          "album_similarity": 60.6,
+          "candidate_artist": "Sparrow's Troubadours",
+          "candidate_album": "Hot &amp; Sweet-Vol. 1"
+        },
+        {
+          "filename": "Sparrows Troubadours-Hot  Sweet.jpeg",
+          "confidence": 76.5,
+          "artist_similarity": 75.8,
+          "album_similarity": 77.3,
+          "candidate_artist": "Sparrows Troubadours",
+          "candidate_album": "Hot  Sweet"
+        },
+        {
+          "filename": "Sparrows Troubadours-Hot  Sweet - Vol. 1.jpeg",
+          "confidence": 63.9,
+          "artist_similarity": 75.8,
+          "album_similarity": 52.0,
+          "candidate_artist": "Sparrows Troubadours",
+          "candidate_album": "Hot  Sweet - Vol. 1"
+        }
+      ],
+      "best_confidence": 83.3,
+      "confidence_gap": 6.8,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Sonny & Cher",
+      "album": "Sonny & Cher Live",
+      "expected_filename": "Sonny & Cher-Sonny & Cher Live.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Sonny  Cher-Sonny  Cher Live.jpeg",
+          "confidence": 81.3,
+          "artist_similarity": 78.3,
+          "album_similarity": 84.3,
+          "candidate_artist": "Sonny  Cher",
+          "candidate_album": "Sonny  Cher Live"
+        },
+        {
+          "filename": "Dotson And Company-Dotson And Company.jpeg",
+          "confidence": 42.2,
+          "artist_similarity": 45.4,
+          "album_similarity": 39.1,
+          "candidate_artist": "Dotson And Company",
+          "candidate_album": "Dotson And Company"
+        },
+        {
+          "filename": "Mary And The Maoris-Mary And The Maoris.jpeg",
+          "confidence": 42.2,
+          "artist_similarity": 43.2,
+          "album_similarity": 41.1,
+          "candidate_artist": "Mary And The Maoris",
+          "candidate_album": "Mary And The Maoris"
+        }
+      ],
+      "best_confidence": 81.3,
+      "confidence_gap": 39.1,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Whitten & Tod",
+      "album": "Whitten & Tod",
+      "expected_filename": "Whitten & Tod-Whitten & Tod.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Whitten  Tod-Whitten  Tod.jpeg",
+          "confidence": 79.2,
+          "artist_similarity": 79.2,
+          "album_similarity": 79.2,
+          "candidate_artist": "Whitten  Tod",
+          "candidate_album": "Whitten  Tod"
+        },
+        {
+          "filename": "Hedva And David-Hedva & David.jpeg",
+          "confidence": 43.3,
+          "artist_similarity": 43.3,
+          "album_similarity": 43.3,
+          "candidate_artist": "Hedva And David",
+          "candidate_album": "Hedva & David"
+        },
+        {
+          "filename": "Friends And Company-Friends And Company.jpeg",
+          "confidence": 43.1,
+          "artist_similarity": 43.1,
+          "album_similarity": 43.1,
+          "candidate_artist": "Friends And Company",
+          "candidate_album": "Friends And Company"
+        }
+      ],
+      "best_confidence": 79.2,
+      "confidence_gap": 35.9,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Mack & Dynamic Rhythm Machine",
+      "album": "さよならをもう一度／ツイン・ドラムで最新ヒット！",
+      "expected_filename": "Mack & Dynamic Rhythm Machine-さよならをもう一度／ツイン・ドラムで最新ヒット！.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Mack  Dynamic Rhythm Machine-さよならをもう一度ツインドラムで最新ヒット.jpeg",
+          "confidence": 78.0,
+          "artist_similarity": 89.2,
+          "album_similarity": 66.8,
+          "candidate_artist": "Mack  Dynamic Rhythm Machine",
+          "candidate_album": "さよならをもう一度ツインドラムで最新ヒット"
+        },
+        {
+          "filename": "Rhythm Machine-Rhythm Machine.jpeg",
+          "confidence": 29.7,
+          "artist_similarity": 55.6,
+          "album_similarity": 3.8,
+          "candidate_artist": "Rhythm Machine",
+          "candidate_album": "Rhythm Machine"
+        },
+        {
+          "filename": "Bobby Moore & The Rhythm Aces-Searching For My Love.jpeg",
+          "confidence": 25.7,
+          "artist_similarity": 45.1,
+          "album_similarity": 6.4,
+          "candidate_artist": "Bobby Moore & The Rhythm Aces",
+          "candidate_album": "Searching For My Love"
+        }
+      ],
+      "best_confidence": 78.0,
+      "confidence_gap": 48.3,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Kaygee's",
+      "album": "Keep On Bumpin' & Masterplan",
+      "expected_filename": "Kaygee's-Keep On Bumpin' & Masterplan.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Kaygees-Keep On Bumpin  Masterplan.jpeg",
+          "confidence": 77.1,
+          "artist_similarity": 65.3,
+          "album_similarity": 88.8,
+          "candidate_artist": "Kaygees",
+          "candidate_album": "Keep On Bumpin  Masterplan"
+        },
+        {
+          "filename": "Kay Gees-Find a Friend.jpeg",
+          "confidence": 42.3,
+          "artist_similarity": 61.2,
+          "album_similarity": 23.3,
+          "candidate_artist": "Kay Gees",
+          "candidate_album": "Find a Friend"
+        },
+        {
+          "filename": "Gary's Gang-Keep On Dancin'.jpeg",
+          "confidence": 39.8,
+          "artist_similarity": 37.0,
+          "album_similarity": 42.6,
+          "candidate_artist": "Gary's Gang",
+          "candidate_album": "Keep On Dancin'"
+        }
+      ],
+      "best_confidence": 77.1,
+      "confidence_gap": 34.8,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "University Of Bridgeport Jazz-Rock Ensemble",
+      "album": "Rock: Man And His Music",
+      "expected_filename": "University Of Bridgeport Jazz-Rock Ensemble-Rock: Man And His Music.jpeg",
+      "top_candidates": [
+        {
+          "filename": "University Of Bridgeport Jazz-Rock Ensemble-Rock Man And His Music.jpeg",
+          "confidence": 76.7,
+          "artist_similarity": 71.4,
+          "album_similarity": 78.1,
+          "candidate_artist": "University Of Bridgeport Jazz",
+          "candidate_album": "Rock Ensemble-Rock Man And His Music"
+        },
+        {
+          "filename": "University Of Bridgeport Jazz-Rock Ensemble-Rock Man And His Music copy.jpeg",
+          "confidence": 70.9,
+          "artist_similarity": 71.4,
+          "album_similarity": 70.3,
+          "candidate_artist": "University Of Bridgeport Jazz",
+          "candidate_album": "Rock Ensemble-Rock Man And His Music copy"
+        },
+        {
+          "filename": "University Of Miami Concert Jazz Band, The-Hansens New Jazz Band Sampler .jpeg",
+          "confidence": 36.2,
+          "artist_similarity": 47.7,
+          "album_similarity": 24.7,
+          "candidate_artist": "University Of Miami Concert Jazz Band, The",
+          "candidate_album": "Hansens New Jazz Band Sampler "
+        }
+      ],
+      "best_confidence": 76.7,
+      "confidence_gap": 5.8,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Original Cast Of Ipi-Tombi, The",
+      "album": "Bertha Egnos & Gail Lakier's Ipi Tombi: Original Cast Recording",
+      "expected_filename": "Original Cast Of Ipi-Tombi, The-Bertha Egnos & Gail Lakier's Ipi Tombi: Original Cast Recording.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Original Cast Of Ipi-Tombi, The-Bertha Egnos  Gail Lakiers Ipi Tombi Original Cast Recording.jpeg",
+          "confidence": 76.6,
+          "artist_similarity": 71.0,
+          "album_similarity": 78.3,
+          "candidate_artist": "Original Cast Of Ipi",
+          "candidate_album": "Tombi, The-Bertha Egnos  Gail Lakiers Ipi Tombi Original Cast Recording"
+        },
+        {
+          "filename": "Ronald Stein-Getting Straight (An Original Soundtrack Recording).jpeg",
+          "confidence": 32.1,
+          "artist_similarity": 26.7,
+          "album_similarity": 37.5,
+          "candidate_artist": "Ronald Stein",
+          "candidate_album": "Getting Straight (An Original Soundtrack Recording)"
+        },
+        {
+          "filename": "Galt MacDermot-Hair (Original Soundtrack Recording).jpeg",
+          "confidence": 31.3,
+          "artist_similarity": 22.3,
+          "album_similarity": 40.3,
+          "candidate_artist": "Galt MacDermot",
+          "candidate_album": "Hair (Original Soundtrack Recording)"
+        }
+      ],
+      "best_confidence": 76.6,
+      "confidence_gap": 44.5,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Melodija-yhtye",
+      "album": "Kalinka (Melodija-yhtye Soittaa Ikivihreitä Venäläisiä)",
+      "expected_filename": "Melodija-yhtye-Kalinka (Melodija-yhtye Soittaa Ikivihreitä Venäläisiä).jpeg",
+      "top_candidates": [
+        {
+          "filename": "Melodija-yhtye-Kalinka Melodija-yhtye Soittaa Ikivihreitä Venäläisiä.jpeg",
+          "confidence": 70.6,
+          "artist_similarity": 50.9,
+          "album_similarity": 86.2,
+          "candidate_artist": "Melodija",
+          "candidate_album": "yhtye-Kalinka Melodija-yhtye Soittaa Ikivihreitä Venäläisiä"
+        },
+        {
+          "filename": "Motherhood, The-I Feel So Free.jpeg",
+          "confidence": 26.5,
+          "artist_similarity": 30.0,
+          "album_similarity": 23.0,
+          "candidate_artist": "Motherhood, The",
+          "candidate_album": "I Feel So Free"
+        },
+        {
+          "filename": "Uncle Louie-Uncle Louie's Here.jpeg",
+          "confidence": 25.8,
+          "artist_similarity": 28.0,
+          "album_similarity": 23.7,
+          "candidate_artist": "Uncle Louie",
+          "candidate_album": "Uncle Louie's Here"
+        }
+      ],
+      "best_confidence": 70.6,
+      "confidence_gap": 44.1,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "William Ray",
+      "album": "",
+      "expected_filename": "William Ray-.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Wish  Fonda Rae-.jpeg",
+          "confidence": 69.8,
+          "artist_similarity": 33.6,
+          "album_similarity": 100.0,
+          "candidate_artist": "Wish  Fonda Rae",
+          "candidate_album": ""
+        },
+        {
+          "filename": "La Pregunta-.jpeg",
+          "confidence": 68.9,
+          "artist_similarity": 31.8,
+          "album_similarity": 100.0,
+          "candidate_artist": "La Pregunta",
+          "candidate_album": ""
+        },
+        {
+          "filename": "Wilbur Bad Bascomb-.jpeg",
+          "confidence": 65.1,
+          "artist_similarity": 24.1,
+          "album_similarity": 100.0,
+          "candidate_artist": "Wilbur Bad Bascomb",
+          "candidate_album": ""
+        }
+      ],
+      "best_confidence": 69.8,
+      "confidence_gap": 0.9,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Various",
+      "album": "Hello Darkness",
+      "expected_filename": "Various-Hello Darkness.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Various-Darkside.jpeg",
+          "confidence": 68.9,
+          "artist_similarity": 100.0,
+          "album_similarity": 31.8,
+          "candidate_artist": "Various",
+          "candidate_album": "Darkside"
+        },
+        {
+          "filename": "Various-Philopsis.jpeg",
+          "confidence": 68.2,
+          "artist_similarity": 100.0,
+          "album_similarity": 30.4,
+          "candidate_artist": "Various",
+          "candidate_album": "Philopsis"
+        },
+        {
+          "filename": "Various-El Pea .jpeg",
+          "confidence": 67.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 28.0,
+          "candidate_artist": "Various",
+          "candidate_album": "El Pea "
+        }
+      ],
+      "best_confidence": 68.9,
+      "confidence_gap": 0.7,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Various",
+      "album": "Jazz Back To Back ",
+      "expected_filename": "Various-Jazz Back To Back .jpeg",
+      "top_candidates": [
+        {
+          "filename": "Various-Sotano Beat A Todo Color.jpeg",
+          "confidence": 68.4,
+          "artist_similarity": 100.0,
+          "album_similarity": 30.7,
+          "candidate_artist": "Various",
+          "candidate_album": "Sotano Beat A Todo Color"
+        },
+        {
+          "filename": "Various-Pop Jazz.jpeg",
+          "confidence": 68.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 29.9,
+          "candidate_artist": "Various",
+          "candidate_album": "Pop Jazz"
+        },
+        {
+          "filename": "Various-Making Trax.jpeg",
+          "confidence": 65.5,
+          "artist_similarity": 100.0,
+          "album_similarity": 25.0,
+          "candidate_artist": "Various",
+          "candidate_album": "Making Trax"
+        }
+      ],
+      "best_confidence": 68.4,
+      "confidence_gap": 0.4,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Wild Sugar",
+      "album": "",
+      "expected_filename": "Wild Sugar-.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Wilbur Bad Bascomb-.jpeg",
+          "confidence": 68.0,
+          "artist_similarity": 30.0,
+          "album_similarity": 100.0,
+          "candidate_artist": "Wilbur Bad Bascomb",
+          "candidate_album": ""
+        },
+        {
+          "filename": "Wish  Fonda Rae-.jpeg",
+          "confidence": 67.6,
+          "artist_similarity": 29.2,
+          "album_similarity": 100.0,
+          "candidate_artist": "Wish  Fonda Rae",
+          "candidate_album": ""
+        },
+        {
+          "filename": "La Pregunta-.jpeg",
+          "confidence": 66.3,
+          "artist_similarity": 26.7,
+          "album_similarity": 100.0,
+          "candidate_artist": "La Pregunta",
+          "candidate_album": ""
+        }
+      ],
+      "best_confidence": 68.0,
+      "confidence_gap": 0.4,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Otis Skillings",
+      "album": "Life",
+      "expected_filename": "Otis Skillings-Life.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Otis Skillings  The Tempo Singers With The Westminster Sinfonia Orchestra-Life.jpeg",
+          "confidence": 67.7,
+          "artist_similarity": 29.5,
+          "album_similarity": 100.0,
+          "candidate_artist": "Otis Skillings  The Tempo Singers With The Westminster Sinfonia Orchestra",
+          "candidate_album": "Life"
+        },
+        {
+          "filename": "Second Skin-First Life.jpeg",
+          "confidence": 44.3,
+          "artist_similarity": 33.6,
+          "album_similarity": 55.0,
+          "candidate_artist": "Second Skin",
+          "candidate_album": "First Life"
+        },
+        {
+          "filename": "Wings-Wild Life.jpeg",
+          "confidence": 43.8,
+          "artist_similarity": 29.5,
+          "album_similarity": 58.1,
+          "candidate_artist": "Wings",
+          "candidate_album": "Wild Life"
+        }
+      ],
+      "best_confidence": 67.7,
+      "confidence_gap": 23.4,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Various",
+      "album": "Happy Love ",
+      "expected_filename": "Various-Happy Love .jpeg",
+      "top_candidates": [
+        {
+          "filename": "Various-16 Sappige Zomersongs.jpeg",
+          "confidence": 66.5,
+          "artist_similarity": 100.0,
+          "album_similarity": 27.1,
+          "candidate_artist": "Various",
+          "candidate_album": "16 Sappige Zomersongs"
+        },
+        {
+          "filename": "Various-Play School.jpeg",
+          "confidence": 66.3,
+          "artist_similarity": 100.0,
+          "album_similarity": 26.7,
+          "candidate_artist": "Various",
+          "candidate_album": "Play School"
+        },
+        {
+          "filename": "Various-La Discoteca .jpeg",
+          "confidence": 65.7,
+          "artist_similarity": 100.0,
+          "album_similarity": 25.5,
+          "candidate_artist": "Various",
+          "candidate_album": "La Discoteca "
+        }
+      ],
+      "best_confidence": 66.5,
+      "confidence_gap": 0.2,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Harry Sweets\" Edison",
+      "album": " Jerome Richardson",
+      "expected_filename": "Harry Sweets\" Edison- Jerome Richardson.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Harry \"Sweets\" Edison-Seven Eleven.jpeg",
+          "confidence": 62.7,
+          "artist_similarity": 100.0,
+          "album_similarity": 19.3,
+          "candidate_artist": "Harry \"Sweets\" Edison",
+          "candidate_album": "Seven Eleven"
+        },
+        {
+          "filename": "Hardy Boys, The-Here Come The Hardy Boys.jpeg",
+          "confidence": 35.8,
+          "artist_similarity": 33.9,
+          "album_similarity": 37.6,
+          "candidate_artist": "Hardy Boys, The",
+          "candidate_album": "Here Come The Hardy Boys"
+        },
+        {
+          "filename": "Gregory James Edition-Prophets Of Soul.jpeg",
+          "confidence": 33.7,
+          "artist_similarity": 42.0,
+          "album_similarity": 25.5,
+          "candidate_artist": "Gregory James Edition",
+          "candidate_album": "Prophets Of Soul"
+        }
+      ],
+      "best_confidence": 62.7,
+      "confidence_gap": 26.9,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Metro-Tones, Inc., The",
+      "album": "Get Together",
+      "expected_filename": "Metro-Tones, Inc., The-Get Together.jpeg",
+      "top_candidates": [
+        {
+          "filename": "True Tones, The-Lets Get It Together.jpeg",
+          "confidence": 60.1,
+          "artist_similarity": 52.7,
+          "album_similarity": 67.5,
+          "candidate_artist": "True Tones, The",
+          "candidate_album": "Lets Get It Together"
+        },
+        {
+          "filename": "Jack D'Johns, The-Together.jpeg",
+          "confidence": 52.0,
+          "artist_similarity": 33.0,
+          "album_similarity": 71.0,
+          "candidate_artist": "Jack D'Johns, The",
+          "candidate_album": "Together"
+        },
+        {
+          "filename": "Ike & Tina Turner And The Ikettes-Come Together.jpeg",
+          "confidence": 49.1,
+          "artist_similarity": 32.3,
+          "album_similarity": 66.0,
+          "candidate_artist": "Ike & Tina Turner And The Ikettes",
+          "candidate_album": "Come Together"
+        }
+      ],
+      "best_confidence": 60.1,
+      "confidence_gap": 8.1,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Various Featuring Archie Dennis, Jr.",
+      "album": "The Hawaiians - Lee Russell - Ken Copeland - Len Mink - John Hall - Chico Holiday - Lulu Roman - Andrae Crouch - Barry McGuire - Ode Wannebo - The Best Of Good News Volume 1",
+      "expected_filename": "Various Featuring Archie Dennis, Jr.-The Hawaiians - Lee Russell - Ken Copeland - Len Mink - John Hall - Chico Holiday - Lulu Roman - Andrae Crouch - Barry McGuire - Ode Wannebo - The Best Of Good News Volume 1.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Various Featuring Archie Dennis Jr.-The Hawaiians.jpeg",
+          "confidence": 59.0,
+          "artist_similarity": 100.0,
+          "album_similarity": 12.0,
+          "candidate_artist": "Various Featuring Archie Dennis Jr.",
+          "candidate_album": "The Hawaiians"
+        },
+        {
+          "filename": "Stu Gardner Presents A House Full Of Love Featuring Grover Washington, Jr.-A House Full Of Love-Music From The Bill Cosby Show.jpeg",
+          "confidence": 27.5,
+          "artist_similarity": 35.7,
+          "album_similarity": 19.2,
+          "candidate_artist": "Stu Gardner Presents A House Full Of Love Featuring Grover Washington, Jr.",
+          "candidate_album": "A House Full Of Love-Music From The Bill Cosby Show"
+        },
+        {
+          "filename": "Rufus Featuring Chaka Khan-Rufus Featuring Chaka Khan.jpeg",
+          "confidence": 27.4,
+          "artist_similarity": 45.7,
+          "album_similarity": 9.1,
+          "candidate_artist": "Rufus Featuring Chaka Khan",
+          "candidate_album": "Rufus Featuring Chaka Khan"
+        }
+      ],
+      "best_confidence": 59.0,
+      "confidence_gap": 31.5,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Righteous Brothers, The",
+      "album": "Souled Out",
+      "expected_filename": "Righteous Brothers, The-Souled Out.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Doobie Brothers, The-Toulouse Street.jpeg",
+          "confidence": 49.9,
+          "artist_similarity": 66.2,
+          "album_similarity": 33.6,
+          "candidate_artist": "Doobie Brothers, The",
+          "candidate_album": "Toulouse Street"
+        },
+        {
+          "filename": "Scorpio Brothers, The-Iko Iko.jpeg",
+          "confidence": 46.5,
+          "artist_similarity": 68.3,
+          "album_similarity": 24.7,
+          "candidate_artist": "Scorpio Brothers, The",
+          "candidate_album": "Iko Iko"
+        },
+        {
+          "filename": "Isley Brothers, The-Go For Your Guns.jpeg",
+          "confidence": 44.5,
+          "artist_similarity": 67.5,
+          "album_similarity": 21.5,
+          "candidate_artist": "Isley Brothers, The",
+          "candidate_album": "Go For Your Guns"
+        }
+      ],
+      "best_confidence": 49.9,
+      "confidence_gap": 3.4,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Tibor Brothers, The",
+      "album": "Songs Of Inspiration",
+      "expected_filename": "Tibor Brothers, The-Songs Of Inspiration.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Brothers Zim, The-The Joy Of Shabbos .jpeg",
+          "confidence": 49.4,
+          "artist_similarity": 64.4,
+          "album_similarity": 34.5,
+          "candidate_artist": "Brothers Zim, The",
+          "candidate_album": "The Joy Of Shabbos "
+        },
+        {
+          "filename": "Isley Brothers, The-Get Into Something.jpeg",
+          "confidence": 47.6,
+          "artist_similarity": 69.4,
+          "album_similarity": 25.8,
+          "candidate_artist": "Isley Brothers, The",
+          "candidate_album": "Get Into Something"
+        },
+        {
+          "filename": "Blues Brothers, The-The Blues Brothers (Original Soundtrack Recording).jpeg",
+          "confidence": 47.1,
+          "artist_similarity": 69.4,
+          "album_similarity": 24.7,
+          "candidate_artist": "Blues Brothers, The",
+          "candidate_album": "The Blues Brothers (Original Soundtrack Recording)"
+        }
+      ],
+      "best_confidence": 49.4,
+      "confidence_gap": 1.8,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Williams Brothers, The",
+      "album": "Hand In Hand",
+      "expected_filename": "Williams Brothers, The-Hand In Hand.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Isley Brothers, The-Get Into Something.jpeg",
+          "confidence": 48.4,
+          "artist_similarity": 68.8,
+          "album_similarity": 28.0,
+          "candidate_artist": "Isley Brothers, The",
+          "candidate_album": "Get Into Something"
+        },
+        {
+          "filename": "Sensational Williams Brothers, The-Mama Prayed For Me.jpeg",
+          "confidence": 47.8,
+          "artist_similarity": 76.9,
+          "album_similarity": 18.7,
+          "candidate_artist": "Sensational Williams Brothers, The",
+          "candidate_album": "Mama Prayed For Me"
+        },
+        {
+          "filename": "New Freedom Singers, The-Put Your Hand In The Hand.jpeg",
+          "confidence": 45.5,
+          "artist_similarity": 33.6,
+          "album_similarity": 57.4,
+          "candidate_artist": "New Freedom Singers, The",
+          "candidate_album": "Put Your Hand In The Hand"
+        }
+      ],
+      "best_confidence": 48.4,
+      "confidence_gap": 0.6,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Show-Orchester Fredy Brock",
+      "album": "On This Beautiful Night (Music '77)",
+      "expected_filename": "Show-Orchester Fredy Brock-On This Beautiful Night (Music '77).jpeg",
+      "top_candidates": [
+        {
+          "filename": "Show-Orchester Fredy Brock-On This Beautiful Night Music 77.jpeg",
+          "confidence": 45.7,
+          "artist_similarity": 18.7,
+          "album_similarity": 68.8,
+          "candidate_artist": "Show",
+          "candidate_album": "Orchester Fredy Brock-On This Beautiful Night Music 77"
+        },
+        {
+          "filename": "Spotnicks-Saturday Night Music.jpeg",
+          "confidence": 33.1,
+          "artist_similarity": 20.0,
+          "album_similarity": 46.3,
+          "candidate_artist": "Spotnicks",
+          "candidate_album": "Saturday Night Music"
+        },
+        {
+          "filename": "George Walker & Company-Black Is Beautiful.jpeg",
+          "confidence": 31.1,
+          "artist_similarity": 22.0,
+          "album_similarity": 40.1,
+          "candidate_artist": "George Walker & Company",
+          "candidate_album": "Black Is Beautiful"
+        }
+      ],
+      "best_confidence": 45.7,
+      "confidence_gap": 12.6,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "T-Connection",
+      "album": "Pure & Natural",
+      "expected_filename": "T-Connection-Pure & Natural.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Our Generation-Praise And Prayer.jpeg",
+          "confidence": 43.1,
+          "artist_similarity": 37.7,
+          "album_similarity": 48.4,
+          "candidate_artist": "Our Generation",
+          "candidate_album": "Praise And Prayer"
+        },
+        {
+          "filename": "Ronnie McNeir-Life &amp; Love.jpeg",
+          "confidence": 36.3,
+          "artist_similarity": 33.6,
+          "album_similarity": 38.9,
+          "candidate_artist": "Ronnie McNeir",
+          "candidate_album": "Life &amp; Love"
+        },
+        {
+          "filename": "T-Connection-Pure &amp; Natural.jpeg",
+          "confidence": 35.2,
+          "artist_similarity": 10.8,
+          "album_similarity": 59.7,
+          "candidate_artist": "T",
+          "candidate_album": "Connection-Pure &amp; Natural"
+        }
+      ],
+      "best_confidence": 43.1,
+      "confidence_gap": 6.8,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "U-No-Hoo",
+      "album": "Sunshine & Smiles",
+      "expected_filename": "U-No-Hoo-Sunshine & Smiles.jpeg",
+      "top_candidates": [
+        {
+          "filename": "U-No-Hoo-Sunshine &amp; Smiles.jpeg",
+          "confidence": 40.9,
+          "artist_similarity": 15.6,
+          "album_similarity": 66.3,
+          "candidate_artist": "U",
+          "candidate_album": "No-Hoo-Sunshine &amp; Smiles"
+        },
+        {
+          "filename": "Kokomo-Rise And Shine.jpeg",
+          "confidence": 39.2,
+          "artist_similarity": 30.0,
+          "album_similarity": 48.4,
+          "candidate_artist": "Kokomo",
+          "candidate_album": "Rise And Shine"
+        },
+        {
+          "filename": "U-No-Hoo-Sunshine  Smiles.jpeg",
+          "confidence": 37.1,
+          "artist_similarity": 15.6,
+          "album_similarity": 58.7,
+          "candidate_artist": "U",
+          "candidate_album": "No-Hoo-Sunshine  Smiles"
+        }
+      ],
+      "best_confidence": 40.9,
+      "confidence_gap": 1.7,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Vesa-Matti Loiri",
+      "album": "4 + 20",
+      "expected_filename": "Vesa-Matti Loiri-4 + 20.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Vesa-Matti Loiri-4  20.jpeg",
+          "confidence": 31.7,
+          "artist_similarity": 28.0,
+          "album_similarity": 35.5,
+          "candidate_artist": "Vesa",
+          "candidate_album": "Matti Loiri-4  20"
+        },
+        {
+          "filename": "Gianni Oddi-2.jpeg",
+          "confidence": 27.0,
+          "artist_similarity": 25.9,
+          "album_similarity": 28.0,
+          "candidate_artist": "Gianni Oddi",
+          "candidate_album": "2"
+        },
+        {
+          "filename": "Matti Oiling-Happy Jazz Band.jpeg",
+          "confidence": 26.2,
+          "artist_similarity": 45.0,
+          "album_similarity": 7.4,
+          "candidate_artist": "Matti Oiling",
+          "candidate_album": "Happy Jazz Band"
+        }
+      ],
+      "best_confidence": 31.7,
+      "confidence_gap": 4.7,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Γιάнνης Σπανός",
+      "album": "Εκеίνο Το Καλοκαίρι",
+      "expected_filename": "Γιάнνης Σπανός-Εκеίνο Το Καλοκαίρι.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Γιώργος Χατζηνάσιος-Το Αγκίστρι (The Hook).jpeg",
+          "confidence": 29.9,
+          "artist_similarity": 29.7,
+          "album_similarity": 30.1,
+          "candidate_artist": "Γιώργος Χατζηνάσιος",
+          "candidate_album": "Το Αγκίστρι (The Hook)"
+        },
+        {
+          "filename": "F.B.I.-F.B.I..jpeg",
+          "confidence": 9.5,
+          "artist_similarity": 7.4,
+          "album_similarity": 11.7,
+          "candidate_artist": "F.B.I.",
+          "candidate_album": "F.B.I."
+        },
+        {
+          "filename": "Александр Градский-Утопия А. Г..jpeg",
+          "confidence": 9.2,
+          "artist_similarity": 8.8,
+          "album_similarity": 9.7,
+          "candidate_artist": "Александр Градский",
+          "candidate_album": "Утопия А. Г."
+        }
+      ],
+      "best_confidence": 29.9,
+      "confidence_gap": 20.4,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Эстрадын „Баян Монгол“ Чуулга = The \"Bayan Mongol\" Variety Group",
+      "album": "Эстрадын „Баян Монгол“ Чуулга = The „Bayan Mongol“ Variety Group",
+      "expected_filename": "Эстрадын „Баян Монгол“ Чуулга = The \"Bayan Mongol\" Variety Group-Эстрадын „Баян Монгол“ Чуулга = The „Bayan Mongol“ Variety Group.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Michael Schenker Group, The-The Michael Schenker Group.jpeg",
+          "confidence": 26.3,
+          "artist_similarity": 23.8,
+          "album_similarity": 28.8,
+          "candidate_artist": "Michael Schenker Group, The",
+          "candidate_album": "The Michael Schenker Group"
+        },
+        {
+          "filename": "Marie Rottrová, The Flamingo Group-Rhythm &amp; Romance.jpeg",
+          "confidence": 24.3,
+          "artist_similarity": 31.2,
+          "album_similarity": 17.5,
+          "candidate_artist": "Marie Rottrová, The Flamingo Group",
+          "candidate_album": "Rhythm &amp; Romance"
+        },
+        {
+          "filename": "Milt Jackson And The Hip String Quartet-Milt Jackson And The Hip String Quartet.jpeg",
+          "confidence": 23.6,
+          "artist_similarity": 23.6,
+          "album_similarity": 23.6,
+          "candidate_artist": "Milt Jackson And The Hip String Quartet",
+          "candidate_album": "Milt Jackson And The Hip String Quartet"
+        }
+      ],
+      "best_confidence": 26.3,
+      "confidence_gap": 2.0,
+      "auto_fix_recommended": false
+    },
+    {
+      "artist": "Эстрадын „Баян Монгол“ Чуулга = The \"Bayan Mongol\" Variety Group = Эстрадный Ансамбль „Баян Монгол“",
+      "album": "Эстрадын „Баян Монгол“ Чуулга = The „Bayan Mongol“ Variety Group = Эстрадный Ансамбль „Баян Монгол“",
+      "expected_filename": "Эстрадын „Баян Монгол“ Чуулга = The \"Bayan Mongol\" Variety Group = Эстрадный Ансамбль „Баян Монгол“-Эстрадын „Баян Монгол“ Чуулга = The „Bayan Mongol“ Variety Group = Эстрадный Ансамбль „Баян Монгол“.jpeg",
+      "top_candidates": [
+        {
+          "filename": "Edgar Winter Group With Rick Derringer, The-The Edgar Winter Group With Rick Derringer.jpeg",
+          "confidence": 21.9,
+          "artist_similarity": 20.8,
+          "album_similarity": 23.0,
+          "candidate_artist": "Edgar Winter Group With Rick Derringer, The",
+          "candidate_album": "The Edgar Winter Group With Rick Derringer"
+        },
+        {
+          "filename": "Michael Schenker Group, The-The Michael Schenker Group.jpeg",
+          "confidence": 20.4,
+          "artist_similarity": 19.2,
+          "album_similarity": 21.7,
+          "candidate_artist": "Michael Schenker Group, The",
+          "candidate_album": "The Michael Schenker Group"
+        },
+        {
+          "filename": "Edgar Winter Group, The-They Only Come Out At Night.jpeg",
+          "confidence": 18.4,
+          "artist_similarity": 21.0,
+          "album_similarity": 15.7,
+          "candidate_artist": "Edgar Winter Group, The",
+          "candidate_album": "They Only Come Out At Night"
+        }
+      ],
+      "best_confidence": 21.9,
+      "confidence_gap": 1.5,
+      "auto_fix_recommended": false
+    }
+  ]
+}

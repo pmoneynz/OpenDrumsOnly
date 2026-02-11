@@ -29,6 +29,25 @@ function trackSearch(query) {
     }, 1000); // Debounce for 1 second
 }
 
+function debounce(fn, wait) {
+    let timeoutId = null;
+    return function debounced(...args) {
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        timeoutId = setTimeout(() => fn.apply(this, args), wait);
+    };
+}
+
+function escapeHtml(value) {
+    return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
 function initializeApp() {
     // Check for saved gallery state from entry page navigation
     let savedState = null;
@@ -42,8 +61,11 @@ function initializeApp() {
         console.error('Error reading gallery state:', e);
     }
 
-    loadCSV().then(data => {
+    let imageAliases = {};
+
+    Promise.all([loadCSV(), loadImageAliases()]).then(([data, aliases]) => {
         console.log('CSV data loaded:', data.length, 'rows');
+        imageAliases = aliases;
         dataRows = data;
         dataRows.forEach(row => {
             if (row && typeof row === 'object') {
@@ -128,6 +150,17 @@ function initializeApp() {
                     reject(error);
                 });
         });
+    }
+
+    function loadImageAliases() {
+        return fetch('./image-aliases.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .catch(() => ({}));
     }
 
     function normalizeArtistName(artistName) {
@@ -266,19 +299,17 @@ function initializeApp() {
         trackEvent('Filter', 'sort_change', sortValue, null);
         applyFilters();
     });
-    document.getElementById('search-box').addEventListener('input', function() {
-        trackSearch(this.value);
-        applyFilters();
-    });
     document.getElementById('view-wantlist').addEventListener('click', toggleWantlistView);
     document.getElementById('view-collection').addEventListener('click', toggleCollectionView);
 
     const searchBox = document.getElementById('search-box');
     const clearSearchBtn = document.getElementById('clear-search');
+    const debouncedApplyFilters = debounce(applyFilters, 200);
 
     searchBox.addEventListener('input', function() {
+        trackSearch(this.value);
         clearSearchBtn.style.display = this.value ? 'block' : 'none';
-        applyFilters();
+        debouncedApplyFilters();
     });
 
     clearSearchBtn.addEventListener('click', function() {
@@ -591,7 +622,7 @@ function initializeApp() {
             const card = document.createElement('div');
             card.className = 'card';
 
-            const imageUrl = `./images/${encodeURIComponent(artist)}-${encodeURIComponent(album)}.jpeg`;
+            const imageUrl = getCoverImageUrl(artist, album);
             const isInWantlist = wantlist.has(artist + ' - ' + album);
             const isInCollection = collection.has(artist + ' - ' + album);
             
@@ -599,6 +630,15 @@ function initializeApp() {
             const releaseId = extractReleaseId(url);
             const entryPageUrl = releaseId ? `./entry/${releaseId}.html` : url;
             const hasEntryPage = !!releaseId;
+            const safeArtist = escapeHtml(artist);
+            const safeAlbum = escapeHtml(album);
+            const safeTrack = escapeHtml(track);
+            const safeYear = escapeHtml(year);
+            const safeGenre = escapeHtml(genre);
+            const safeStyle = escapeHtml(style);
+            const safeImageUrl = escapeHtml(imageUrl);
+            const safeEntryPageUrl = escapeHtml(entryPageUrl);
+            const safeDiscogsUrl = escapeHtml(url);
 
             const sanitizeForJS = (str) => {
                 return str
@@ -610,29 +650,29 @@ function initializeApp() {
 
             card.innerHTML = `
                 <div class="card-content">
-                    <a href="${entryPageUrl}" class="entry-link" ${hasEntryPage ? '' : 'target="_blank" rel="noopener"'}>
-                        <img src="${imageUrl}" 
-                             alt="${artist} - ${album}" 
+                    <a href="${safeEntryPageUrl}" class="entry-link" ${hasEntryPage ? '' : 'target="_blank" rel="noopener"'}>
+                        <img src="${safeImageUrl}" 
+                             alt="${safeArtist} - ${safeAlbum}" 
                              loading="lazy"
                              onerror="this.onerror=null;this.src='./images/NotFound.jpeg';"
                              style="object-fit: cover; width: 100%; height: auto;">
                     </a>
-                    <p style="font-family: 'Geist', sans-serif; font-weight: 700;">${artist}</p>
-                    <p style="font-family: 'Geist', sans-serif; font-weight: 400;">${album}</p>
-                    <p style="font-family: 'Geist', sans-serif; font-weight: 200; font-size: 0.9em;">${track}</p>
-                    <p style="font-family: 'Geist', sans-serif; font-weight: 200; font-size: 0.7em;">${year} | ${genre} | ${style}</p>
+                    <p style="font-family: 'Geist', sans-serif; font-weight: 700;">${safeArtist}</p>
+                    <p style="font-family: 'Geist', sans-serif; font-weight: 400;">${safeAlbum}</p>
+                    <p style="font-family: 'Geist', sans-serif; font-weight: 200; font-size: 0.9em;">${safeTrack}</p>
+                    <p style="font-family: 'Geist', sans-serif; font-weight: 200; font-size: 0.7em;">${safeYear} | ${safeGenre} | ${safeStyle}</p>
                 </div>
                 <div class="card-actions">
-                    <button class="collection-btn" data-artist="${artist}" data-album="${album}" title="${isInCollection ? 'Remove from Collection' : 'Add to Collection'}" aria-label="${isInCollection ? 'Remove from Collection' : 'Add to Collection'}">
+                    <button class="collection-btn" data-artist="${safeArtist}" data-album="${safeAlbum}" title="${isInCollection ? 'Remove from Collection' : 'Add to Collection'}" aria-label="${isInCollection ? 'Remove from Collection' : 'Add to Collection'}">
                         <i class="fa-record-vinyl ${isInCollection ? 'fas' : 'far'}"></i>
                     </button>
-                    <button class="wantlist-btn" data-artist="${artist}" data-album="${album}" title="${isInWantlist ? 'Remove from Wantlist' : 'Add to Wantlist'}" aria-label="${isInWantlist ? 'Remove from Wantlist' : 'Add to Wantlist'}">
+                    <button class="wantlist-btn" data-artist="${safeArtist}" data-album="${safeAlbum}" title="${isInWantlist ? 'Remove from Wantlist' : 'Add to Wantlist'}" aria-label="${isInWantlist ? 'Remove from Wantlist' : 'Add to Wantlist'}">
                         <i class="fa-heart ${isInWantlist ? 'fas' : 'far'}"></i>
                     </button>
                     <button class="spotify-btn" onclick="searchSpotify('${sanitizeForJS(artist)}', '${sanitizeForJS(track)}', '${releaseId || ''}')" title="Listen on Spotify" aria-label="Listen on Spotify">
                         <i class="fas fa-headphones"></i>
                     </button>
-                    <a href="${url}" target="_blank" rel="noopener" class="discogs-btn" title="View on Discogs" aria-label="View on Discogs" onclick="trackEvent('External', 'discogs_click', '${releaseId || 'unknown'}', null);">
+                    <a href="${safeDiscogsUrl}" target="_blank" rel="noopener" class="discogs-btn" title="View on Discogs" aria-label="View on Discogs" onclick="trackEvent('External', 'discogs_click', '${releaseId || 'unknown'}', null);">
                         <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
@@ -658,6 +698,12 @@ function initializeApp() {
 
         // After rendering is complete, check for broken images
         checkBrokenImages();
+    }
+
+    function getCoverImageUrl(artist, album) {
+        const expectedFilename = `${artist}-${album}.jpeg`;
+        const resolvedFilename = imageAliases[expectedFilename] || expectedFilename;
+        return `./images/${encodeURIComponent(resolvedFilename)}`;
     }
 
     function renderPagination(totalItems) {
@@ -711,6 +757,9 @@ function initializeApp() {
     function createPaginationButton(text, onClick) {
         const button = document.createElement('button');
         button.textContent = text;
+        if (text === 'Previous' || text === 'Next') {
+            button.setAttribute('aria-label', `${text} page`);
+        }
         button.addEventListener('click', (e) => {
             e.preventDefault();
             if (text === 'Previous' || text === 'Next') {
@@ -731,8 +780,10 @@ function initializeApp() {
                 applyFilters();
             }
         });
+        button.setAttribute('aria-label', `Go to page ${pageNumber}`);
         if (pageNumber === currentPage) {
             button.classList.add('active');
+            button.setAttribute('aria-current', 'page');
         }
         return button;
     }
@@ -830,20 +881,24 @@ function initializeApp() {
             wantlistIcon.className = 'fas fa-heart';
             wantlistButton.classList.add('active');
             wantlistButton.title = 'View All';
+            wantlistButton.setAttribute('aria-label', 'View all entries');
         } else {
             wantlistIcon.className = 'far fa-heart';
             wantlistButton.classList.remove('active');
             wantlistButton.title = 'View Wantlist';
+            wantlistButton.setAttribute('aria-label', 'View wantlist');
         }
 
         if (isViewingCollection) {
             collectionIcon.className = 'fas fa-record-vinyl';
             collectionButton.classList.add('active');
             collectionButton.title = 'View All';
+            collectionButton.setAttribute('aria-label', 'View all entries');
         } else {
             collectionIcon.className = 'far fa-record-vinyl';
             collectionButton.classList.remove('active');
             collectionButton.title = 'View Collection';
+            collectionButton.setAttribute('aria-label', 'View collection');
         }
     }
 
@@ -926,22 +981,4 @@ function initializeApp() {
         console.log(`Total broken images: ${brokenImages.length}`);
     }
 
-    // Add this code to your existing JavaScript file
-    document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.querySelector('.search-input-wrapper input');
-        const clearButton = document.getElementById('clear-search');
-
-        // Show/hide clear button based on input content
-        searchInput.addEventListener('input', function() {
-            clearButton.style.display = this.value ? 'block' : 'none';
-        });
-
-        // Clear input when button is clicked
-        clearButton.addEventListener('click', function() {
-            searchInput.value = '';
-            clearButton.style.display = 'none';
-            // Trigger the search function or event to update results
-            searchInput.dispatchEvent(new Event('input'));
-        });
-    });
 }

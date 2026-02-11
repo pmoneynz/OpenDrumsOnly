@@ -49,6 +49,31 @@
     const spotifyBtn = document.getElementById('spotify-btn');
     const backBtn = document.getElementById('back-to-results');
     const youtubeMount = document.getElementById('youtube-embed');
+    const entryImage = document.querySelector('.entry-image');
+    if (backBtn) {
+        backBtn.setAttribute('aria-label', 'Back to Results');
+    }
+
+    function loadImageAliases() {
+        return fetch('../image-aliases.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .catch(() => ({}));
+    }
+
+    function resolveEntryCoverImage() {
+        if (!entryImage) return;
+        const expectedFilename = `${entry.artist || ''}-${entry.album || ''}.jpeg`;
+        loadImageAliases().then(aliases => {
+            const resolvedFilename = aliases[expectedFilename];
+            if (!resolvedFilename) return;
+            entryImage.src = `../images/${encodeURIComponent(resolvedFilename)}`;
+        });
+    }
     
     /**
      * Update button states based on current collection/wantlist
@@ -207,6 +232,7 @@
     // Initialize button states
     updateButtonStates();
     renderYouTube();
+    resolveEntryCoverImage();
     
     // Attach event listeners
     if (collectionBtn) {

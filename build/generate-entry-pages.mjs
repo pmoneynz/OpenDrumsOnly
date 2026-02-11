@@ -21,6 +21,7 @@ const CSV_PATH = join(ROOT_DIR, 'DrumBreaks.csv');
 const SITEMAP_PATH = join(ROOT_DIR, 'sitemap.xml');
 const YOUTUBE_MAP_PATH = join(ROOT_DIR, 'build', 'youtube_map.json');
 const YOUTUBE_OVERRIDES_PATH = join(ROOT_DIR, 'build', 'youtube_overrides.json');
+const IMAGE_ALIASES_PATH = join(ROOT_DIR, 'image-aliases.json');
 const BASE_URL = 'https://www.opendrumsonly.com';
 
 function readJsonFile(path, fallback) {
@@ -39,6 +40,7 @@ const youtubeMap = readJsonFile(YOUTUBE_MAP_PATH, {});
 // Overrides format:
 // { "<releaseId>": "<videoId>" }
 const youtubeOverrides = readJsonFile(YOUTUBE_OVERRIDES_PATH, {});
+const imageAliases = readJsonFile(IMAGE_ALIASES_PATH, {});
 
 // Build report
 const report = {
@@ -154,7 +156,9 @@ function generateEntryHtml(entry, releaseId) {
     
     const title = `${artist} - ${album} | OpenDrumsOnly`;
     const description = `${track ? `"${track}" from ` : ''}${album} by ${artist}${year ? ` (${year})` : ''}${genre ? `. ${genre}` : ''}. Drum break from the OpenDrumsOnly collection.`;
-    const imageUrl = `../images/${encodeURIComponent(artist)}-${encodeURIComponent(album)}.jpeg`;
+    const expectedImageFilename = `${artist}-${album}.jpeg`;
+    const resolvedImageFilename = imageAliases[expectedImageFilename] || expectedImageFilename;
+    const imageUrl = `../images/${encodeURIComponent(resolvedImageFilename)}`;
     const canonicalUrl = `${BASE_URL}/entry/${releaseId}.html`;
     
     const youtubeVideoId =
@@ -211,7 +215,7 @@ function generateEntryHtml(entry, releaseId) {
     <meta property="og:type" content="music.album">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:site_name" content="OpenDrumsOnly">
-    <meta property="og:image" content="${BASE_URL}/images/${encodeURIComponent(artist)}-${encodeURIComponent(album)}.jpeg">
+    <meta property="og:image" content="${BASE_URL}/images/${encodeURIComponent(resolvedImageFilename)}">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
