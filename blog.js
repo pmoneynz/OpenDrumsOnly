@@ -8,72 +8,204 @@
         return;
     }
 
-    let commentsSection = article.querySelector('[data-blog-comments]');
-    if (!commentsSection) {
-        commentsSection = document.createElement('section');
-        commentsSection.className = 'blog-comments';
-        commentsSection.setAttribute('data-blog-comments', '');
-        article.appendChild(commentsSection);
+    const entryCache = new Map();
+
+    function normalizeImageSrc(src) {
+        if (!src) return '';
+        if (src.startsWith('../')) {
+            return `/${src.slice(3)}`;
+        }
+        if (src.startsWith('./')) {
+            return src.slice(1);
+        }
+        return src;
     }
 
-    const articleHeading = article.querySelector('h2');
-    const articleTitle = articleHeading ? articleHeading.textContent.trim() : document.title;
-    const pageUrl = window.location.href;
-    const issueTitle = `Comment thread: ${articleTitle}`;
-    const issueBody = [
-        `Page: ${pageUrl}`,
-        '',
-        'Write your comment below.',
-        '',
-        '---',
-        'Opened from the OpenDrumsOnly blog comment section.'
-    ].join('\n');
+    async function fetchEntryPreview(releaseId) {
+        if (entryCache.has(releaseId)) {
+            return entryCache.get(releaseId);
+        }
 
-    const fallbackUrl =
-        'https://github.com/pmoneynz/OpenDrumsOnly/issues/new' +
-        `?title=${encodeURIComponent(issueTitle)}` +
-        `&body=${encodeURIComponent(issueBody)}` +
-        `&labels=${encodeURIComponent('blog-comment')}`;
+        const request = fetch(`/entry/${releaseId}.html`, { credentials: 'same-origin' })
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error(`Failed to load entry ${releaseId}`);
+                }
+                return response.text();
+            })
+            .then(function (html) {
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+                const imageEl = doc.querySelector('.entry-image');
+                const artist = (doc.querySelector('.entry-artist') || {}).textContent || '';
+                const album = (doc.querySelector('.entry-album') || {}).textContent || '';
 
-    commentsSection.innerHTML = '';
+                let youtubeVideoId = '';
+                const entryDataEl = doc.getElementById('entry-data');
+                if (entryDataEl && entryDataEl.textContent) {
+                    try {
+                        const parsed = JSON.parse(entryDataEl.textContent);
+                        youtubeVideoId = (parsed.youtubeVideoId || '').toString().replace(/[^a-zA-Z0-9_-]/g, '');
+                    } catch {
+                        youtubeVideoId = '';
+                    }
+                }
 
-    const heading = document.createElement('h3');
-    heading.textContent = 'Comments';
-    commentsSection.appendChild(heading);
+                return {
+                    imageSrc: normalizeImageSrc(imageEl ? imageEl.getAttribute('src') : ''),
+                    imageAlt: [artist.trim(), album.trim()].filter(Boolean).join(' - ') || 'Album cover',
+                    youtubeVideoId
+                };
+            })
+            .catch(function () {
+                return null;
+            });
 
-    const intro = document.createElement('p');
-    intro.textContent = 'Join the discussion. Comments are powered by GitHub Issues.';
-    commentsSection.appendChild(intro);
+        entryCache.set(releaseId, request);
+        return request;
+    }
 
-    const status = document.createElement('p');
-    status.className = 'blog-comments-status';
-    status.textContent = 'Loading comment thread...';
-    commentsSection.appendChild(status);
+    function createMediaBlock(linkHref, preview) {
+        if (!preview || !preview.imageSrc) {
+            return null;
+        }
 
-    const threadMount = document.createElement('div');
-    threadMount.className = 'blog-comments-thread';
-    commentsSection.appendChild(threadMount);
+        const media = document.createElement('div');
+        media.className = 'break-media';
 
-    const utterancesScript = document.createElement('script');
-    utterancesScript.src = 'https://utteranc.es/client.js';
-    utterancesScript.async = true;
-    utterancesScript.crossOrigin = 'anonymous';
-    utterancesScript.setAttribute('repo', 'pmoneynz/OpenDrumsOnly');
-    utterancesScript.setAttribute('issue-term', 'pathname');
-    utterancesScript.setAttribute('label', 'blog-comment');
-    utterancesScript.setAttribute('theme', 'github-light');
+        const coverLink = document.createElement('a');
+        coverLink.href = linkHref;
+        coverLink.className = 'break-cover-link';
+        coverLink.setAttribute('aria-label', 'See more record details');
 
-    utterancesScript.addEventListener('load', function () {
-        status.innerHTML =
-            'If the widget does not appear, ' +
-            `<a href="${fallbackUrl}" target="_blank" rel="noopener">open a comment issue on GitHub</a>.`;
-    });
+        const cover = document.createElement('img');
+        cover.className = 'break-cover';
+        cover.loading = 'lazy';
+        cover.decoding = 'async';
+        cover.src = preview.imageSrc;
+        cover.alt = preview.imageAlt;
+        cover.onerror = function () {
+            cover.src = '/images/NotFound.jpeg';
+        };
+        coverLink.appendChild(cover);
+        media.appendChild(coverLink);
 
-    utterancesScript.addEventListener('error', function () {
-        status.innerHTML =
-            'Could not load comments automatically. ' +
-            `<a href="${fallbackUrl}" target="_blank" rel="noopener">Open a comment issue on GitHub</a>.`;
-    });
+        if (preview.youtubeVideoId) {
+            const details = document.createElement('details');
+            details.className = 'break-video';
+            details.innerHTML = `
+                <summary>Watch break clip</summary>
+                <div class="yt-embed">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/${preview.youtubeVideoId}"
+                        title="YouTube break preview"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                    ></iframe>
+                </div>
+            `;
+            media.appendChild(details);
+        }
 
-    threadMount.appendChild(utterancesScript);
+        return media;
+    }
+
+    async function enhanceBreakLists() {
+        const items = Array.from(article.querySelectorAll('.break-list li'));
+        if (!items.length) {
+            return;
+        }
+
+        const targets = [];
+        for (const item of items) {
+            const link = item.querySelector('.break-entry-link');
+            if (!link) {
+                continue;
+            }
+
+            // Normalize CTA wording across all list posts.
+            link.textContent = 'See more';
+
+            const match = (link.getAttribute('href') || '').match(/\/entry\/(\d+)\.html/i);
+            if (!match) {
+                continue;
+            }
+
+            targets.push({ item, link, releaseId: match[1] });
+        }
+
+        await Promise.all(targets.map(async function (target) {
+            const preview = await fetchEntryPreview(target.releaseId);
+            if (!preview || target.item.querySelector('.break-media')) {
+                return;
+            }
+
+            const media = createMediaBlock(target.link.href, preview);
+            if (media) {
+                target.item.appendChild(media);
+            }
+        }));
+    }
+
+    function setupComments() {
+        let commentsSection = article.querySelector('[data-blog-comments]');
+        if (!commentsSection) {
+            commentsSection = document.createElement('section');
+            commentsSection.className = 'blog-comments';
+            commentsSection.setAttribute('data-blog-comments', '');
+            article.appendChild(commentsSection);
+        }
+
+        commentsSection.innerHTML = '';
+
+        const heading = document.createElement('h3');
+        heading.textContent = 'Comments';
+        commentsSection.appendChild(heading);
+
+        const intro = document.createElement('p');
+        intro.textContent = 'Join the discussion below. Sign-in options are provided by Disqus (including guest/social options when available).';
+        commentsSection.appendChild(intro);
+
+        const status = document.createElement('p');
+        status.className = 'blog-comments-status';
+        status.textContent = 'Loading comments...';
+        commentsSection.appendChild(status);
+
+        const threadMount = document.createElement('div');
+        threadMount.className = 'blog-comments-thread';
+        threadMount.id = 'disqus_thread';
+        commentsSection.appendChild(threadMount);
+
+        const shortname = 'opendrumsonly';
+        const articleHeading = article.querySelector('h2');
+        const articleTitle = articleHeading ? articleHeading.textContent.trim() : document.title;
+        const pageUrl = window.location.href.split('#')[0];
+        const pageIdentifier = window.location.pathname;
+
+        window.disqus_config = function () {
+            this.page.url = pageUrl;
+            this.page.identifier = pageIdentifier;
+            this.page.title = articleTitle;
+        };
+
+        const script = document.createElement('script');
+        script.src = `https://${shortname}.disqus.com/embed.js`;
+        script.async = true;
+        script.setAttribute('data-timestamp', String(Date.now()));
+
+        script.addEventListener('load', function () {
+            status.textContent = 'Comments loaded. Choose any available sign-in method in the comment box.';
+        });
+
+        script.addEventListener('error', function () {
+            status.innerHTML = 'Could not load comments. You can still share feedback via the ' +
+                '<a href="/submit-break.html">submission form</a>.';
+        });
+
+        commentsSection.appendChild(script);
+    }
+
+    enhanceBreakLists();
+    setupComments();
 })();
