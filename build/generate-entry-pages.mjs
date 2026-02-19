@@ -26,6 +26,7 @@ const BASE_URL = 'https://www.opendrumsonly.com';
 const STATIC_SITEMAP_PAGES = [
     { path: '/', changefreq: 'weekly', priority: '1.0' },
     { path: '/index.html', changefreq: 'weekly', priority: '1.0' },
+    { path: '/submit-break.html', changefreq: 'weekly', priority: '0.7' },
     { path: '/blog/', changefreq: 'weekly', priority: '0.7' },
     { path: '/blog/index.html', changefreq: 'weekly', priority: '0.7' },
     { path: '/blog/top-10-classic-breaks.html', changefreq: 'monthly', priority: '0.7' },
