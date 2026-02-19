@@ -29,6 +29,9 @@ const STATIC_SITEMAP_PAGES = [
     { path: '/blog/', changefreq: 'weekly', priority: '0.7' },
     { path: '/blog/index.html', changefreq: 'weekly', priority: '0.7' },
     { path: '/blog/top-10-classic-breaks.html', changefreq: 'monthly', priority: '0.7' },
+    { path: '/blog/25-best-1970s-rock-drum-breaks.html', changefreq: 'monthly', priority: '0.7' },
+    { path: '/blog/25-best-1970s-jazz-drum-breaks.html', changefreq: 'monthly', priority: '0.7' },
+    { path: '/blog/25-best-1970s-funk-soul-drum-breaks.html', changefreq: 'monthly', priority: '0.7' },
 ];
 
 function readJsonFile(path, fallback) {
