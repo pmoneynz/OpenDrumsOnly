@@ -23,6 +23,13 @@ const YOUTUBE_MAP_PATH = join(ROOT_DIR, 'build', 'youtube_map.json');
 const YOUTUBE_OVERRIDES_PATH = join(ROOT_DIR, 'build', 'youtube_overrides.json');
 const IMAGE_ALIASES_PATH = join(ROOT_DIR, 'image-aliases.json');
 const BASE_URL = 'https://www.opendrumsonly.com';
+const STATIC_SITEMAP_PAGES = [
+    { path: '/', changefreq: 'weekly', priority: '1.0' },
+    { path: '/index.html', changefreq: 'weekly', priority: '1.0' },
+    { path: '/blog/', changefreq: 'weekly', priority: '0.7' },
+    { path: '/blog/index.html', changefreq: 'weekly', priority: '0.7' },
+    { path: '/blog/top-10-classic-breaks.html', changefreq: 'monthly', priority: '0.7' },
+];
 
 function readJsonFile(path, fallback) {
     if (!existsSync(path)) return fallback;
@@ -328,20 +335,20 @@ function generateSitemap(releaseIds) {
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-    <!-- Main page -->
-    <url>
-        <loc>${BASE_URL}/</loc>
-        <lastmod>${today}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
+    <!-- Static pages -->
+`;
 
-    <url>
-        <loc>${BASE_URL}/index.html</loc>
+    for (const page of STATIC_SITEMAP_PAGES) {
+        xml += `    <url>
+        <loc>${BASE_URL}${page.path}</loc>
         <lastmod>${today}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
+        <changefreq>${page.changefreq}</changefreq>
+        <priority>${page.priority}</priority>
     </url>
+`;
+    }
+
+    xml += `
 
     <!-- Entry pages -->
 `;
@@ -420,7 +427,7 @@ function build() {
     console.log('🗺️  Generating sitemap.xml...');
     const sitemap = generateSitemap(generatedReleaseIds);
     writeFileSync(SITEMAP_PATH, sitemap, 'utf-8');
-    console.log(`   Added ${generatedReleaseIds.length + 2} URLs to sitemap\n`);
+    console.log(`   Added ${generatedReleaseIds.length + STATIC_SITEMAP_PAGES.length} URLs to sitemap\n`);
     
     // Print report
     console.log('📊 Build Report:');
