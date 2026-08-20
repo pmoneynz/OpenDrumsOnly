@@ -76,6 +76,8 @@ python -m SimpleHTTPServer 8000
 - `entry.js` - Entry page JavaScript functionality
 - `styles.css` - CSS styling (includes entry page styles)
 - `DrumBreaks.csv` - Data file containing record information
+- `DrumBreaks45s.csv` - Enriched Open Drum Breaks 45s list (Discogs list 267461)
+- `thumbnail-map.json` - Discogs thumbnail URLs keyed by artist/title for gallery fallbacks
 - `images/` - Directory containing record cover images
 - `fonts/` - Custom Geist font files
 - `entry/` - Generated individual entry pages
@@ -88,7 +90,7 @@ python -m SimpleHTTPServer 8000
 
 ## Data Format
 
-The CSV file should contain the following columns:
+The gallery catalogue (`DrumBreaks.csv`) should contain the following columns:
 - Artist Name
 - Album Title
 - Track Title
@@ -96,9 +98,21 @@ The CSV file should contain the following columns:
 - Year
 - Genre
 - Style
-- Tag
+- Tag (e.g. `Drums`, `UBB`, `45s`)
 - Comment
 - Discogs Release ID
+
+### Open Drum Breaks 45s
+
+`DrumBreaks45s.csv` is the enriched Discogs list [Open Drum Breaks - 45s](https://www.discogs.com/lists/Open-Drum-Breaks-45s/267461) with these columns:
+- Artist Name
+- Title
+- Thumbnail (Discogs cover URL; used when no local `./images/${artist}-${album}.jpeg` exists)
+- Label
+- Genre
+- master release date
+
+Rows imported into the live gallery use `Tag=45s`. Cover fallbacks for those entries are stored in `thumbnail-map.json`.
 
 ## Local Storage
 
