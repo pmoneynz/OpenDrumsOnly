@@ -1,0 +1,41 @@
+{
+  "name": "OpenDrumsOnly",
+  "short_name": "OpenDrumsOnly",
+  "description": "Browse and scan drum breaks and vinyl records in the OpenDrumsOnly catalogue.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Scan vinyl",
+      "short_name": "Scan",
+      "description": "Photograph a cover or label to check the catalogue",
+      "url": "./scan.html",
+      "icons": [
+        {
+          "src": "./icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
