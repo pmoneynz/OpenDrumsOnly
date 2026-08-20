@@ -39,10 +39,10 @@ function debounce(fn, wait) {
     };
 }
 
-/** Inline vinyl SVG — avoids missing Font Awesome glyphs on iOS Safari */
+/** Inline vinyl SVG — xmlns required so iOS Safari paints SVGs inserted via innerHTML */
 function vinylIconMarkup(filled) {
     const filledClass = filled ? ' is-filled' : '';
-    return `<svg class="vinyl-icon${filledClass}" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.75"></circle><circle cx="12" cy="12" r="6.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"></circle><circle class="vinyl-icon-center" cx="12" cy="12" r="2.75" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="12" cy="12" r="0.9" fill="currentColor"></circle></svg>`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" class="vinyl-icon${filledClass}" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.75"></circle><circle cx="12" cy="12" r="6.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"></circle><circle class="vinyl-icon-center" cx="12" cy="12" r="2.75" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="12" cy="12" r="0.9" fill="currentColor"></circle></svg>`;
 }
 
 function setVinylFilled(icon, filled) {

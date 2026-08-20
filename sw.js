@@ -1,12 +1,11 @@
 /* OpenDrumsOnly service worker — caches scan shell + catalogue text only. */
-const CACHE = 'odo-scan-v1';
+const CACHE = 'odo-scan-v2';
 const PRECACHE = [
   './',
   './index.html',
   './scan.html',
   './scan.js',
   './scan.css',
-  './styles.css',
   './DrumBreaks.csv',
   './manifest.webmanifest',
   './icons/icon-192.png',
@@ -52,11 +51,25 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache-first for scan assets + CSV + fonts.
+  // Network-first for gallery CSS/JS so iPhone picks up vinyl icon fixes
+  // without requiring a manual cache clear (do not cache-first these).
+  if (url.pathname.endsWith('styles.css') || url.pathname.endsWith('script.js')) {
+    event.respondWith(
+      fetch(req)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(req, copy));
+          return res;
+        })
+        .catch(() => caches.match(req))
+    );
+    return;
+  }
+
+  // Cache-first for scan assets + CSV + fonts/icons.
   const cacheable =
     url.pathname.endsWith('scan.js') ||
     url.pathname.endsWith('scan.css') ||
-    url.pathname.endsWith('styles.css') ||
     url.pathname.endsWith('DrumBreaks.csv') ||
     url.pathname.endsWith('manifest.webmanifest') ||
     url.pathname.includes('/fonts/') ||

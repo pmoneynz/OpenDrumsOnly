@@ -159,6 +159,14 @@ h1 {
     color: currentColor;
 }
 
+/* Gallery cards: size must not depend on Font Awesome <i> font metrics */
+.collection-btn .vinyl-icon,
+.card-actions .vinyl-icon {
+    width: 1.25em;
+    height: 1.25em;
+    display: block;
+}
+
 .vinyl-icon .vinyl-icon-center {
     fill: none;
 }
