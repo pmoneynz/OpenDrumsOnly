@@ -57,7 +57,7 @@
 
     <div class="scan-shell">
         <section class="scan-stage" aria-label="Camera viewfinder">
-            <p class="scan-hint" id="scan-hint">Front, back, or center label — one clear photo is enough.</p>
+            <p class="scan-hint" id="scan-hint">One clear photo is enough.</p>
             <video id="scan-video" class="scan-video" playsinline muted autoplay></video>
             <canvas id="scan-canvas" class="scan-canvas" aria-hidden="true"></canvas>
             <div class="scan-fallback-poster" id="scan-fallback" hidden>
@@ -66,11 +66,6 @@
             <p class="scan-status" id="scan-status" role="status" aria-live="polite"></p>
 
             <div class="scan-controls">
-                <div class="scan-shot-types" role="group" aria-label="Optional photo type">
-                    <button type="button" class="scan-shot-type" data-shot="front" aria-pressed="false">Front</button>
-                    <button type="button" class="scan-shot-type" data-shot="back" aria-pressed="false">Back</button>
-                    <button type="button" class="scan-shot-type" data-shot="label" aria-pressed="false">Label</button>
-                </div>
                 <div class="scan-shutter-row">
                     <button type="button" class="scan-side-btn" id="scan-pick-file" title="Choose photo" aria-label="Choose photo">
                         <i class="fas fa-images" aria-hidden="true"></i>

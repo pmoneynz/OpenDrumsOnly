@@ -32,7 +32,6 @@
     tesseract: null,
     worker: null,
     busy: false,
-    shotType: null,
     shots: [],
     fusedText: '',
     barcodeTexts: [],
@@ -56,8 +55,7 @@
     resultsBody: document.getElementById('scan-results-body'),
     resultsActions: document.getElementById('scan-results-actions'),
     closeResults: document.getElementById('scan-close-results'),
-    previewStrip: document.getElementById('scan-preview-strip'),
-    shotTypes: Array.from(document.querySelectorAll('.scan-shot-type'))
+    previewStrip: document.getElementById('scan-preview-strip')
   };
 
   function showStatus(text) {
@@ -283,48 +281,18 @@
     if (show) {
       els.hint.textContent = 'Use the photo button — iPhone will open the camera.';
     } else {
-      els.hint.textContent = 'Front, back, or center label — one clear photo is enough.';
+      els.hint.textContent = 'One clear photo is enough.';
     }
   }
 
-  function setShotType(type) {
-    state.shotType = type;
-    els.shotTypes.forEach((btn) => {
-      const pressed = btn.dataset.shot === type;
-      btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
-    });
-  }
-
-  function downscaleForOcr(source, shotType) {
+  function downscaleForOcr(source) {
     const srcW = source.videoWidth || source.naturalWidth || source.width;
     const srcH = source.videoHeight || source.naturalHeight || source.height;
     if (!srcW || !srcH) throw new Error('Empty image');
 
-    let sx = 0;
-    let sy = 0;
-    let sw = srcW;
-    let sh = srcH;
-
-    // Center labels: tight center crop helps OCR on close-ups / 45s.
-    if (shotType === 'label') {
-      const side = Math.min(srcW, srcH) * 0.72;
-      sx = (srcW - side) / 2;
-      sy = (srcH - side) / 2;
-      sw = side;
-      sh = side;
-    } else if (shotType === 'back') {
-      // Slight inset avoids sleeve edge glare.
-      const padX = srcW * 0.06;
-      const padY = srcH * 0.06;
-      sx = padX;
-      sy = padY;
-      sw = srcW - padX * 2;
-      sh = srcH - padY * 2;
-    }
-
-    const scale = Math.min(1, MAX_OCR_EDGE / Math.max(sw, sh));
-    const dw = Math.max(1, Math.round(sw * scale));
-    const dh = Math.max(1, Math.round(sh * scale));
+    const scale = Math.min(1, MAX_OCR_EDGE / Math.max(srcW, srcH));
+    const dw = Math.max(1, Math.round(srcW * scale));
+    const dh = Math.max(1, Math.round(srcH * scale));
 
     const canvas = document.createElement('canvas');
     canvas.width = dw;
@@ -332,7 +300,7 @@
     const ctx = canvas.getContext('2d', { alpha: false });
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = 'high';
-    ctx.drawImage(source, sx, sy, sw, sh, 0, 0, dw, dh);
+    ctx.drawImage(source, 0, 0, srcW, srcH, 0, 0, dw, dh);
     return canvas;
   }
 
@@ -557,7 +525,7 @@
     }
     els.previewStrip.hidden = false;
     els.previewStrip.innerHTML = state.shots
-      .map((s) => `<img src="${s.previewUrl}" alt="${escapeHtml(s.shotType || 'photo')} preview">`)
+      .map((s) => `<img src="${s.previewUrl}" alt="photo preview">`)
       .join('');
   }
 
@@ -619,7 +587,7 @@
     if (inconclusive && state.shots.length < 2) {
       actions.push(`
         <div class="scan-second-prompt">
-          <p>Still unsure. Snap the other side or the center label — one more photo.</p>
+          <p>Still unsure. Try another photo with more light.</p>
           <div class="scan-second-actions">
             <button type="button" class="scan-action-btn primary" data-action="second-shot">Take another photo</button>
             <button type="button" class="scan-action-btn ghost" data-action="done">Done</button>
@@ -647,14 +615,10 @@
     try {
       await loadCatalogue();
 
-      const shotType = state.shotType || 'auto';
-      const ocrCanvas = downscaleForOcr(source, shotType === 'auto' ? null : shotType);
+      const ocrCanvas = downscaleForOcr(source);
 
-      // Barcode fast path on still (especially back covers) — feed into matcher.
-      let barcodes = [];
-      if (shotType === 'back' || shotType === 'auto' || !state.shots.length) {
-        barcodes = await detectBarcodes(ocrCanvas);
-      }
+      // Barcode fast path on the full still — feed into matcher.
+      const barcodes = await detectBarcodes(ocrCanvas);
 
       // OCR can start while user already has the still; engine may still be loading.
       showStatus('Looking…');
@@ -662,7 +626,6 @@
 
       const preview = previewUrl || canvasToDataUrl(ocrCanvas);
       state.shots.push({
-        shotType,
         previewUrl: preview,
         text: ocrText,
         barcodes
@@ -720,8 +683,6 @@
     state.fusedText = '';
     state.barcodeTexts = [];
     state.awaitingSecond = false;
-    state.shotType = null;
-    setShotType(null);
     closeResults();
     showStatus('');
     renderPreviews();
@@ -733,14 +694,7 @@
   function onSecondShot() {
     state.awaitingSecond = true;
     closeResults();
-    showStatus('Snap the other side or label');
-    // Suggest label if first was front/back, else front.
-    const first = state.shots[0] && state.shots[0].shotType;
-    if (first === 'front' || first === 'back') {
-      setShotType('label');
-    } else if (first === 'label') {
-      setShotType('front');
-    }
+    showStatus('Take another photo');
   }
 
   function onFileChosen(file) {
@@ -773,14 +727,6 @@
     els.flip.addEventListener('click', async () => {
       state.facingMode = state.facingMode === 'environment' ? 'user' : 'environment';
       await startCamera();
-    });
-
-    els.shotTypes.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const type = btn.dataset.shot;
-        if (state.shotType === type) setShotType(null);
-        else setShotType(type);
-      });
     });
 
     els.closeResults.addEventListener('click', () => {
