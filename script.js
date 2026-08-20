@@ -463,12 +463,15 @@ function initializeApp() {
     }
 
     /**
-     * Extract release ID from Discogs URL
-     * Example: https://www.discogs.com/release/2623666 -> 2623666
+     * Extract numeric Discogs ID from a release or master URL.
+     * Examples:
+     *   https://www.discogs.com/release/2623666 -> 2623666
+     *   https://www.discogs.com/release/2534250-Eddie-Bo-... -> 2534250
+     *   https://www.discogs.com/master/642372-Chuck-Jackson-... -> 642372
      */
     function extractReleaseId(discogsUrl) {
         if (!discogsUrl || typeof discogsUrl !== 'string') return null;
-        const match = discogsUrl.match(/\/release\/(\d+)/);
+        const match = discogsUrl.match(/\/(?:release|master)\/(\d+)/);
         return match ? match[1] : null;
     }
 

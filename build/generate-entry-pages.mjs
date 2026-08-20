@@ -22,6 +22,7 @@ const SITEMAP_PATH = join(ROOT_DIR, 'sitemap.xml');
 const YOUTUBE_MAP_PATH = join(ROOT_DIR, 'build', 'youtube_map.json');
 const YOUTUBE_OVERRIDES_PATH = join(ROOT_DIR, 'build', 'youtube_overrides.json');
 const IMAGE_ALIASES_PATH = join(ROOT_DIR, 'image-aliases.json');
+const THUMBNAIL_MAP_PATH = join(ROOT_DIR, 'thumbnail-map.json');
 const BASE_URL = 'https://www.opendrumsonly.com';
 const STATIC_SITEMAP_PAGES = [
     { path: '/', changefreq: 'weekly', priority: '1.0' },
@@ -52,6 +53,7 @@ const youtubeMap = readJsonFile(YOUTUBE_MAP_PATH, {});
 // { "<releaseId>": "<videoId>" }
 const youtubeOverrides = readJsonFile(YOUTUBE_OVERRIDES_PATH, {});
 const imageAliases = readJsonFile(IMAGE_ALIASES_PATH, {});
+const thumbnailMap = buildThumbnailLookup(readJsonFile(THUMBNAIL_MAP_PATH, {}));
 
 // Build report
 const report = {
@@ -114,14 +116,62 @@ function parseCSVLine(line) {
 }
 
 /**
- * Extract release ID from Discogs URL
- * Example: https://www.discogs.com/release/2623666 -> 2623666
+ * Normalize thumbnail-map keys so trimmed CSV fields still resolve.
+ * Gallery Papa.parse keeps trailing spaces; this generator trims CSV cells.
+ */
+function buildThumbnailLookup(map) {
+    const lookup = { ...map };
+    for (const [key, url] of Object.entries(map)) {
+        if (!url) continue;
+        const pipe = key.indexOf('|');
+        if (pipe >= 0) {
+            const artist = key.slice(0, pipe).trim();
+            const album = key.slice(pipe + 1).trim();
+            if (artist && album) {
+                lookup[`${artist}|${album}`] = url;
+                lookup[`${artist} - ${album}`] = url;
+            }
+            continue;
+        }
+        const dash = key.indexOf(' - ');
+        if (dash >= 0) {
+            const artist = key.slice(0, dash).trim();
+            const album = key.slice(dash + 3).trim();
+            if (artist && album) {
+                lookup[`${artist}|${album}`] = url;
+                lookup[`${artist} - ${album}`] = url;
+            }
+        }
+    }
+    return lookup;
+}
+
+/**
+ * Extract numeric Discogs ID from a release or master URL.
+ * Examples:
+ *   https://www.discogs.com/release/2623666 -> 2623666
+ *   https://www.discogs.com/release/2534250-Eddie-Bo-... -> 2534250
+ *   https://www.discogs.com/master/642372-Chuck-Jackson-... -> 642372
  */
 function extractReleaseId(discogsUrl) {
     if (!discogsUrl || typeof discogsUrl !== 'string') return null;
-    
-    const match = discogsUrl.match(/\/release\/(\d+)/);
+
+    const match = discogsUrl.match(/\/(?:release|master)\/(\d+)/);
     return match ? match[1] : null;
+}
+
+/**
+ * Look up Discogs cover URL from thumbnail-map.json (same keys as gallery).
+ */
+function getDiscogsThumbnailUrl(artist, album) {
+    if (!artist || !album) return '';
+    const a = artist.trim();
+    const b = album.trim();
+    return thumbnailMap[`${a}|${b}`]
+        || thumbnailMap[`${a} - ${b}`]
+        || thumbnailMap[`${artist}|${album}`]
+        || thumbnailMap[`${artist} - ${album}`]
+        || '';
 }
 
 /**
@@ -170,6 +220,14 @@ function generateEntryHtml(entry, releaseId) {
     const expectedImageFilename = `${artist}-${album}.jpeg`;
     const resolvedImageFilename = imageAliases[expectedImageFilename] || expectedImageFilename;
     const imageUrl = `../images/${encodeURIComponent(resolvedImageFilename)}`;
+    // Gallery uses thumbnail-map for 45s hi-res Discogs covers; keep the same fallback here.
+    const discogsThumbUrl = tag === '45s' ? getDiscogsThumbnailUrl(artist, album) : '';
+    const imageOnError = discogsThumbUrl
+        ? `onerror="if(this.dataset.discogsThumb&&this.dataset.thumbTried!=='1'){this.dataset.thumbTried='1';this.src=this.dataset.discogsThumb;}else{this.onerror=null;this.src='../images/NotFound.jpeg';}"`
+        : `onerror="this.onerror=null;this.src='../images/NotFound.jpeg';"`;
+    const discogsThumbAttr = discogsThumbUrl
+        ? `\n                    data-discogs-thumb="${escapeHtml(discogsThumbUrl)}"`
+        : '';
     const canonicalUrl = `${BASE_URL}/entry/${releaseId}.html`;
     
     const youtubeVideoId =
@@ -277,8 +335,8 @@ function generateEntryHtml(entry, releaseId) {
             <div class="entry-image-wrapper">
                 <img 
                     src="${imageUrl}" 
-                    alt="${escapeHtml(artist)} - ${escapeHtml(album)}"
-                    onerror="this.onerror=null;this.src='../images/NotFound.jpeg';"
+                    alt="${escapeHtml(artist)} - ${escapeHtml(album)}"${discogsThumbAttr}
+                    ${imageOnError}
                     class="entry-image"
                 >
             </div>
