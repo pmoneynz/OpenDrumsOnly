@@ -7,6 +7,7 @@
  * - Updated sitemap.xml with all entry URLs
  * 
  * Usage: node build/generate-entry-pages.mjs
+ *        node build/generate-entry-pages.mjs --tag=45s --skip-sitemap
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
@@ -35,6 +36,80 @@ const STATIC_SITEMAP_PAGES = [
     { path: '/blog/25-best-1970s-jazz-drum-breaks.html', changefreq: 'monthly', priority: '0.7' },
     { path: '/blog/25-best-1970s-funk-soul-drum-breaks.html', changefreq: 'monthly', priority: '0.7' },
 ];
+
+/**
+ * Official Discogs top-level genres (plus site-exact labels).
+ * Longer names first so "Folk, World, & Country" is not split on commas.
+ */
+const DISCOGS_GENRES = [
+    'Folk, World, & Country',
+    'Brass & Military',
+    'Stage & Screen',
+    'Funk / Soul',
+    "Children's",
+    'Non-Music',
+    'Hip Hop',
+    'Electronic',
+    'Classical',
+    'Reggae',
+    'Latin',
+    'Blues',
+    'Jazz',
+    'Rock',
+    'Pop',
+];
+
+/**
+ * Parse a Discogs Genre cell into atomic genre labels.
+ */
+function parseDiscogsGenres(genreField) {
+    const input = String(genreField ?? '').trim();
+    if (!input) {
+        return [];
+    }
+
+    const genres = [];
+    let remaining = input;
+
+    while (remaining.length > 0) {
+        remaining = remaining.replace(/^,\s*/, '');
+        if (!remaining) {
+            break;
+        }
+
+        let matched = null;
+        for (const genre of DISCOGS_GENRES) {
+            if (
+                remaining === genre ||
+                remaining.startsWith(genre + ',') ||
+                remaining.startsWith(genre + ', ')
+            ) {
+                matched = genre;
+                break;
+            }
+        }
+
+        if (matched) {
+            genres.push(matched);
+            remaining = remaining.slice(matched.length);
+            continue;
+        }
+
+        const commaIndex = remaining.indexOf(',');
+        if (commaIndex === -1) {
+            genres.push(remaining.trim());
+            break;
+        }
+        genres.push(remaining.slice(0, commaIndex).trim());
+        remaining = remaining.slice(commaIndex + 1);
+    }
+
+    return genres.filter(Boolean);
+}
+
+function formatGenreDisplay(genreField) {
+    return parseDiscogsGenres(genreField).join(' · ');
+}
 
 function readJsonFile(path, fallback) {
     if (!existsSync(path)) return fallback;
@@ -209,7 +284,7 @@ function generateEntryHtml(entry, releaseId) {
     const track = entry['Track Title'] || '';
     const label = entry['Record Label'] || '';
     const year = entry['Year'] || '';
-    const genre = entry['Genre'] || '';
+    const genre = formatGenreDisplay(entry['Genre'] || '');
     const style = entry['Style'] || '';
     const tag = entry['Tag'] || '';
     const comment = entry['Comment'] || '';
@@ -432,9 +507,24 @@ function generateSitemap(releaseIds) {
 
 /**
  * Main build function
+ *
+ * Optional flags:
+ *   --tag=45s         Only regenerate pages for that Tag
+ *   --skip-sitemap    Do not rewrite sitemap.xml
  */
 function build() {
+    const args = process.argv.slice(2);
+    const tagFilterArg = args.find((arg) => arg.startsWith('--tag='));
+    const tagFilter = tagFilterArg ? tagFilterArg.slice('--tag='.length) : '';
+    const skipSitemap = args.includes('--skip-sitemap');
+
     console.log('🔨 OpenDrumsOnly Static Entry Page Generator\n');
+    if (tagFilter) {
+        console.log(`   Filter: Tag=${tagFilter}`);
+    }
+    if (skipSitemap) {
+        console.log('   Sitemap: skipped');
+    }
     
     // Ensure entry directory exists
     if (!existsSync(ENTRY_DIR)) {
@@ -453,6 +543,10 @@ function build() {
     const generatedReleaseIds = [];
     
     for (const row of rows) {
+        if (tagFilter && (row['Tag'] || '') !== tagFilter) {
+            continue;
+        }
+
         const discogsUrl = row['Discogs Release ID'];
         const releaseId = extractReleaseId(discogsUrl);
         
@@ -486,10 +580,26 @@ function build() {
     console.log(`   Generated ${report.generated} pages\n`);
     
     // Generate sitemap
-    console.log('🗺️  Generating sitemap.xml...');
-    const sitemap = generateSitemap(generatedReleaseIds);
-    writeFileSync(SITEMAP_PATH, sitemap, 'utf-8');
-    console.log(`   Added ${generatedReleaseIds.length + STATIC_SITEMAP_PAGES.length} URLs to sitemap\n`);
+    if (!skipSitemap) {
+        console.log('🗺️  Generating sitemap.xml...');
+        let sitemapIds = generatedReleaseIds;
+        if (tagFilter) {
+            // Keep a complete sitemap even when regenerating a subset of pages.
+            sitemapIds = [];
+            const seen = new Set();
+            for (const row of rows) {
+                const releaseId = extractReleaseId(row['Discogs Release ID']);
+                if (!releaseId || seen.has(releaseId)) continue;
+                seen.add(releaseId);
+                sitemapIds.push(releaseId);
+            }
+        }
+        const sitemap = generateSitemap(sitemapIds);
+        writeFileSync(SITEMAP_PATH, sitemap, 'utf-8');
+        console.log(`   Added ${sitemapIds.length + STATIC_SITEMAP_PAGES.length} URLs to sitemap\n`);
+    } else {
+        console.log('🗺️  Skipping sitemap.xml update\n');
+    }
     
     // Print report
     console.log('📊 Build Report:');
