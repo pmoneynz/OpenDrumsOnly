@@ -31,16 +31,6 @@ body.scan-page {
 
 body.scan-page header {
   background: rgba(255, 255, 255, 0.96);
-  padding-top: calc(14px + var(--safe-top));
-  height: auto;
-  min-height: var(--header-height);
-  box-sizing: border-box;
-  border-bottom: 1px solid var(--header-border);
-}
-
-body.scan-page header h1 {
-  font-size: clamp(18px, 5vw, 28px);
-  text-indent: 0.5ch;
 }
 
 body.scan-page header h1 a {
