@@ -83,8 +83,10 @@
         const isInWantlist = wantlist.has(key);
         
         if (collectionBtn) {
-            const icon = collectionBtn.querySelector('i');
-            icon.className = isInCollection ? 'fas fa-record-vinyl' : 'far fa-record-vinyl';
+            const icon = collectionBtn.querySelector('.vinyl-icon');
+            if (icon) {
+                icon.classList.toggle('is-filled', isInCollection);
+            }
             collectionBtn.title = isInCollection ? 'Remove from Collection' : 'Add to Collection';
         }
         

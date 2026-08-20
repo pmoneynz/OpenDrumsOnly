@@ -39,6 +39,17 @@ function debounce(fn, wait) {
     };
 }
 
+/** Inline vinyl SVG — avoids missing Font Awesome glyphs on iOS Safari */
+function vinylIconMarkup(filled) {
+    const filledClass = filled ? ' is-filled' : '';
+    return `<svg class="vinyl-icon${filledClass}" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.75"></circle><circle cx="12" cy="12" r="6.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"></circle><circle class="vinyl-icon-center" cx="12" cy="12" r="2.75" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="12" cy="12" r="0.9" fill="currentColor"></circle></svg>`;
+}
+
+function setVinylFilled(icon, filled) {
+    if (!icon) return;
+    icon.classList.toggle('is-filled', Boolean(filled));
+}
+
 function escapeHtml(value) {
     return String(value ?? '')
         .replace(/&/g, '&amp;')
@@ -778,7 +789,7 @@ function initializeApp() {
                 </div>
                 <div class="card-actions">
                     <button class="collection-btn" data-artist="${safeArtist}" data-album="${safeAlbum}" title="${isInCollection ? 'Remove from Collection' : 'Add to Collection'}" aria-label="${isInCollection ? 'Remove from Collection' : 'Add to Collection'}">
-                        <i class="fa-record-vinyl ${isInCollection ? 'fas' : 'far'}"></i>
+                        ${vinylIconMarkup(isInCollection)}
                     </button>
                     <button class="wantlist-btn" data-artist="${safeArtist}" data-album="${safeAlbum}" title="${isInWantlist ? 'Remove from Wantlist' : 'Add to Wantlist'}" aria-label="${isInWantlist ? 'Remove from Wantlist' : 'Add to Wantlist'}">
                         <i class="fa-heart ${isInWantlist ? 'fas' : 'far'}"></i>
@@ -916,7 +927,7 @@ function initializeApp() {
         const key = artist + ' - ' + album;
         const heartIcon = button.querySelector('i');
         const collectionButton = button.parentElement.querySelector('.collection-btn');
-        const vinylIcon = collectionButton.querySelector('i');
+        const vinylIcon = collectionButton.querySelector('.vinyl-icon');
 
         if (wantlist.has(key)) {
             wantlist.delete(key);
@@ -929,7 +940,7 @@ function initializeApp() {
             // Remove from collection if it's there
             if (collection.has(key)) {
                 collection.delete(key);
-                vinylIcon.classList.replace('fas', 'far');
+                setVinylFilled(vinylIcon, false);
                 trackEvent('Collection', 'remove_collection', `${artist} - ${album}`, null);
             }
         }
@@ -943,17 +954,17 @@ function initializeApp() {
         const artist = button.dataset.artist;
         const album = button.dataset.album;
         const key = artist + ' - ' + album;
-        const vinylIcon = button.querySelector('i');
+        const vinylIcon = button.querySelector('.vinyl-icon');
         const wantlistButton = button.parentElement.querySelector('.wantlist-btn');
         const heartIcon = wantlistButton.querySelector('i');
 
         if (collection.has(key)) {
             collection.delete(key);
-            vinylIcon.classList.replace('fas', 'far');
+            setVinylFilled(vinylIcon, false);
             trackEvent('Collection', 'remove_collection', `${artist} - ${album}`, null);
         } else {
             collection.add(key);
-            vinylIcon.classList.replace('far', 'fas');
+            setVinylFilled(vinylIcon, true);
             trackEvent('Collection', 'add_collection', `${artist} - ${album}`, null);
             // Remove from wantlist if it's there
             if (wantlist.has(key)) {
@@ -989,7 +1000,7 @@ function initializeApp() {
         const wantlistButton = document.getElementById('view-wantlist');
         const collectionButton = document.getElementById('view-collection');
         const wantlistIcon = wantlistButton.querySelector('i');
-        const collectionIcon = collectionButton.querySelector('i');
+        const collectionIcon = collectionButton.querySelector('.vinyl-icon');
 
         if (isViewingWantlist) {
             wantlistIcon.className = 'fas fa-heart';
@@ -1004,12 +1015,12 @@ function initializeApp() {
         }
 
         if (isViewingCollection) {
-            collectionIcon.className = 'fas fa-record-vinyl';
+            setVinylFilled(collectionIcon, true);
             collectionButton.classList.add('active');
             collectionButton.title = 'View All';
             collectionButton.setAttribute('aria-label', 'View all entries');
         } else {
-            collectionIcon.className = 'far fa-record-vinyl';
+            setVinylFilled(collectionIcon, false);
             collectionButton.classList.remove('active');
             collectionButton.title = 'View Collection';
             collectionButton.setAttribute('aria-label', 'View collection');

@@ -8,6 +8,11 @@
     --input-border: #d1d5db;
     --input-bg: #ffffff;
     --input-radius: 10px;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
+    --tap-min: 44px;
 }
 
 @font-face {
@@ -33,17 +38,21 @@ body {
 
 header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 8px 12px;
     color: var(--text-color);
     background-color: var(--header-bg);
-    height: var(--header-height);
+    height: calc(var(--header-height) + var(--safe-top));
+    box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1001;
-    padding: 14px var(--header-padding-x) 0;
+    padding: calc(10px + var(--safe-top)) max(var(--header-padding-x), var(--safe-right)) 10px max(var(--header-padding-x), var(--safe-left));
+    border-bottom: 1px solid var(--header-border);
 }
 
 h1 {
@@ -53,20 +62,24 @@ h1 {
     line-height: 1;
     font-weight: 700;
     text-indent: 1ch;
+    min-width: 0;
 }
 
 .header-controls {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: flex-end;
     gap: 8px;
+    margin-left: auto;
 }
 
 .header-nav-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 40px;
-    padding: 0 12px;
+    min-height: var(--tap-min);
+    padding: 0 14px;
     border: 1px solid var(--input-border);
     border-radius: 8px;
     background: #ffffff;
@@ -75,27 +88,90 @@ h1 {
     font-size: 14px;
     font-weight: 500;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 }
 
-.header-nav-link:hover {
-    background-color: #f3f4f6;
+@media (hover: hover) {
+    .header-nav-link:hover {
+        background-color: #f3f4f6;
+    }
+}
+
+.header-nav-link:active {
+    background-color: #e5e7eb;
 }
 
 .icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: transparent;
     border: 1px solid transparent;
+    color: var(--text-color);
     cursor: pointer;
     font-size: 22px;
-    padding: 10px;
+    line-height: 1;
+    width: var(--tap-min);
+    height: var(--tap-min);
+    min-width: var(--tap-min);
+    min-height: var(--tap-min);
+    padding: 0;
     border-radius: 8px;
+    box-sizing: border-box;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 }
 
-.icon-button:hover {
-    opacity: 0.7;
+.icon-button i,
+.icon-button .vinyl-icon {
+    display: block;
+    width: 1.15em;
+    height: 1.15em;
+    font-size: 22px;
+    line-height: 1;
+}
+
+.icon-button i {
+    width: auto;
+    height: auto;
+}
+
+@media (hover: hover) {
+    .icon-button:hover {
+        background-color: #f3f4f6;
+    }
+}
+
+.icon-button:active {
+    background-color: #e5e7eb;
+}
+
+.icon-button[aria-current="page"] {
+    background-color: #f3f4f6;
+}
+
+/* Inline vinyl glyph — no webfont dependency (iOS Safari safe) */
+.vinyl-icon {
+    width: 1.15em;
+    height: 1.15em;
+    display: block;
+    flex-shrink: 0;
+    color: currentColor;
+}
+
+.vinyl-icon .vinyl-icon-center {
+    fill: none;
+}
+
+.vinyl-icon.is-filled .vinyl-icon-center,
+.collection-btn .vinyl-icon.is-filled .vinyl-icon-center,
+.action-btn .vinyl-icon.is-filled .vinyl-icon-center,
+#view-collection.active .vinyl-icon .vinyl-icon-center {
+    fill: currentColor;
 }
 
 main {
-    padding: calc(var(--header-height) + 12px) var(--header-padding-x) var(--header-padding-x) var(--header-padding-x);
+    padding: calc(var(--header-height) + var(--safe-top) + 12px) var(--header-padding-x) var(--header-padding-x) var(--header-padding-x);
     box-sizing: border-box;
     width: 100%;
 }
@@ -105,7 +181,7 @@ main {
     flex-direction: column;
     align-items: stretch;
     position: sticky;
-    top: var(--header-height);
+    top: calc(var(--header-height) + var(--safe-top));
     background-color: var(--header-bg);
     z-index: 1000;
     padding: 12px var(--header-padding-x);
@@ -408,29 +484,47 @@ main {
         padding-top: 8px;
         gap: 4px;
     }
-    
+}
+
+/* Phone: title row + action row; never shrink icons below 44px */
+@media (max-width: 719px) {
+    :root {
+        --header-height: 108px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 8px;
+    }
+
     header h1 {
-        font-size: 22px;
+        flex: 0 0 auto;
+        font-size: 26px;
+        text-indent: 0;
+        line-height: 1.15;
     }
-    
+
     .header-controls {
-        margin-right: 4px;
-        gap: 4px;
-    }
-    
-    .icon-button {
-        padding: 8px;
-        font-size: 20px;
-        min-width: 40px;
-        min-height: 40px;
-        border-radius: 8px;
-        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+        flex: 0 0 auto;
+        justify-content: flex-start;
+        margin-left: 0;
+        gap: 8px;
     }
 
     .header-nav-link {
-        min-height: 36px;
-        padding: 0 9px;
-        font-size: 13px;
+        min-height: var(--tap-min);
+        padding: 0 12px;
+        font-size: 14px;
+    }
+
+    .icon-button {
+        width: var(--tap-min);
+        height: var(--tap-min);
+        min-width: var(--tap-min);
+        min-height: var(--tap-min);
+        font-size: 22px;
     }
 }
 
@@ -451,7 +545,7 @@ main {
     }
     
     .controls {
-        top: var(--header-height);
+        top: calc(var(--header-height) + var(--safe-top));
         padding: 10px 12px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.06);
     }
@@ -469,12 +563,6 @@ main {
     .controls .search-container input {
         font-size: 16px; /* Prevents zoom on iOS */
         padding: 12px 44px 12px 12px;
-    }
-
-    .header-nav-link {
-        min-height: 34px;
-        padding: 0 8px;
-        font-size: 12px;
     }
     
     .pagination button {
@@ -670,11 +758,11 @@ main {
     transform: scale(1.1);
 }
 
-.wantlist-btn .fa-heart, .collection-btn .fa-record-vinyl {
+.wantlist-btn .fa-heart, .collection-btn .vinyl-icon {
     transition: color 0.2s;
 }
 
-.wantlist-btn .far.fa-heart, .collection-btn .far.fa-record-vinyl {
+.wantlist-btn .far.fa-heart, .collection-btn .vinyl-icon:not(.is-filled) {
     color: #808080;
 }
 
@@ -682,31 +770,37 @@ main {
     color: #FF4136;
 }
 
-.collection-btn .fas.fa-record-vinyl {
+.collection-btn .vinyl-icon.is-filled {
     color: #000000;
 }
 
 #view-wantlist, #view-collection {
-    background-color: transparent; /* Change to transparent background */
-    border: none;
+    background-color: transparent;
+    border: 1px solid transparent;
     color: #000000;
-    padding: 10px 10px;
+    padding: 0;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 24px; /* Increase font size for larger icons */
-    margin: 4px 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin: 0;
     cursor: pointer;
-    border-radius: 4px;
-    transition: color 0.3s;
+    border-radius: 8px;
+    width: var(--tap-min);
+    height: var(--tap-min);
+    min-width: var(--tap-min);
+    min-height: var(--tap-min);
+    box-sizing: border-box;
 }
 
 /* Add this new style for the active wantlist icon */
 #view-wantlist.active i {
     color: #FF4136; /* Red color for the active wantlist icon */
 }
-#view-collection:active i {
-    color: #000000; /* color for the active collection icon */
+#view-collection.active .vinyl-icon {
+    color: #000000;
 }
 
 /* Remove the hover styles that change the background color */
@@ -787,11 +881,11 @@ main {
     -webkit-tap-highlight-color: rgba(0,0,0,0.1);
 }
 
-.wantlist-btn .fa-heart, .collection-btn .fa-record-vinyl {
+.wantlist-btn .fa-heart, .collection-btn .vinyl-icon {
     transition: color 0.2s;
 }
 
-.wantlist-btn .far.fa-heart, .collection-btn .far.fa-record-vinyl {
+.wantlist-btn .far.fa-heart, .collection-btn .vinyl-icon:not(.is-filled) {
     color: #808080;
 }
 
@@ -799,7 +893,7 @@ main {
     color: #FF4136;
 }
 
-.collection-btn .fas.fa-record-vinyl {
+.collection-btn .vinyl-icon.is-filled {
     color: #000000;
 }
 
@@ -949,7 +1043,7 @@ html {
 }
 
 .blog-main {
-    padding: calc(var(--header-height) + 28px) var(--header-padding-x) 36px;
+    padding: calc(var(--header-height) + var(--safe-top) + 28px) var(--header-padding-x) 36px;
     max-width: 920px;
     margin: 0 auto;
 }
@@ -1213,7 +1307,7 @@ html {
    ============================================= */
 
 .submit-main {
-    padding: calc(var(--header-height) + 28px) var(--header-padding-x) 36px;
+    padding: calc(var(--header-height) + var(--safe-top) + 28px) var(--header-padding-x) 36px;
     max-width: 920px;
     margin: 0 auto;
     display: grid;
@@ -1326,11 +1420,11 @@ html {
 
 @media (max-width: 768px) {
     .blog-main {
-        padding-top: calc(var(--header-height) + 18px);
+        padding-top: calc(var(--header-height) + var(--safe-top) + 18px);
     }
 
     .submit-main {
-        padding-top: calc(var(--header-height) + 18px);
+        padding-top: calc(var(--header-height) + var(--safe-top) + 18px);
     }
 
     .blog-hero h2,
@@ -1407,7 +1501,7 @@ html {
 }
 
 .entry-main {
-    padding: calc(var(--header-height) + 32px) var(--header-padding-x) 32px;
+    padding: calc(var(--header-height) + var(--safe-top) + 32px) var(--header-padding-x) 32px;
     max-width: 900px;
     margin: 0 auto;
 }
@@ -1567,15 +1661,18 @@ html {
     transform: translateY(0) scale(0.98);
 }
 
-.action-btn i {
+.action-btn i,
+.action-btn .vinyl-icon {
     font-size: 18px;
+    width: 1.15em;
+    height: 1.15em;
 }
 
 .action-btn .fas.fa-heart {
     color: #FF4136;
 }
 
-.action-btn .fas.fa-record-vinyl {
+.action-btn .vinyl-icon.is-filled {
     color: #000000;
 }
 
@@ -1660,7 +1757,7 @@ html {
 
 @media (max-width: 480px) {
     .entry-main {
-        padding-top: calc(var(--header-height) + 20px);
+        padding-top: calc(var(--header-height) + var(--safe-top) + 20px);
         padding-left: 12px;
         padding-right: 12px;
     }
