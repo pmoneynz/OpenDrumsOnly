@@ -62,10 +62,12 @@ function initializeApp() {
     }
 
     let imageAliases = {};
+    let thumbnailMap = {};
 
-    Promise.all([loadCSV(), loadImageAliases()]).then(([data, aliases]) => {
+    Promise.all([loadCSV(), loadImageAliases(), loadThumbnailMap()]).then(([data, aliases, thumbnails]) => {
         console.log('CSV data loaded:', data.length, 'rows');
         imageAliases = aliases;
+        thumbnailMap = thumbnails || {};
         dataRows = data;
         dataRows.forEach(row => {
             if (row && typeof row === 'object') {
@@ -161,6 +163,26 @@ function initializeApp() {
                 return response.json();
             })
             .catch(() => ({}));
+    }
+
+    function loadThumbnailMap() {
+        return fetch('./thumbnail-map.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .catch(() => ({}));
+    }
+
+    function getDiscogsThumbnailUrl(artist, album) {
+        if (!artist || !album) {
+            return '';
+        }
+        return thumbnailMap[`${artist}|${album}`]
+            || thumbnailMap[`${artist} - ${album}`]
+            || '';
     }
 
     function normalizeArtistName(artistName) {
@@ -345,6 +367,7 @@ function initializeApp() {
             const matchesGenre =
                 genreFilter === '' ||
                 (genreFilter === 'ubb' && tag === 'ubb') ||
+                (genreFilter === '45s' && tag === '45s') ||
                 genreVal.includes(genreFilter);
 
             // Parse search query for operators
@@ -404,11 +427,16 @@ function initializeApp() {
     function populateGenreDropdown(genres) {
         const genreDropdown = document.getElementById('filter-genre');
         
-        // Add the 'UBB' tag as the first option
+        // Add the 'UBB' and '45s' tags as the first options
         const ubbOption = document.createElement('option');
         ubbOption.value = 'ubb';
         ubbOption.textContent = 'UBB';
         genreDropdown.appendChild(ubbOption);
+
+        const fortyFivesOption = document.createElement('option');
+        fortyFivesOption.value = '45s';
+        fortyFivesOption.textContent = '45s';
+        genreDropdown.appendChild(fortyFivesOption);
 
         // Add a separator
         const separator = document.createElement('option');
@@ -552,6 +580,7 @@ function initializeApp() {
             const matchesGenre =
                 genreFilter === '' ||
                 (genreFilter === 'ubb' && tag === 'ubb') ||
+                (genreFilter === '45s' && tag === '45s') ||
                 genreVal.includes(genreFilter);
 
             // Parse search query for operators
@@ -623,6 +652,7 @@ function initializeApp() {
             card.className = 'card';
 
             const imageUrl = getCoverImageUrl(artist, album);
+            const discogsThumbUrl = getDiscogsThumbnailUrl(artist, album);
             const isInWantlist = wantlist.has(artist + ' - ' + album);
             const isInCollection = collection.has(artist + ' - ' + album);
             
@@ -637,6 +667,7 @@ function initializeApp() {
             const safeGenre = escapeHtml(genre);
             const safeStyle = escapeHtml(style);
             const safeImageUrl = escapeHtml(imageUrl);
+            const safeDiscogsThumbUrl = escapeHtml(discogsThumbUrl);
             const safeEntryPageUrl = escapeHtml(entryPageUrl);
             const safeDiscogsUrl = escapeHtml(url);
 
@@ -654,7 +685,8 @@ function initializeApp() {
                         <img src="${safeImageUrl}" 
                              alt="${safeArtist} - ${safeAlbum}" 
                              loading="lazy"
-                             onerror="this.onerror=null;this.src='./images/NotFound.jpeg';"
+                             data-discogs-thumb="${safeDiscogsThumbUrl}"
+                             onerror="if(this.dataset.discogsThumb&&this.dataset.thumbTried!=='1'){this.dataset.thumbTried='1';this.src=this.dataset.discogsThumb;}else{this.onerror=null;this.src='./images/NotFound.jpeg';}"
                              style="object-fit: cover; width: 100%; height: auto;">
                     </a>
                     <p style="font-family: 'Geist', sans-serif; font-weight: 700;">${safeArtist}</p>
