@@ -5,6 +5,7 @@ A mobile-optimized web gallery for browsing drum breaks and records. This respon
 ## Features
 
 - **Browse Records**: View a paginated gallery of drum break records with cover art
+- **Scan Vinyl**: Phone-first `/scan.html` — photograph a front cover, back cover, or center label and match it against the catalogue (client-side OCR, no API keys)
 - **Individual Entry Pages**: Each record has its own SEO-friendly page at `/entry/<releaseId>.html`
 - **Search**: Search by artist name, album title, or use advanced operators:
   - `title:` - Search track titles
@@ -72,6 +73,8 @@ python -m SimpleHTTPServer 8000
 ## Files
 
 - `index.html` - Main HTML page (gallery/search)
+- `scan.html` / `scan.js` / `scan.css` - Vinyl scan camera flow (stills + OCR + fuzzy catalogue match)
+- `manifest.webmanifest` / `sw.js` / `icons/` - PWA manifest, service worker (scan shell + CSV), home-screen icons
 - `script.js` - Gallery JavaScript functionality
 - `entry.js` - Entry page JavaScript functionality
 - `styles.css` - CSS styling (includes entry page styles)

@@ -12,7 +12,7 @@
     </script>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <!-- SEO Meta Tags -->
     <title>OpenDrumsOnly - the biggest drum break list on the internet</title>
@@ -55,6 +55,9 @@
     <meta name="apple-mobile-web-app-title" content="OpenDrumsOnly">
     <meta name="theme-color" content="#FFFFFF">
     <meta name="msapplication-TileColor" content="#FFFFFF">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
     
     <!-- Structured Data for Search Engines -->
     <script type="application/ld+json">
@@ -91,6 +94,9 @@
         <div class="header-controls">
             <a href="blog/index.html" class="header-nav-link" title="Open blog">Blog</a>
             <a href="submit-break.html" class="header-nav-link" title="Submit a break">Submit</a>
+            <a href="scan.html" class="icon-button" title="Scan vinyl" aria-label="Scan vinyl">
+                <i class="fas fa-camera" aria-hidden="true"></i>
+            </a>
             <button id="view-collection" class="icon-button" title="View Collection" aria-label="View Collection">
                 <i class="far fa-record-vinyl"></i>
             </button>
