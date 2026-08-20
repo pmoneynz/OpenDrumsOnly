@@ -158,34 +158,6 @@ body.scan-page header h1 a {
   pointer-events: auto;
 }
 
-.scan-shot-types {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.scan-shot-type {
-  min-height: 44px;
-  min-width: 72px;
-  padding: 0 14px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.35);
-  color: #fff;
-  font: inherit;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.scan-shot-type[aria-pressed="true"] {
-  background: #fff;
-  color: #000;
-  border-color: #fff;
-}
-
 .scan-shutter-row {
   display: flex;
   align-items: center;
