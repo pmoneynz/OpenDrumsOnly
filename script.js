@@ -48,6 +48,100 @@ function escapeHtml(value) {
         .replace(/'/g, '&#39;');
 }
 
+/**
+ * Official Discogs top-level genres (plus site-exact labels).
+ * Longer names first so "Folk, World, & Country" is not split on commas.
+ */
+const DISCOGS_GENRES = [
+    'Folk, World, & Country',
+    'Brass & Military',
+    'Stage & Screen',
+    'Funk / Soul',
+    "Children's",
+    'Non-Music',
+    'Hip Hop',
+    'Electronic',
+    'Classical',
+    'Reggae',
+    'Latin',
+    'Blues',
+    'Jazz',
+    'Rock',
+    'Pop',
+];
+
+/**
+ * Parse a Discogs Genre cell into atomic genre labels.
+ * Multi-value cells use ", " separators, but some official genres contain commas.
+ */
+function parseDiscogsGenres(genreField) {
+    const input = String(genreField ?? '').trim();
+    if (!input) {
+        return [];
+    }
+
+    const genres = [];
+    let remaining = input;
+
+    while (remaining.length > 0) {
+        remaining = remaining.replace(/^,\s*/, '');
+        if (!remaining) {
+            break;
+        }
+
+        let matched = null;
+        for (const genre of DISCOGS_GENRES) {
+            if (
+                remaining === genre ||
+                remaining.startsWith(genre + ',') ||
+                remaining.startsWith(genre + ', ')
+            ) {
+                matched = genre;
+                break;
+            }
+        }
+
+        if (matched) {
+            genres.push(matched);
+            remaining = remaining.slice(matched.length);
+            continue;
+        }
+
+        // Unknown atomic label (e.g. site-specific "Italo-Disco"): take until next ", ".
+        const commaIndex = remaining.indexOf(',');
+        if (commaIndex === -1) {
+            genres.push(remaining.trim());
+            break;
+        }
+        genres.push(remaining.slice(0, commaIndex).trim());
+        remaining = remaining.slice(commaIndex + 1);
+    }
+
+    return genres.filter(Boolean);
+}
+
+function formatGenreDisplay(genreField) {
+    return parseDiscogsGenres(genreField).join(' · ');
+}
+
+function rowMatchesGenreFilter(row, genreFilter) {
+    if (!genreFilter) {
+        return true;
+    }
+
+    const tag = (row['Tag'] || '').toLowerCase();
+    if (genreFilter === 'ubb') {
+        return tag === 'ubb';
+    }
+    if (genreFilter === '45s') {
+        return tag === '45s';
+    }
+
+    return parseDiscogsGenres(row['Genre']).some(
+        (genre) => genre.toLowerCase() === genreFilter
+    );
+}
+
 function initializeApp() {
     // Check for saved gallery state from entry page navigation
     let savedState = null;
@@ -71,10 +165,7 @@ function initializeApp() {
         dataRows = data;
         dataRows.forEach(row => {
             if (row && typeof row === 'object') {
-                const genre = row['Genre'] ? row['Genre'].trim() : '';
-                if (genre) {
-                    genres.add(genre);
-                }
+                parseDiscogsGenres(row['Genre']).forEach((genre) => genres.add(genre));
             } else {
                 console.error('Invalid row:', row);
             }
@@ -361,14 +452,7 @@ function initializeApp() {
             if (isViewingCollection && !collection.has(row['Artist Name'] + ' - ' + row['Album Title'])) {
                 return false;
             }
-            const tag = (row['Tag'] || '').toLowerCase();
-            const genreVal = (row['Genre'] || '').toLowerCase();
-
-            const matchesGenre =
-                genreFilter === '' ||
-                (genreFilter === 'ubb' && tag === 'ubb') ||
-                (genreFilter === '45s' && tag === '45s') ||
-                genreVal.includes(genreFilter);
+            const matchesGenre = rowMatchesGenreFilter(row, genreFilter);
 
             // Parse search query for operators
             const operators = {
@@ -444,13 +528,15 @@ function initializeApp() {
         separator.textContent = '──────────';
         genreDropdown.appendChild(separator);
 
-        // Add the rest of the genres
-        genres.forEach(genre => {
-            const option = document.createElement('option');
-            option.value = genre.toLowerCase();
-            option.textContent = genre;
-            genreDropdown.appendChild(option);
-        });
+        // Atomic Discogs genres only (no combined multi-genre strings)
+        [...genres]
+            .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+            .forEach((genre) => {
+                const option = document.createElement('option');
+                option.value = genre.toLowerCase();
+                option.textContent = genre;
+                genreDropdown.appendChild(option);
+            });
     }
 
     function clearSearch() {
@@ -577,14 +663,7 @@ function initializeApp() {
             if (isViewingCollection && !collection.has(row['Artist Name'] + ' - ' + row['Album Title'])) {
                 return false;
             }
-            const tag = (row['Tag'] || '').toLowerCase();
-            const genreVal = (row['Genre'] || '').toLowerCase();
-
-            const matchesGenre =
-                genreFilter === '' ||
-                (genreFilter === 'ubb' && tag === 'ubb') ||
-                (genreFilter === '45s' && tag === '45s') ||
-                genreVal.includes(genreFilter);
+            const matchesGenre = rowMatchesGenreFilter(row, genreFilter);
 
             // Parse search query for operators
             const operators = {
@@ -667,7 +746,7 @@ function initializeApp() {
             const safeAlbum = escapeHtml(album);
             const safeTrack = escapeHtml(track);
             const safeYear = escapeHtml(year);
-            const safeGenre = escapeHtml(genre);
+            const safeGenre = escapeHtml(formatGenreDisplay(genre));
             const safeStyle = escapeHtml(style);
             const safeImageUrl = escapeHtml(imageUrl);
             const safeDiscogsThumbUrl = escapeHtml(discogsThumbUrl);
